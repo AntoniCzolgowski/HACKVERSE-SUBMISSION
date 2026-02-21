@@ -2,15 +2,15 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { discoverSubreddits, autofillFromUrl } from "@/lib/api";
-import { DiscoverRequest } from "@/lib/types";
-import { Search, Sparkles, Users, FileText, Link, Loader2 } from "lucide-react";
+import { discoverSubreddits, autofillFromUrl, scrapeSubredditsStream } from "@/lib/api";
+import { DiscoverRequest, ScrapeProgressEvent } from "@/lib/types";
+import { Search, Sparkles, Link, Loader2, BarChart3, Globe } from "lucide-react";
 
 const steps = [
-  { label: "Enhancing search queries", icon: Sparkles },
-  { label: "Discovering relevant subreddits", icon: Search },
-  { label: "Analyzing community culture", icon: Users },
-  { label: "Generating tailored posts", icon: FileText },
+  { label: "Discovering subreddits", icon: Search },
+  { label: "Scraping live data", icon: Globe },
+  { label: "AI scoring & ranking", icon: BarChart3 },
+  { label: "Finalizing results", icon: Sparkles },
 ];
 
 export default function DiscoverPage() {
@@ -24,6 +24,7 @@ export default function DiscoverPage() {
   });
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [progressMsg, setProgressMsg] = useState("");
   const [error, setError] = useState("");
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -38,7 +39,9 @@ export default function DiscoverPage() {
     };
   }, []);
 
-  const currentStep = Math.min(Math.floor(progress / 25), 3);
+  // Map progress to step index
+  const currentStep =
+    progress < 15 ? 0 : progress < 60 ? 1 : progress < 95 ? 2 : 3;
 
   async function handleAutofill() {
     if (!autofillUrl.trim()) return;
@@ -69,16 +72,20 @@ export default function DiscoverPage() {
     e.preventDefault();
     setLoading(true);
     setProgress(0);
+    setProgressMsg("Starting analysis...");
     setError("");
 
-    let current = 0;
-    intervalRef.current = setInterval(() => {
-      current += Math.random() * 3 + 0.5;
-      if (current > 92) current = 92;
-      setProgress(current);
-    }, 80);
-
     try {
+      // --- Phase 1: Discover subreddits via Claude (0% → 15%) ---
+      setProgressMsg("Discovering subreddits via AI...");
+      // Animate progress 0→12 during discovery
+      let discoverPct = 0;
+      intervalRef.current = setInterval(() => {
+        discoverPct += Math.random() * 1.5 + 0.3;
+        if (discoverPct > 12) discoverPct = 12;
+        setProgress(discoverPct);
+      }, 100);
+
       const request: DiscoverRequest = {
         product_name: form.product_name,
         product_description: form.product_description,
@@ -89,11 +96,44 @@ export default function DiscoverPage() {
           .map((k) => k.trim())
           .filter(Boolean),
       };
-      const result = await discoverSubreddits(request);
-      sessionStorage.setItem("discoverResult", JSON.stringify(result));
 
+      const discoverResult = await discoverSubreddits(request);
       if (intervalRef.current) clearInterval(intervalRef.current);
+      setProgress(15);
+
+      // Extract clean subreddit names
+      const subNames = discoverResult.subreddits.map((s) =>
+        s.name.replace(/^r\//, "")
+      );
+
+      // --- Phase 2: Scrape & rank with real progress (15% → 100%) ---
+      setProgressMsg("Scraping subreddit data...");
+
+      const scrapeResult = await scrapeSubredditsStream(
+        subNames,
+        form.product_description,
+        (event: ScrapeProgressEvent) => {
+          // Map scraper's 0-100 into our 15-100 range
+          const mapped = 15 + (event.progress / 100) * 85;
+          setProgress(mapped);
+          setProgressMsg(event.message);
+        }
+      );
+
+      // Store combined result for results page
+      const analysisResult = {
+        product_name: form.product_name,
+        product_description: form.product_description,
+        niche_category: form.niche_category,
+        target_audience: form.target_audience,
+        keywords: request.keywords,
+        discovered_subreddits: discoverResult.subreddits,
+        scrape_results: scrapeResult,
+      };
+      sessionStorage.setItem("analysisResult", JSON.stringify(analysisResult));
+
       setProgress(100);
+      setProgressMsg("Analysis complete!");
       setTimeout(() => router.push("/results"), 400);
     } catch {
       setError("Something went wrong. Please try again.");
@@ -253,7 +293,7 @@ export default function DiscoverPage() {
               <div className="relative">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium text-gray-700">
-                    {steps[currentStep].label}...
+                    {progressMsg}
                   </span>
                   <span className="text-sm font-mono font-semibold text-coral">
                     {Math.round(progress)}%

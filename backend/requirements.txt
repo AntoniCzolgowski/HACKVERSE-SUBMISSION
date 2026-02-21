@@ -7,3 +7,7 @@ jinja2
 python-multipart
 httpx
 beautifulsoup4
+requests
+sentence-transformers
+scikit-learn
+numpy

@@ -1,10 +1,13 @@
+import json
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.responses import StreamingResponse
 from pydantic import BaseModel
 from models.schemas import ProductInput
 from services.subreddit_discovery import discover_subreddits
 from services.website_extract import extract_product_from_url
+from services.reddit_scraper import scrape_and_rank, scrape_and_rank_stream
 
 app = FastAPI(title="LexTrack AI Backend")
 
@@ -55,10 +58,40 @@ async def api_autofill(body: AutofillRequest):
 
 
 # ==========================================
-#  FUTURE ENDPOINTS
+#  /api/scrape — scrape & rank subreddits
 # ==========================================
 
-# from routers import generate, publish, monitor
-# app.include_router(generate.router, prefix="/api")
-# app.include_router(publish.router, prefix="/api")
-# app.include_router(monitor.router, prefix="/api")
+class ScrapeRequest(BaseModel):
+    subreddit_names: list[str]
+    product_description: str
+
+
+@app.post("/api/scrape")
+async def api_scrape(body: ScrapeRequest):
+    """Takes subreddit names, scrapes live data, scores & ranks them."""
+    try:
+        result = scrape_and_rank(body.subreddit_names, body.product_description)
+        return result
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
+
+
+# ==========================================
+#  /api/scrape-stream — SSE scrape with progress
+# ==========================================
+
+@app.post("/api/scrape-stream")
+async def api_scrape_stream(body: ScrapeRequest):
+    """SSE endpoint: streams progress events during scrape & rank."""
+    def event_generator():
+        try:
+            for event in scrape_and_rank_stream(body.subreddit_names, body.product_description):
+                yield f"data: {json.dumps(event)}\n\n"
+        except Exception as e:
+            yield f"data: {json.dumps({'phase': 'error', 'message': str(e)})}\n\n"
+
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )

@@ -57,6 +57,59 @@ export interface PublishResponse {
   results: PublishResult[];
 }
 
+// --- Scraper types (from Nivid's reddit_scraper) ---
+
+export interface ScoreBreakdown {
+  semantic: number;
+  tolerance: number;
+  activity: number;
+}
+
+export interface ScrapedPost {
+  title: string;
+  upvotes: number;
+  num_comments: number;
+  url: string;
+}
+
+export interface ScrapedSubreddit {
+  subreddit: string;
+  final_score: number;
+  breakdown: ScoreBreakdown;
+  subscribers: number;
+  active_users: number;
+  description: string;
+  recent_posts: ScrapedPost[];
+  rules: string[];
+}
+
+export interface ScrapeResponse {
+  subreddits: ScrapedSubreddit[];
+  total: number;
+}
+
+export interface ScrapeProgressEvent {
+  phase: "scraping" | "scoring" | "done" | "error";
+  subreddit?: string;
+  progress: number;
+  message: string;
+  result?: ScrapeResponse;
+}
+
+// --- Combined result stored in sessionStorage ---
+
+export interface AnalysisResult {
+  product_name: string;
+  product_description: string;
+  niche_category: string;
+  target_audience: string;
+  keywords: string[];
+  discovered_subreddits: { name: string; url: string; reason: string }[];
+  scrape_results: ScrapeResponse;
+}
+
+// --- Dashboard / monitoring types ---
+
 export interface CommentData {
   author: string;
   body: string;

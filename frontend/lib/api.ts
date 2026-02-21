@@ -1,4 +1,4 @@
-import { DiscoverRequest, DiscoverResponse, PublishRequest, PublishResponse } from "./types";
+import { DiscoverRequest, DiscoverResponse, PublishRequest, PublishResponse, ScrapeProgressEvent, ScrapeResponse } from "./types";
 import { mockDiscoverResponse } from "./mock-data";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
@@ -49,6 +49,91 @@ export async function discoverSubreddits(input: DiscoverRequest): Promise<Discov
 
   if (!res.ok) throw new Error(`Discovery failed: ${res.statusText}`);
   return res.json();
+}
+
+export async function scrapeSubredditsStream(
+  subredditNames: string[],
+  productDescription: string,
+  onProgress: (event: ScrapeProgressEvent) => void
+): Promise<ScrapeResponse> {
+  if (!API_URL) {
+    // Mock fallback: simulate scraping progress
+    const mockSubs = subredditNames;
+    for (let i = 0; i < mockSubs.length; i++) {
+      await new Promise((r) => setTimeout(r, 600));
+      onProgress({
+        phase: "scraping",
+        subreddit: mockSubs[i],
+        progress: Math.round((i / mockSubs.length) * 60),
+        message: `Scraping r/${mockSubs[i]}... (${i + 1}/${mockSubs.length})`,
+      });
+    }
+    for (let i = 0; i < mockSubs.length; i++) {
+      await new Promise((r) => setTimeout(r, 400));
+      onProgress({
+        phase: "scoring",
+        subreddit: mockSubs[i],
+        progress: 60 + Math.round((i / mockSubs.length) * 35),
+        message: `Scoring r/${mockSubs[i]}... (${i + 1}/${mockSubs.length})`,
+      });
+    }
+    // Return mock scrape data
+    const mockResult: ScrapeResponse = {
+      total: mockSubs.length,
+      subreddits: mockSubs.map((name, i) => ({
+        subreddit: name,
+        final_score: Math.round((0.9 - i * 0.05) * 1000) / 1000,
+        breakdown: { semantic: 0.8, tolerance: 0.6, activity: 0.7 },
+        subscribers: 500000 - i * 80000,
+        active_users: 2000 - i * 300,
+        description: `A community for ${name} discussions`,
+        recent_posts: [
+          { title: "Sample hot post", upvotes: 1200, num_comments: 89, url: `https://reddit.com/r/${name}` },
+        ],
+        rules: ["Be respectful", "No spam"],
+      })),
+    };
+    onProgress({ phase: "done", progress: 100, message: "Analysis complete", result: mockResult });
+    return mockResult;
+  }
+
+  const res = await fetch(`${API_URL}/api/scrape-stream`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ subreddit_names: subredditNames, product_description: productDescription }),
+  });
+
+  if (!res.ok) throw new Error(`Scraping failed: ${res.statusText}`);
+
+  const reader = res.body!.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let finalResult: ScrapeResponse | null = null;
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+
+    buffer += decoder.decode(value, { stream: true });
+    const lines = buffer.split("\n");
+    buffer = lines.pop() || "";
+
+    for (const line of lines) {
+      if (line.startsWith("data: ")) {
+        const event: ScrapeProgressEvent = JSON.parse(line.slice(6));
+        onProgress(event);
+        if (event.phase === "done" && event.result) {
+          finalResult = event.result;
+        }
+        if (event.phase === "error") {
+          throw new Error(event.message);
+        }
+      }
+    }
+  }
+
+  if (!finalResult) throw new Error("Stream ended without results");
+  return finalResult;
 }
 
 export async function publishPosts(request: PublishRequest): Promise<PublishResponse> {
