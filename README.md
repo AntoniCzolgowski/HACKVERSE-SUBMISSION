@@ -2,7 +2,7 @@
 
 **Company Track:** Lextrack AI
 **Team Name:** RedditReach
-**Team Members:** Antoni Czolgowski, Nivid Banker, Zach Rosenof
+**Team Members:** Antoni Czolgowski, Nivid Pathak, Atharva Zodpe, Zach
 
 ---
 
