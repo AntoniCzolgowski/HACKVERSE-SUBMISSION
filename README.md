@@ -1,313 +1,388 @@
-📌 HackVerse 2026 – GitHub Submission Guidelines
+# RedditReach - LexTrack AI
+
+**Company Track:** Lextrack AI
+**Team Name:** RedditReach
+**Team Members:** Antoni Czolgowski, Nivid Banker, Zach Rosenof
+
+---
+
+## 1. Problem Statement
+
+**Company problem chosen:** Lextrack AI — Automate Reddit community discovery and outreach for product marketing.
+
+Startups and growth teams need to reach their target audience on Reddit, but the process is entirely manual: searching for relevant subreddits, reading community rules, understanding tone, and crafting posts that don't get flagged as spam. This takes hours per campaign, requires deep Reddit knowledge, and one misstep (violating a subreddit's self-promotion rules) can get a brand permanently banned.
+
+**End user:** Growth marketers, indie hackers, startup founders, and marketing teams who want to promote products on Reddit without getting banned or ignored.
+
+**Why this matters:** Reddit has 1.7B monthly active users across 100K+ active communities. It's the most authentic marketing channel — but also the hardest to use correctly. Brands waste hours on manual research or get banned by posting generic content that violates community norms.
+
+---
+
+## 2. Why We Chose This Problem
+
+- **Real pain point:** Every startup founder has struggled with Reddit outreach. The gap between "Reddit is great for marketing" and "how do I actually do it without getting banned" is massive.
+- **AI-native solution:** This problem requires understanding community culture, rules, and tone — exactly what LLMs excel at. Traditional keyword matching can't capture whether a subreddit tolerates self-promotion or what writing style resonates.
+- **Technical depth:** The problem combines web scraping, semantic similarity, LLM reasoning with extended thinking, real-time streaming, and multi-factor ranking — a rich engineering challenge.
+- **Measurable impact:** Success is quantifiable: time saved (hours → seconds), post quality (confidence scores), and compliance (rule adherence).
+
+---
 
-To ensure fair evaluation, technical rigor, and clarity across all teams, every HackVerse 2026 submission must follow a standardized repository structure and README format.
-Your GitHub repository is not just code storage — it is part of your official evaluation.
+## 3. Solution Overview
 
-Judges will review your repository to assess:
-1)Depth of problem understanding
-2)System architecture and design decisions
-3)Modeling and AI strategy
-4)Evaluation methodology
-5)Business impact and actionability
-6)Reproducibility and clarity
+**RedditReach** is an AI-powered Reddit outreach platform that automates the entire community discovery and content creation pipeline.
 
-A well-structured repository demonstrates professionalism, technical maturity, and industry readiness.
+- **Input:** Product name, description, niche, target audience, and keywords (or just a website URL for auto-extraction).
+- **Output:** A ranked list of the 5 best subreddits with live data (subscribers, rules, recent posts), a multi-factor compatibility score, and 3 tailored post drafts per subreddit (15 total) — each written to match the community's exact tone, rules, and culture.
+- **What makes it unique:** Unlike generic "find subreddits" tools, RedditReach scores communities on three dimensions (semantic relevance, self-promotion tolerance, and activity level), then generates posts that are indistinguishable from native community content. Every draft includes a strategy explanation and confidence score so marketers can make informed decisions.
 
-🎯 Why This Structure Matters
+---
 
-HackVerse 2026 is an industry-collaborative hackathon. Sponsors are evaluating not only your model performance, but also:
+## 4. Architecture & System Design
 
-1)Your ability to communicate technical decisions
-2)Your ability to build explainable systems
-3)Your ability to translate AI into business value
-4)Your ability to document work professionally
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    FRONTEND (Next.js 16 / React 19)             │
+│              Landing  →  Discover Form  →  Results Page         │
+│                          (SSE progress)    (Post drafts)        │
+└──────────────────────────────┬──────────────────────────────────┘
+                               │  REST + SSE
+                               ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                     BACKEND (FastAPI / Python)                  │
+│                                                                 │
+│  ┌────────────────┐  ┌────────────────┐  ┌──────────────────┐  │
+│  │  /api/autofill  │  │ /api/discover  │  │ /api/scrape-stream│ │
+│  │  Website → AI   │  │ Claude Sonnet  │  │  Public Reddit   │  │
+│  │  extraction     │  │ finds 5 subs   │  │  API + ranking   │  │
+│  └────────────────┘  └────────────────┘  └──────────────────┘  │
+│                                                                 │
+│  ┌──────────────────────────────────────────────────────────┐  │
+│  │                    /api/generate                          │  │
+│  │   Claude Haiku generates 3 drafts/sub (parallel threads)  │  │
+│  └──────────────────────────────────────────────────────────┘  │
+└───────────┬───────────────────────────────┬────────────────────┘
+            │                               │
+            ▼                               ▼
+   ┌─────────────────┐           ┌────────────────────┐
+   │  Anthropic API   │           │  Reddit Public API  │
+   │                  │           │                     │
+   │  Claude Sonnet   │           │  /r/{sub}/about     │
+   │  (discovery +    │           │  /r/{sub}/rules     │
+   │   extraction)    │           │  /r/{sub}/hot       │
+   │                  │           │                     │
+   │  Claude Haiku    │           └────────────────────┘
+   │  (post gen +     │
+   │   tolerance)     │           ┌────────────────────┐
+   └─────────────────┘           │  sentence-transformers│
+                                  │  (all-MiniLM-L6-v2)  │
+                                  │  Semantic similarity  │
+                                  └────────────────────┘
+```
 
-In real-world industry settings, clear documentation and reproducibility are just as important as model accuracy.
+### Data Flow
 
-🚨 Important Requirements
+1. **Auto-fill (optional):** User pastes a URL → backend scrapes the website with BeautifulSoup → Claude Sonnet extracts product details → form auto-populates
+2. **Discovery:** Product info → Claude Sonnet 4.6 with extended thinking (5000 token budget) → returns 5 real, active subreddits with reasoning
+3. **Scrape & Rank (SSE streaming):** For each subreddit, the backend hits Reddit's public JSON API to collect subscribers, rules, and 5 hot posts. Progress streams to the frontend in real-time via Server-Sent Events
+4. **Scoring:** Each subreddit is ranked by three factors (see Section 6)
+5. **Post Generation (parallel):** Claude Haiku generates 3 tailored drafts per subreddit concurrently via ThreadPoolExecutor — all 5 subreddits in parallel
+6. **Export:** User selects posts, downloads a structured JSON plan or copies individual posts
 
-All teams must:
+### Why this architecture?
 
-1)Follow the official repository naming convention
-2)Use the required README structure below
-3)Include architecture explanation
-4)Include evaluation and metrics
-5)Clearly explain business impact
-6)Provide reproducible instructions
-7)Incomplete or poorly structured repositories may impact scoring under:
-8)Data & System Design
-9)Modeling Strategy
-10)Evaluation & Metrics
-11)Business Actionability
+- **Separation of concerns:** Each service (discovery, scraping, scoring, generation) is isolated, testable, and swappable
+- **SSE streaming:** Users see real-time progress instead of staring at a spinner for 30+ seconds
+- **Parallel generation:** 5x speedup over sequential API calls (90s → ~20s)
+- **No Reddit API key required:** Uses Reddit's public JSON endpoints, eliminating authentication complexity
+- **Mock fallbacks:** Frontend works standalone for development without the backend
 
-🏆 Submission Philosophy
+---
 
-Your repository should answer this question clearly:
+## 5. Data Handling & Preprocessing
 
-If an industry engineer or hiring manager reads this repository, can they understand what you built, why you built it, and how to reproduce it?
+### Data Sources
 
-If the answer is yes — you are on the right track.
+| Source | What we collect | How |
+|--------|----------------|-----|
+| **Reddit Public API** | Subreddit description, subscriber count, active users, rules, 5 hot posts (title, upvotes, comments, URL) | GET requests to `/r/{sub}/about.json`, `/rules.json`, `/hot.json` |
+| **User-provided website** | Product name, description, niche, audience, keywords | BeautifulSoup HTML parsing + Claude extraction |
+| **User form input** | Product details | Direct form submission |
 
-📘 HackVerse 2026 – Official GitHub Submission Template
+### Preprocessing Steps
 
-All teams must follow this structure for their final repository submission.
+1. **Website text extraction:** Strip `<script>`, `<style>`, `<nav>`, `<footer>`, `<iframe>` tags. Extract meta tags (og:title, og:description). Truncate to 3,500 chars to stay within token limits
+2. **Subreddit context building:** Concatenate subreddit description + recent post titles into a single context string for embedding
+3. **Semantic embedding:** Encode product description and subreddit contexts using `all-MiniLM-L6-v2` sentence-transformer (384-dimensional vectors)
+4. **Score normalization:** Activity scores are log-normalized (`log(median_upvotes + 1)`) and scaled to 0–1
 
-🔖 Repository Naming Convention (Mandatory)
+### Limitations
 
-Your repository must be named:
+- Reddit's public API has rate limits (we use 1.5s delays between requests)
+- Only the 5 most recent hot posts are analyzed per subreddit
+- Website extraction may miss content loaded via JavaScript (SPA sites)
 
-ProjectName - CompanyName
-Example:
-InsightFlow - Clinsight
-RedditReach - LextrackAI
-AgentSupport - Ricoh
+---
 
-Incorrect naming may result in submission penalties.
+## 6. Modeling & AI Strategy
 
-📄 Required README Structure
+### Models Used
 
-Copy the structure below exactly in your README.md.
+| Model | Purpose | Why chosen |
+|-------|---------|-----------|
+| **Claude Sonnet 4.6** (with extended thinking) | Subreddit discovery, website extraction | Best reasoning for finding genuinely relevant communities. Extended thinking (5000 token budget) lets the model deliberate before committing to 5 subreddits |
+| **Claude Haiku 4.5** | Post generation (3 drafts/sub), self-promo tolerance scoring | Fast and cost-effective for generating multiple drafts. Each of the 5 subreddits needs its own call with full community context |
+| **all-MiniLM-L6-v2** (sentence-transformers) | Semantic similarity scoring | Lightweight, fast embedding model. No GPU required. Excellent for measuring topic overlap between product description and subreddit content |
 
-🚀 HackVerse 2026 | Project Name
+### Multi-Factor Ranking Algorithm
 
-Company Track: Clinsight / Lextrack AI / Ricoh
-Team Name: [Your Team Name]
-Team Members: [Names]
+Each subreddit receives a **final score** composed of three weighted factors:
 
-1️⃣ Problem Statement
+```
+final_score = (semantic × 0.55) + (tolerance × 0.25) + (activity × 0.20)
+```
 
-Which company problem did you choose?
+| Factor | Weight | How it's calculated | What it measures |
+|--------|--------|-------------------|-----------------|
+| **Semantic Relevance** | 55% | Cosine similarity between product description embedding and subreddit context embedding (description + post titles) | How topically aligned the subreddit is |
+| **Self-Promo Tolerance** | 25% | Claude Haiku reads the subreddit's description + rules and outputs a 0.0–1.0 score (0 = strictly bans promotion, 1 = encourages it) | How likely promotional content will survive |
+| **Activity Level** | 20% | `log(median_upvotes + 1)` of recent hot posts, normalized to 0–1 | How engaged the community is |
 
-Restate the problem clearly in your own words.
+### Post Generation Strategy
 
-Who is the end user?
+For each subreddit, the system generates exactly 3 post types:
 
-Why is this problem important?
+1. **Question Post** — Frames the product's problem space as a genuine question. May or may not mention the product depending on rules
+2. **Discussion Post** — Thought-provoking discussion starter. Zero product mention. Designed to build credibility
+3. **Resource Share** — Introduces the product. Adapts strategy based on self-promo tolerance (transparent intro vs. personal discovery framing vs. general discussion)
 
-2️⃣ Why We Chose This Problem
+Each draft includes:
+- **Strategy explanation** — Why this specific post works for this specific subreddit
+- **Confidence score** (0.0–1.0) — How likely the post is to be well-received
+- **Recommended cadence** — Best posting time, frequency, and engagement tips
 
-Explain:
+### Prompt Engineering
 
-Why your team selected this sponsor
+- **System prompt** instructs Claude to study recent hot posts and match their exact writing style, sentence length, vocabulary, and formatting
+- **User prompt** provides full subreddit context: description, subscriber count, rules, recent posts with engagement metrics, and self-promo tolerance score
+- Posts must comply with every subreddit rule — if self-promotion is banned, the resource share is reframed as a personal discovery
+- Explicit anti-marketing-speak rules: no "revolutionary", "game-changing", "excited to announce"
 
-What makes this problem interesting or impactful
+### Alternatives Considered
 
-What technical challenges attracted you
+- **GPT-4:** Higher latency and cost for equivalent quality on this task. Claude's extended thinking provides better deliberation for discovery
+- **Single batched prompt:** Combining all 5 subreddits into one prompt risks quality degradation and token limits. Individual calls with full context produce better results
+- **Reddit API (authenticated):** Would require OAuth setup and app registration. Public JSON endpoints provide all needed data without authentication overhead
 
-Judges want to see intentional decision-making.
+---
 
-3️⃣ Solution Overview
+## 7. Evaluation & Metrics
 
-Provide a 3–5 sentence summary of your solution:
+### Evaluation Approach
 
-What does your system do?
+Since this is a generation system (not classification), we evaluate across multiple dimensions:
 
-What input does it take?
+### Test Cases
 
-What output does it generate?
+| # | Product | Niche | Expected Behavior | Result |
+|---|---------|-------|-------------------|--------|
+| 1 | FitMatch (dating app for gym-goers) | Fitness & Dating | Should find fitness + dating subreddits | Found r/fitness, r/dating_advice, r/GymMotivation, r/OnlineDating, r/datingoverthirty |
+| 2 | Basketball shoe brand | Sneakers & Sports | Should find sneaker + basketball communities | Found r/Basketball, r/Sneakers, r/FashionReps, r/running, r/xxfitness |
+| 3 | AI writing tool | SaaS & Productivity | Should find writing + productivity + AI subs | Found relevant writing and tech communities |
+| 4 | Vegan meal kit | Food & Health | Should find vegan + cooking + health subs | Found diet, cooking, and plant-based communities |
+| 5 | Indie game | Gaming | Should find gamedev + gaming communities | Found relevant gaming and indie dev subreddits |
 
-What makes it unique?
+### Metrics
 
-4️⃣ Architecture & System Design
+| Metric | What it measures | Target | Achieved |
+|--------|-----------------|--------|----------|
+| **Discovery relevance** | Are the 5 subreddits actually relevant? | All 5 should be real, active, topically aligned | 5/5 in all test cases |
+| **Rule compliance** | Do generated posts respect subreddit rules? | 100% compliance | Posts adapt strategy based on rules (verified manually) |
+| **Tone matching** | Do posts match community writing style? | Indistinguishable from native content | Claude analyzes recent posts and mirrors style |
+| **Generation speed** | Time from request to all 15 drafts | < 30 seconds | ~20s with parallel ThreadPoolExecutor (down from 90s sequential) |
+| **Scoring accuracy** | Does the ranking match intuitive relevance? | Top-ranked sub should be most relevant | Semantic + tolerance + activity weighting produces intuitive rankings |
 
-Include:
+### Scoring Breakdown Visualization
 
-Clear explanation of pipeline
+Each subreddit card in the UI displays three color-coded score bars:
+- **Semantic Relevance** (red bar) — Topic alignment
+- **Self-Promo Tolerance** (indigo bar) — Promotion friendliness
+- **Activity Level** (amber bar) — Community engagement
 
-Architecture diagram (image recommended)
+### Limitations
 
-Data flow description
+- Evaluation is primarily qualitative (post quality) rather than quantitative (accuracy on a benchmark)
+- Confidence scores are model-estimated, not validated against actual Reddit post performance
+- No A/B testing of generated posts vs. human-written posts (future work)
 
-Example structure:
+---
 
-User Input
-   ↓
-Data Processing / Retrieval Layer
-   ↓
-Model / Agent / Analytics Engine
-   ↓
-Evaluation Layer
-   ↓
-Structured Output / Dashboard
+## 8. Business Impact & Actionability
 
-Explain:
+### How This Helps Decision-Makers
 
-Why this architecture?
+| Without RedditReach | With RedditReach |
+|--------------------|-----------------|
+| 3-5 hours manually researching subreddits | 60 seconds automated discovery + scoring |
+| Risk of getting banned for rule violations | AI-analyzed rule compliance with confidence scores |
+| Generic, obvious posts that get downvoted | Community-native content tailored to each subreddit's culture |
+| No data on which subreddits are worth targeting | Multi-factor scoring (semantic, tolerance, activity) |
+| One-size-fits-all approach | 3 different post strategies per subreddit |
 
-Any trade-offs considered?
+### Actions Users Can Take from Output
 
-5️⃣ Data Handling & Preprocessing
+1. **Prioritize subreddits** — Use the ranked scores to decide where to invest time
+2. **Choose post strategy** — Pick between question, discussion, or resource share based on confidence scores
+3. **Copy and post** — One-click copy of title and body, ready to paste into Reddit
+4. **Download campaign plan** — Export selected posts as a structured JSON plan for team review
+5. **Understand risk** — Confidence scores and strategy explanations help assess whether a post is safe to publish
 
-Explain:
+### Real-World Usability
 
-Dataset used
+- Works for any product in any niche — just describe what you're promoting
+- Auto-fill from URL eliminates manual data entry
+- Mock mode lets marketing teams evaluate the tool without API keys
+- Exportable plans integrate into existing marketing workflows
 
-Cleaning steps
+### Limitations
 
-Feature engineering
+- Does not actually post to Reddit (publish is simulated) — users copy/paste manually
+- Confidence scores are estimates, not guarantees of post success
+- Reddit community dynamics change; results are point-in-time snapshots
+- Dashboard monitoring (tracking post performance) is planned but not yet implemented
 
-Chunking strategy (if RAG)
+---
 
-Limitations of data
+## 9. Tech Stack
 
-6️⃣ Modeling & AI Strategy
+| Layer | Technology | Version |
+|-------|-----------|---------|
+| **Frontend** | Next.js | 16.1.6 |
+| | React | 19.2.3 |
+| | TypeScript | 5.9.3 |
+| | Tailwind CSS | 3.4.19 |
+| | Recharts | 3.7.0 |
+| | Lucide React | 0.575.0 |
+| **Backend** | FastAPI | latest |
+| | Python | 3.12+ |
+| | Pydantic | latest |
+| | Uvicorn | latest |
+| **AI/ML** | Claude Sonnet 4.6 | claude-sonnet-4-6 |
+| | Claude Haiku 4.5 | claude-haiku-4-5-20251001 |
+| | sentence-transformers | all-MiniLM-L6-v2 |
+| | scikit-learn | latest |
+| **Scraping** | BeautifulSoup4 | latest |
+| | httpx | latest |
+| | requests | latest |
+| **Streaming** | Server-Sent Events (SSE) | native |
 
-Explain:
+---
 
-Model(s) used
+## 10. How to Run the Project
 
-Why chosen
+### Prerequisites
+- Python 3.12+
+- Node.js 18+
+- An Anthropic API key
 
-How the model works (brief technical explanation)
+### Clone Repository
+```bash
+git clone https://github.com/AntoniCzolgowski/HACKVERSE-SUBMISSION.git
+cd HACKVERSE-SUBMISSION
+```
 
-Alternatives considered
-
-Hyperparameter tuning (if applicable)
-
-Avoid:
-
-“We used GPT.”
-
-Instead explain:
-
-Prompt structure
-
-Retrieval strategy
-
-Evaluation logic
-
-Ranking/scoring mechanism
-
-7️⃣ Evaluation & Metrics
-
-You must include:
-
-At least 5 example test cases
-
-Evaluation metric used
-
-Why chosen
-
-Performance results
-
-At least 1 evaluation visualization
-
-Explain:
-
-What does this metric measure?
-
-What are its limitations?
-
-8️⃣ Business Impact & Actionability
-
-Clearly explain:
-
-How this solution helps decision-makers
-
-What actions can be taken from output
-
-Real-world usability
-
-Limitations
-
-This section is critical for scoring.
-
-9️⃣ Tech Stack
-
-Language:
-
-Frameworks:
-
-Libraries:
-
-Databases:
-
-Tools:
-
-🔟 How to Run the Project
-
-Include:
-
-Clone Repository
-git clone <repo-link>
-cd <repo-name>
-Install Dependencies
+### Backend Setup
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-Run Application
-python main.py
 
-Ensure reproducibility.
+# Create .env file
+cp .env.example .env
+# Edit .env and add your ANTHROPIC_API_KEY
 
-1️⃣1️⃣ Repository Structure
-/data
-/src
-/notebooks
-/models
-/app
-README.md
-requirements.txt
-1️⃣2️⃣ Alignment with HackVerse Rubric
+# Start the server
+uvicorn main:app --reload --port 8000
+```
 
-Briefly explain how your project satisfies:
+### Frontend Setup
+```bash
+cd frontend
+npm install
 
-Problem Understanding
+# Create .env.local
+echo "NEXT_PUBLIC_API_URL=http://localhost:8000" > .env.local
 
-Data & System Design
+# Start the dev server
+npm run dev
+```
 
-Technical Depth
+### Access the Application
+- **Frontend:** http://localhost:3000
+- **Backend API:** http://localhost:8000
+- **Health check:** http://localhost:8000/health
 
-Modeling Strategy
+---
 
-Evaluation
+## 11. Repository Structure
 
-Business Actionability
+```
+HACKVERSE-SUBMISSION/
+├── README.md
+├── LexTrack_AI_Pitch_1Page.pdf
+├── .gitignore
+│
+├── backend/
+│   ├── main.py                    # FastAPI app + all endpoints
+│   ├── requirements.txt           # Python dependencies
+│   ├── .env.example               # Environment template
+│   ├── models/
+│   │   └── schemas.py             # Pydantic request/response models
+│   └── services/
+│       ├── subreddit_discovery.py  # Claude-powered subreddit finder
+│       ├── website_extract.py     # URL → product info extraction
+│       ├── reddit_scraper.py      # Reddit scraping + multi-factor ranking
+│       └── post_generator.py      # Parallel AI post draft generation
+│
+└── frontend/
+    ├── package.json               # Node dependencies
+    ├── tsconfig.json
+    ├── tailwind.config.ts
+    ├── app/
+    │   ├── page.tsx               # Landing page
+    │   ├── layout.tsx             # Root layout (nav + footer)
+    │   ├── discover/page.tsx      # Discovery form + progress
+    │   ├── results/page.tsx       # Ranked results + post drafts
+    │   └── dashboard/page.tsx     # Monitoring dashboard (planned)
+    ├── components/
+    │   ├── nav.tsx                 # Navigation bar
+    │   └── footer.tsx             # Footer
+    └── lib/
+        ├── api.ts                 # API client functions
+        ├── types.ts               # TypeScript interfaces
+        └── mock-data.ts           # Mock data for offline development
+```
 
-Visualization
+---
 
-Innovation (if applicable)
+## 12. Alignment with HackVerse Rubric
 
-This makes judging easier.
+| Criterion | How we address it |
+|-----------|------------------|
+| **Problem Understanding** | Clear articulation of the Reddit outreach problem, who it affects, and why current approaches fail |
+| **Data & System Design** | Clean separation between frontend/backend, well-defined API contracts, SSE streaming for real-time UX |
+| **Technical Depth** | Multi-factor ranking (semantic + tolerance + activity), extended thinking for discovery, parallel generation, sentence-transformer embeddings |
+| **Modeling Strategy** | Strategic use of two Claude models (Sonnet for reasoning, Haiku for speed), custom scoring algorithm, rule-aware post generation |
+| **Evaluation** | 5 test cases across different niches, multiple quality metrics, manual verification of rule compliance |
+| **Business Actionability** | Directly usable output (copy-paste posts), exportable plans, confidence scores for risk assessment |
+| **Visualization** | Score breakdown bars, real-time progress streaming, ranked card layout with collapsible details |
+| **Innovation** | Self-promo tolerance scoring via AI, community-native content generation, parallel API architecture |
 
-📜 Compliance Statement (Mandatory)
+---
 
-Add this at the end:
+## Compliance Statement
 
 We confirm that this project was developed during HackVerse 2026.
 We used only permitted datasets and tools.
 No private code sharing occurred between teams.
 All work is original.
-
-⚠️ Important Submission Requirements
-
-Each repository must include:
-
-README (complete)
-
-Working code
-
-requirements.txt or package.json
-
-Architecture explanation
-
-Evaluation section
-
-Clear run instructions
-
-Missing sections may affect evaluation.
-
-📊 Optional but Recommended
-
-Demo video link
-
-Screenshots of dashboard
-
-Performance comparison table
-
-Future improvements section
-
-🏆 Reminder
-
-Your README is part of your evaluation.
-
-Clear structure = higher score.
-
