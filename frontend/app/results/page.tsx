@@ -573,11 +573,20 @@ export default function ResultsPage() {
     downloadFile(postPlan, `lextrack-${data.product_name.toLowerCase().replace(/\s+/g, "-")}-post-plan.json`);
   }
 
-  function handlePublish() {
+  async function handlePublish() {
     if (!data) return;
     const selectedPosts = buildSelectedPosts();
 
-    // Build the post plan JSON and download it
+    // Limit to 1-5 posts as specified
+    const postsToPublish = selectedPosts.slice(0, 5);
+
+    if (postsToPublish.length === 0) {
+      setPublishMessage("Please select at least one post to publish");
+      setTimeout(() => setPublishMessage(null), 3000);
+      return;
+    }
+
+    // Build the post plan JSON
     const postPlan = {
       product: {
         name: data.product_name,
@@ -586,19 +595,45 @@ export default function ResultsPage() {
         target_audience: data.target_audience,
         keywords: data.keywords,
       },
-      published_posts: selectedPosts,
-      total_posts: selectedPosts.length,
+      published_posts: postsToPublish,
+      total_posts: postsToPublish.length,
       published_at: new Date().toISOString(),
       status: "published",
     };
-    downloadFile(postPlan, `lextrack-${data.product_name.toLowerCase().replace(/\s+/g, "-")}-published.json`);
 
-    // Show success message
-    const subCount = new Set(selectedPosts.map((p) => p.subreddit)).size;
-    setPublishMessage(
-      `Published ${selectedPosts.length} ${selectedPosts.length === 1 ? "post" : "posts"} across ${subCount} ${subCount === 1 ? "subreddit" : "subreddits"}`
-    );
-    setTimeout(() => setPublishMessage(null), 5000);
+    try {
+      // Send to backend
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const response = await fetch(`${API_URL}/api/campaigns/publish`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(postPlan),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: "Unknown error" }));
+        console.error("Backend error:", errorData);
+        throw new Error(errorData.error || "Failed to publish campaign");
+      }
+
+      const result = await response.json();
+
+      // Show success message
+      const subCount = new Set(postsToPublish.map((p) => p.subreddit)).size;
+      setPublishMessage(
+        `Published ${postsToPublish.length} ${postsToPublish.length === 1 ? "post" : "posts"} across ${subCount} ${subCount === 1 ? "subreddit" : "subreddits"}. Redirecting to dashboard...`
+      );
+
+      // Redirect to dashboard after 2 seconds
+      setTimeout(() => {
+        router.push("/dashboard");
+      }, 2000);
+
+    } catch (error) {
+      console.error("Publish error:", error);
+      setPublishMessage("Failed to publish. Please try again.");
+      setTimeout(() => setPublishMessage(null), 3000);
+    }
   }
 
   function downloadFile(obj: object, filename: string) {

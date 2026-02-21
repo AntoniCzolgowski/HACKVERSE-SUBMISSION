@@ -1,0 +1,222 @@
+{
+  "product": {
+    "name": "Nike",
+    "description": "Nike is a global sportswear brand that delivers innovative athletic footwear, apparel, and accessories for men, women, and kids. The company offers performance-driven products across basketball, running, training, and lifestyle categories. Nike inspires athletes of all levels with cutting-edge designs and iconic silhouettes like Air Jordan, Air Max, and Air Force 1.",
+    "niche_category": "Sportswear & Athletic Apparel",
+    "target_audience": "Athletes and sports enthusiasts of all ages and skill levels",
+    "keywords": [
+      "athletic footwear",
+      "sportswear",
+      "running shoes",
+      "basketball gear",
+      "performance apparel",
+      "Jordan",
+      "Air Max",
+      "Just Do It"
+    ]
+  },
+  "published_posts": [
+    {
+      "subreddit": "r/Nike",
+      "post_type": "discussion_post",
+      "title": "Are performance running shoes actually getting better or just more expensive?",
+      "body": "I've been collecting running shoes for like 8 years now, and I'm genuinely curious if the jump in price between Nike models is actually justified by performance gains or if we're just seeing inflation + hype cycles.\n\nLike, the React cushioning was a game-changer back in the day. Then Zoom, then ReactX, now whatever the new foam tech is. But when I actually run in something from 2019 vs 2024, I'm not sure I feel a massive difference. Maybe I'm just not sensitive enough to it.\n\nThinking specifically about running shoes here since that seems to be what gets discussed most. Are people actually feeling real differences in the tech or have we hit a ceiling where it's mostly marketing?",
+      "upvotes": 657,
+      "comments": 3,
+      "sentiment_score": 0.8333333333333334,
+      "top_comments": [
+        {
+          "author": "trendy_taylor",
+          "body": "okay but like... is anyone else just buying them because they look fire on social media? \ud83d\udc80 \n\ndon't get me wrong, I def notice differences between my old pegasus and the newer stuff, but honestly half the time I'm more concerned about whether they'll look good in my running selfies lmao. the tech probably IS getting better but I feel like we're also just paying extra for the hype at this point?? \n\nlike everyone on tiktok was going FERAL over the alphaflys last year and now it's all about the next thing. I keep seeing running influencers post about marginal gains and whatever but idk if my casual 5k self can actually tell the difference between ReactX and regular React \n\nanyone else feel like they buy into the marketing more than the actual performance? or am I just calling myself out rn \ud83d\ude05",
+          "score": 31,
+          "sentiment": "neutral",
+          "persona_id": 11,
+          "persona_name": "Trendy Taylor"
+        },
+        {
+          "author": "veteran_victor",
+          "body": "I've been running in Nike shoes since the early 1980s when the Air Max first caught my attention, and I have to say your observation resonates with my experience. Back then, each generational leap felt substantial - moving from basic foam to air cushioning was revolutionary, you could genuinely feel the difference on long runs.\n\nThese days, I suspect we've reached what economists might call diminishing returns. The foundational technology is already quite sophisticated, so incremental improvements become harder to perceive and significantly more expensive to develop. I still purchase new models when my old pairs wear out, mind you - Nike's build quality remains excellent - but I'm not convinced the premium pricing reflects proportional performance gains.\n\nIt reminds me of the high-end audio equipment market I dabbled in during my career. Eventually you're paying exponentially more for marginally better components that most people simply cannot distinguish. The engineering is impressive, but the practical benefit becomes questionable.",
+          "score": 12,
+          "sentiment": "positive",
+          "persona_id": 6,
+          "persona_name": "Veteran Victor"
+        },
+        {
+          "author": "research_rachel",
+          "body": "This is such an interesting question from a biomechanics perspective! I'd love to see some actual peer-reviewed studies on this because most of what we hear is just marketing claims. \n\nThere was a decent study in Sports Medicine (2019) that looked at energy return in different foam technologies, but the performance differences were pretty marginal - like 2-4% max. The problem is that running economy is influenced by so many variables (gait, body mechanics, training adaptation) that isolating shoe tech benefits is really difficult.\n\nI suspect we've hit diminishing returns on foam technology around 2018-2020. The recent price jumps seem more correlated with manufacturing costs and market positioning than actual performance gains. Would be curious if anyone has access to more recent biomechanical data on this - most of the \"studies\" I see cited are just internal company testing with questionable methodology.",
+          "score": 123,
+          "sentiment": "positive",
+          "persona_id": 15,
+          "persona_name": "Research Rachel"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83c\udfc3\u200d\u2642\ufe0f Create a detailed follow-up post addressing specific Nike performance technologies and price points over the years, as the high engagement and positive sentiment indicate strong community interest in this topic that could benefit from more in-depth analysis.",
+      "keywords": [
+        "social media",
+        "alphaflys",
+        "tiktok",
+        "running influencers",
+        "marginal gains"
+      ],
+      "why_this_post_fits": "Taps into the community's observed interest in product evolution and value discussions without promoting Nike\u2014it's questioning the industry broadly. Uses casual, reflective tone matching recent post styles. Positions the writer as an experienced collector, which builds credibility. Invites genuine debate rather than product promotion.",
+      "why_subreddit_selected": "Brand-dedicated subreddit where fans discuss new Nike drops, performance gear, and lifestyle apparel directly relevant to the product."
+    },
+    {
+      "subreddit": "r/RunningShoeGeeks",
+      "post_type": "question_post",
+      "title": "Why have Nike's recent running releases been getting less hype compared to 2022-2023?",
+      "body": "Been following this sub for a while and I've noticed the energy around new Nike running shoe drops has shifted pretty noticeably. Posts about Alphafly, Vaporfly, and Tempo Next% used to generate a ton of discussion, but lately even new colorways or tech updates don't seem to spark the same engagement.\n\nIs it just me, or has the running shoe market gotten oversaturated? Are people gravitating more toward Saucony, ASICS, and Brooks for daily trainers now? Or is Nike just playing it safer with releases and not innovating as aggressively?\n\nCurious what the community's take is on this.",
+      "upvotes": 195,
+      "comments": 1,
+      "sentiment_score": 0.0,
+      "top_comments": [
+        {
+          "author": "diy_dave",
+          "body": "Honestly, this is why I stopped chasing the hype cycle years ago. Nike's just milking the same foam compounds with minor tweaks and calling it innovation. The engineering behind most of these \"breakthrough\" releases is pretty basic - different density midsole foams, carbon plate positioning, upper materials.\n\nI've been experimenting with modifying older models instead. You can retrofit carbon fiber plates into vintage trainers, swap out insoles with custom EVA foam densities, even 3D print heel clips for better lockdown. Cost me maybe $30 in materials vs $250+ for the latest Alphafly variant that's 90% marketing.\n\nThe real innovation is happening in materials science labs, not Nike's design rooms. Once you understand the basic biomechanics and force distribution principles, you realize most of this stuff is just premium pricing on incremental improvements. Better off understanding what your gait actually needs and building solutions around that.",
+          "score": 17,
+          "sentiment": "negative",
+          "persona_id": 12,
+          "persona_name": "DIY Dave"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83d\udd25 Post more engaging questions about specific Nike models or comparisons with competitor brands to spark meaningful discussions, as your post gained good visibility but failed to generate the conversation that this active community typically craves.",
+      "keywords": [
+        "hype cycle",
+        "foam compounds",
+        "carbon fiber plates",
+        "materials science",
+        "biomechanics"
+      ],
+      "why_this_post_fits": "This post mirrors the casual, observational tone of recent weekend discussions in the sub. It asks a genuine question about market trends without directly promoting Nike, instead framing it as a discussion about brand perception. It respects Rule 13 by NOT asking for personal recommendations, instead seeking broader community insight. The topic is directly relevant to r/RunningShoeGeeks' focus on news and releases.",
+      "why_subreddit_selected": "Highly engaged runners who obsess over footwear performance, making it ideal for promoting Nike's running shoe innovations."
+    }
+  ],
+  "posted_at": "2026-02-21T14:16:23.881Z",
+  "overall": {
+    "total_reach": 12780,
+    "total_engagement": 856,
+    "positive_sentiment": 0.4166666666666667,
+    "active_posts": 2,
+    "total_posts": 2
+  },
+  "engagement_over_time": [
+    {
+      "hour": "04AM",
+      "upvotes": 92,
+      "comments": 49
+    },
+    {
+      "hour": "05AM",
+      "upvotes": 185,
+      "comments": 99
+    },
+    {
+      "hour": "06AM",
+      "upvotes": 278,
+      "comments": 149
+    },
+    {
+      "hour": "07AM",
+      "upvotes": 370,
+      "comments": 199
+    },
+    {
+      "hour": "08AM",
+      "upvotes": 463,
+      "comments": 249
+    },
+    {
+      "hour": "09AM",
+      "upvotes": 556,
+      "comments": 299
+    }
+  ],
+  "sentiment": {
+    "positive": 50,
+    "neutral": 0,
+    "negative": 50
+  },
+  "posts": [
+    {
+      "subreddit": "r/Nike",
+      "post_type": "discussion_post",
+      "title": "Are performance running shoes actually getting better or just more expensive?",
+      "body": "I've been collecting running shoes for like 8 years now, and I'm genuinely curious if the jump in price between Nike models is actually justified by performance gains or if we're just seeing inflation + hype cycles.\n\nLike, the React cushioning was a game-changer back in the day. Then Zoom, then ReactX, now whatever the new foam tech is. But when I actually run in something from 2019 vs 2024, I'm not sure I feel a massive difference. Maybe I'm just not sensitive enough to it.\n\nThinking specifically about running shoes here since that seems to be what gets discussed most. Are people actually feeling real differences in the tech or have we hit a ceiling where it's mostly marketing?",
+      "upvotes": 657,
+      "comments": 3,
+      "sentiment_score": 0.8333333333333334,
+      "top_comments": [
+        {
+          "author": "trendy_taylor",
+          "body": "okay but like... is anyone else just buying them because they look fire on social media? \ud83d\udc80 \n\ndon't get me wrong, I def notice differences between my old pegasus and the newer stuff, but honestly half the time I'm more concerned about whether they'll look good in my running selfies lmao. the tech probably IS getting better but I feel like we're also just paying extra for the hype at this point?? \n\nlike everyone on tiktok was going FERAL over the alphaflys last year and now it's all about the next thing. I keep seeing running influencers post about marginal gains and whatever but idk if my casual 5k self can actually tell the difference between ReactX and regular React \n\nanyone else feel like they buy into the marketing more than the actual performance? or am I just calling myself out rn \ud83d\ude05",
+          "score": 31,
+          "sentiment": "neutral",
+          "persona_id": 11,
+          "persona_name": "Trendy Taylor"
+        },
+        {
+          "author": "veteran_victor",
+          "body": "I've been running in Nike shoes since the early 1980s when the Air Max first caught my attention, and I have to say your observation resonates with my experience. Back then, each generational leap felt substantial - moving from basic foam to air cushioning was revolutionary, you could genuinely feel the difference on long runs.\n\nThese days, I suspect we've reached what economists might call diminishing returns. The foundational technology is already quite sophisticated, so incremental improvements become harder to perceive and significantly more expensive to develop. I still purchase new models when my old pairs wear out, mind you - Nike's build quality remains excellent - but I'm not convinced the premium pricing reflects proportional performance gains.\n\nIt reminds me of the high-end audio equipment market I dabbled in during my career. Eventually you're paying exponentially more for marginally better components that most people simply cannot distinguish. The engineering is impressive, but the practical benefit becomes questionable.",
+          "score": 12,
+          "sentiment": "positive",
+          "persona_id": 6,
+          "persona_name": "Veteran Victor"
+        },
+        {
+          "author": "research_rachel",
+          "body": "This is such an interesting question from a biomechanics perspective! I'd love to see some actual peer-reviewed studies on this because most of what we hear is just marketing claims. \n\nThere was a decent study in Sports Medicine (2019) that looked at energy return in different foam technologies, but the performance differences were pretty marginal - like 2-4% max. The problem is that running economy is influenced by so many variables (gait, body mechanics, training adaptation) that isolating shoe tech benefits is really difficult.\n\nI suspect we've hit diminishing returns on foam technology around 2018-2020. The recent price jumps seem more correlated with manufacturing costs and market positioning than actual performance gains. Would be curious if anyone has access to more recent biomechanical data on this - most of the \"studies\" I see cited are just internal company testing with questionable methodology.",
+          "score": 123,
+          "sentiment": "positive",
+          "persona_id": 15,
+          "persona_name": "Research Rachel"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83c\udfc3\u200d\u2642\ufe0f Create a detailed follow-up post addressing specific Nike performance technologies and price points over the years, as the high engagement and positive sentiment indicate strong community interest in this topic that could benefit from more in-depth analysis.",
+      "keywords": [
+        "social media",
+        "alphaflys",
+        "tiktok",
+        "running influencers",
+        "marginal gains"
+      ],
+      "why_this_post_fits": "Taps into the community's observed interest in product evolution and value discussions without promoting Nike\u2014it's questioning the industry broadly. Uses casual, reflective tone matching recent post styles. Positions the writer as an experienced collector, which builds credibility. Invites genuine debate rather than product promotion.",
+      "why_subreddit_selected": "Brand-dedicated subreddit where fans discuss new Nike drops, performance gear, and lifestyle apparel directly relevant to the product."
+    },
+    {
+      "subreddit": "r/RunningShoeGeeks",
+      "post_type": "question_post",
+      "title": "Why have Nike's recent running releases been getting less hype compared to 2022-2023?",
+      "body": "Been following this sub for a while and I've noticed the energy around new Nike running shoe drops has shifted pretty noticeably. Posts about Alphafly, Vaporfly, and Tempo Next% used to generate a ton of discussion, but lately even new colorways or tech updates don't seem to spark the same engagement.\n\nIs it just me, or has the running shoe market gotten oversaturated? Are people gravitating more toward Saucony, ASICS, and Brooks for daily trainers now? Or is Nike just playing it safer with releases and not innovating as aggressively?\n\nCurious what the community's take is on this.",
+      "upvotes": 195,
+      "comments": 1,
+      "sentiment_score": 0.0,
+      "top_comments": [
+        {
+          "author": "diy_dave",
+          "body": "Honestly, this is why I stopped chasing the hype cycle years ago. Nike's just milking the same foam compounds with minor tweaks and calling it innovation. The engineering behind most of these \"breakthrough\" releases is pretty basic - different density midsole foams, carbon plate positioning, upper materials.\n\nI've been experimenting with modifying older models instead. You can retrofit carbon fiber plates into vintage trainers, swap out insoles with custom EVA foam densities, even 3D print heel clips for better lockdown. Cost me maybe $30 in materials vs $250+ for the latest Alphafly variant that's 90% marketing.\n\nThe real innovation is happening in materials science labs, not Nike's design rooms. Once you understand the basic biomechanics and force distribution principles, you realize most of this stuff is just premium pricing on incremental improvements. Better off understanding what your gait actually needs and building solutions around that.",
+          "score": 17,
+          "sentiment": "negative",
+          "persona_id": 12,
+          "persona_name": "DIY Dave"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83d\udd25 Post more engaging questions about specific Nike models or comparisons with competitor brands to spark meaningful discussions, as your post gained good visibility but failed to generate the conversation that this active community typically craves.",
+      "keywords": [
+        "hype cycle",
+        "foam compounds",
+        "carbon fiber plates",
+        "materials science",
+        "biomechanics"
+      ],
+      "why_this_post_fits": "This post mirrors the casual, observational tone of recent weekend discussions in the sub. It asks a genuine question about market trends without directly promoting Nike, instead framing it as a discussion about brand perception. It respects Rule 13 by NOT asking for personal recommendations, instead seeking broader community insight. The topic is directly relevant to r/RunningShoeGeeks' focus on news and releases.",
+      "why_subreddit_selected": "Highly engaged runners who obsess over footwear performance, making it ideal for promoting Nike's running shoe innovations."
+    }
+  ],
+  "recommendations": [],
+  "campaign_id": "nike_20260221_091637",
+  "created_at": "2026-02-21T09:16:37.791346"
+}

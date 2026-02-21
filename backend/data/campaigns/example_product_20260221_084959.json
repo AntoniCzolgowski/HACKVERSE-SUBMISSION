@@ -1,0 +1,270 @@
+{
+  "product": {
+    "name": "Example Product",
+    "description": "An AI-powered tool extracted from the provided website.",
+    "niche_category": "Technology",
+    "target_audience": "Tech-savvy professionals aged 25-45",
+    "keywords": [
+      "ai",
+      "saas",
+      "productivity",
+      "automation"
+    ]
+  },
+  "published_posts": [
+    {
+      "subreddit": "r/fitness",
+      "post_type": "question_post",
+      "title": "Anyone using AI tools to track/optimize their training? What's actually worth the hype?",
+      "body": "So I've been manually logging my workouts in spreadsheets for years, and it works fine, but I'm curious if anyone here has experimented with AI-powered tracking tools that actually help with program design or spotting weak points in your routine?\n\nI know there's a lot of noise out there about \"AI fitness apps,\" but I'm specifically interested in tools that:\n- Actually analyze your data (not just store it)\n- Give you actionable insights on progression patterns\n- Help identify form issues or imbalances\n- Save you time compared to manual analysis\n\nHave you found anything that's genuinely useful vs. just another thing to feed data into? Curious what people are actually using in practice.",
+      "upvotes": 148,
+      "comments": 10,
+      "sentiment_score": 0.55,
+      "top_comments": [
+        {
+          "author": "optimistic_oliver",
+          "body": "Yooo this is actually super cool! \ud83d\udd25 I've been using this app called FitnessAI for like 2 months now and it's honestly been a game changer for me. It automatically adjusts my weights based on how I'm progressing and I swear it knows when I'm getting stronger before I do lol\n\nThe insights are pretty legit too - it told me I was way behind on my pulling movements compared to pushing which totally made sense because I was obsessed with bench press \ud83d\ude05 \n\nOnly downside is sometimes I feel like I'm just blindly following what it tells me to do instead of learning, but honestly as someone who used to just wing it at the gym, having ANY structure is amazing. Way better than my old \"system\" of just doing whatever looked fun that day haha\n\nDefinitely worth trying out some of these tools imo! Even if they're not perfect they're still probably smarter than most of us \ud83d\udcaa",
+          "score": 44,
+          "sentiment": "positive",
+          "persona_id": 5,
+          "persona_name": "Optimistic Oliver"
+        },
+        {
+          "author": "fitness_fanatic_jason",
+          "body": "Yo! PT here and I've been down this rabbit hole for the past year. Honestly, most AI fitness apps are just glorified data collectors with fancy marketing, BUT I've found a couple gems.\n\nI've been using Velocity Based Training apps that analyze bar speed to optimize load selection - game changer for spotting when clients are actually ready to progress vs just going through the motions. Also been experimenting with some computer vision tools for form analysis during remote sessions.\n\nThe key is finding tools that actually crunch YOUR specific data patterns, not just generic \"AI recommendations.\" I still log everything manually first, then use AI as a second opinion to catch things I might miss.\n\nWhat kind of training are you doing? Powerlifting, bodybuilding, general fitness? That'll determine what's actually worth your time vs just shiny tech BS.",
+          "score": 84,
+          "sentiment": "positive",
+          "persona_id": 3,
+          "persona_name": "Fitness Fanatic Jason"
+        },
+        {
+          "author": "negative_nancy",
+          "body": "Don't waste your money, I've tried like 6 different AI fitness apps over the past two years and they're all garbage. Most of them are just glorified calorie counters with fancy marketing. The \"AI analysis\" is usually just basic pattern matching that tells you obvious stuff like \"you lifted heavier weights this week than last week!\" \n\nI spent $15/month on one app that promised to spot form issues through my phone camera - it couldn't even tell the difference between a squat and a deadlift half the time. Another one kept suggesting I had \"muscle imbalances\" and wanted me to buy their premium coaching for $80/month to fix problems I don't even have.\n\nYour spreadsheet is probably more accurate than any of these apps. At least you know what data you're putting in and can trust your own analysis. These companies are just trying to solve a problem that doesn't really exist so they can charge subscription fees.",
+          "score": 19,
+          "sentiment": "negative",
+          "persona_id": 10,
+          "persona_name": "Negative Nancy"
+        },
+        {
+          "author": "fitness_fanatic_jason",
+          "body": "Yo! PT here and I've been diving deep into this stuff. Been testing out Hevy Pro and Strong's analytics features - honestly pretty impressed with how they spot plateau patterns I might miss when I'm programming for 20+ clients.\n\nThe real game-changer for me has been using OpenBarbell for velocity-based training. It's not flashy AI but the data actually helps me adjust loads in real-time based on bar speed. Way more actionable than generic \"add 5lbs next week\" advice.\n\nThat said, 90% of the \"AI fitness\" apps are just glorified calculators with fancy marketing. I always tell my clients - if it promises to \"revolutionize your training\" without you putting in the work, it's probably BS. The tools that actually help are the ones that make your existing knowledge more precise, not replace it.\n\nWhat specific weaknesses are you trying to identify? Might be able to point you toward something that actually works.",
+          "score": 61,
+          "sentiment": "positive",
+          "persona_id": 3,
+          "persona_name": "Fitness Fanatic Jason"
+        },
+        {
+          "author": "skeptical_susan",
+          "body": "I've been in marketing for 20+ years and let me tell you - 90% of these \"AI fitness apps\" are just glorified data collection schemes wrapped in buzzword salad. They're harvesting your workout data, biometrics, and behavioral patterns to sell to advertisers while giving you basic analytics any decent spreadsheet could handle.\n\nThat said, if you're dead set on trying something, look for tools that can actually show you their methodology. Most of these apps use the same generic algorithms with fancy UI slapped on top. The \"form analysis\" features are particularly laughable unless you're using professional motion capture equipment.\n\nHonestly? Your spreadsheet probably gives you better insights because YOU understand your own data patterns. Don't fix what isn't broken just because some startup claims their \"revolutionary AI\" will transform your gains.",
+          "score": 38,
+          "sentiment": "negative",
+          "persona_id": 4,
+          "persona_name": "Skeptical Susan"
+        },
+        {
+          "author": "wellness_wendy",
+          "body": "I've been exploring this too, but honestly I find most AI fitness tools create more disconnection from your body rather than deeper awareness. I use a simple app called HRV4Training that tracks heart rate variability to understand my nervous system patterns - it helps me know when to push harder in my vinyasa classes versus when my body needs more restorative practice.\n\nBut the real game-changer has been combining basic data tracking with mindful body scanning. I spend 5 minutes after each session doing a mental inventory of how different muscle groups feel, energy levels, emotional state. That intuitive data is way more valuable than any algorithm analyzing my reps.\n\nThe best \"AI\" is honestly your own body intelligence when you learn to listen deeply. Maybe start there before adding another layer of tech between you and your practice?",
+          "score": 7,
+          "sentiment": "neutral",
+          "persona_id": 13,
+          "persona_name": "Wellness Wendy"
+        },
+        {
+          "author": "creative_chloe",
+          "body": "Honestly, I've tried a few of these AI fitness apps and most of them are just... visually overwhelming? Like the dashboards look like they were designed by engineers, not humans. SO much data crammed everywhere with zero thought to visual hierarchy.\n\nThat said, I've been using Tempo Studio (the mirror one) and while it's pricey, the form analysis actually feels useful - it creates these really clean movement visualizations that help me *see* what I'm doing wrong instead of just telling me. Way more intuitive than staring at spreadsheet numbers.\n\nFor tracking, I actually built myself a custom Notion template with some basic conditional formatting that color-codes my progress patterns. Not AI exactly, but it turns my boring workout data into something that's actually pleasant to look at and easier to spot trends. Sometimes the creative DIY approach beats the \"smart\" solution!",
+          "score": 28,
+          "sentiment": "neutral",
+          "persona_id": 9,
+          "persona_name": "Creative Chloe"
+        },
+        {
+          "author": "budget-conscious_sarah",
+          "body": "Honestly, I've tried a few of the free AI fitness apps but most of them want you to upgrade to premium for any of the actual analysis features you're talking about. I'm still using a basic app that just logs my workouts because paying $10-15/month for something that might give me insights I could figure out myself seems steep on a teacher's salary.\n\nThat said, I did find that even just having consistent data in any format helps me spot my own patterns - like realizing I always skip leg day when I'm stressed at work lol. Have you considered trying some of the free tiers first? MyFitnessPal has some basic trend analysis that might scratch that itch without the subscription fees. Sometimes the simple solutions work just as well as the fancy AI stuff.",
+          "score": 1,
+          "sentiment": "neutral",
+          "persona_id": 2,
+          "persona_name": "Budget-Conscious Sarah"
+        },
+        {
+          "author": "veteran_victor",
+          "body": "Well, in my forty-plus years of training, I've watched the fitness industry cycle through countless fads and gadgets promising to revolutionize everything. Started with simple pen and paper back in '78, moved to Excel in the '90s when computers became commonplace at the office, and honestly, that system has served me remarkably well.\n\nThat said, I recently tried MyFitnessPal's premium features at my trainer's suggestion - decent outfit, been around long enough to prove themselves. The trend analysis actually helped me realize I was plateauing on my bench press every six weeks like clockwork. Sometimes an outside perspective, even from software, can spot patterns you've grown blind to.\n\nMy advice? Stick with established companies that have been in the game for more than a few years. Too many of these AI startups fold before you've even finished entering your data. Quality and reliability beat flashy features every time.",
+          "score": 19,
+          "sentiment": "positive",
+          "persona_id": 6,
+          "persona_name": "Veteran Victor"
+        },
+        {
+          "author": "negative_nancy",
+          "body": "Don't waste your money. I fell for the hype and tried three different \"AI fitness apps\" over the past two years and they were all garbage. The first one kept telling me I was making \"incredible progress\" when I was literally plateauing for months. The second one suggested I increase my deadlift by 40lbs in one week - nearly threw out my back following that brilliant \"AI analysis.\" \n\nThe third app crashed and lost 6 months of data right before they conveniently pushed a premium subscription update. Customer service was nonexistent of course.\n\nYour spreadsheet method actually works and doesn't cost you $15/month for the privilege of being lied to by an algorithm. These companies are just riding the AI wave to separate you from your money while delivering the same basic tracking features wrapped in fancy marketing. Save yourself the headache and stick with what's already working.",
+          "score": 13,
+          "sentiment": "negative",
+          "persona_id": 10,
+          "persona_name": "Negative Nancy"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83d\udcaa Consider creating a follow-up post sharing specific AI fitness tools you've researched or tried, as the high upvote-to-comment ratio suggests people are interested but may need more concrete examples to spark deeper discussion.",
+      "keywords": [
+        "FitnessAI",
+        "AI fitness apps",
+        "game changer",
+        "automatically adjusts weights",
+        "data collectors"
+      ],
+      "why_this_post_fits": "This question leverages the community's preference for practical, experience-based advice while naturally introducing the concept of AI tools for fitness without explicit product mention. The question format invites genuine discussion and positions the product space as something the community is already curious about. Respects the 'no spam' rule by framing as genuine information-seeking rather than promotion.",
+      "why_subreddit_selected": ""
+    }
+  ],
+  "posted_at": "2026-02-21T13:48:31.188Z",
+  "overall": {
+    "total_reach": 2220,
+    "total_engagement": 158,
+    "positive_sentiment": 0.55,
+    "active_posts": 1,
+    "total_posts": 1
+  },
+  "engagement_over_time": [
+    {
+      "hour": "03AM",
+      "upvotes": 17,
+      "comments": 9
+    },
+    {
+      "hour": "04AM",
+      "upvotes": 34,
+      "comments": 18
+    },
+    {
+      "hour": "05AM",
+      "upvotes": 51,
+      "comments": 27
+    },
+    {
+      "hour": "06AM",
+      "upvotes": 68,
+      "comments": 36
+    },
+    {
+      "hour": "07AM",
+      "upvotes": 85,
+      "comments": 46
+    },
+    {
+      "hour": "08AM",
+      "upvotes": 102,
+      "comments": 55
+    }
+  ],
+  "sentiment": {
+    "positive": 0,
+    "neutral": 100,
+    "negative": 0
+  },
+  "posts": [
+    {
+      "subreddit": "r/fitness",
+      "post_type": "question_post",
+      "title": "Anyone using AI tools to track/optimize their training? What's actually worth the hype?",
+      "body": "So I've been manually logging my workouts in spreadsheets for years, and it works fine, but I'm curious if anyone here has experimented with AI-powered tracking tools that actually help with program design or spotting weak points in your routine?\n\nI know there's a lot of noise out there about \"AI fitness apps,\" but I'm specifically interested in tools that:\n- Actually analyze your data (not just store it)\n- Give you actionable insights on progression patterns\n- Help identify form issues or imbalances\n- Save you time compared to manual analysis\n\nHave you found anything that's genuinely useful vs. just another thing to feed data into? Curious what people are actually using in practice.",
+      "upvotes": 148,
+      "comments": 10,
+      "sentiment_score": 0.55,
+      "top_comments": [
+        {
+          "author": "optimistic_oliver",
+          "body": "Yooo this is actually super cool! \ud83d\udd25 I've been using this app called FitnessAI for like 2 months now and it's honestly been a game changer for me. It automatically adjusts my weights based on how I'm progressing and I swear it knows when I'm getting stronger before I do lol\n\nThe insights are pretty legit too - it told me I was way behind on my pulling movements compared to pushing which totally made sense because I was obsessed with bench press \ud83d\ude05 \n\nOnly downside is sometimes I feel like I'm just blindly following what it tells me to do instead of learning, but honestly as someone who used to just wing it at the gym, having ANY structure is amazing. Way better than my old \"system\" of just doing whatever looked fun that day haha\n\nDefinitely worth trying out some of these tools imo! Even if they're not perfect they're still probably smarter than most of us \ud83d\udcaa",
+          "score": 44,
+          "sentiment": "positive",
+          "persona_id": 5,
+          "persona_name": "Optimistic Oliver"
+        },
+        {
+          "author": "fitness_fanatic_jason",
+          "body": "Yo! PT here and I've been down this rabbit hole for the past year. Honestly, most AI fitness apps are just glorified data collectors with fancy marketing, BUT I've found a couple gems.\n\nI've been using Velocity Based Training apps that analyze bar speed to optimize load selection - game changer for spotting when clients are actually ready to progress vs just going through the motions. Also been experimenting with some computer vision tools for form analysis during remote sessions.\n\nThe key is finding tools that actually crunch YOUR specific data patterns, not just generic \"AI recommendations.\" I still log everything manually first, then use AI as a second opinion to catch things I might miss.\n\nWhat kind of training are you doing? Powerlifting, bodybuilding, general fitness? That'll determine what's actually worth your time vs just shiny tech BS.",
+          "score": 84,
+          "sentiment": "positive",
+          "persona_id": 3,
+          "persona_name": "Fitness Fanatic Jason"
+        },
+        {
+          "author": "negative_nancy",
+          "body": "Don't waste your money, I've tried like 6 different AI fitness apps over the past two years and they're all garbage. Most of them are just glorified calorie counters with fancy marketing. The \"AI analysis\" is usually just basic pattern matching that tells you obvious stuff like \"you lifted heavier weights this week than last week!\" \n\nI spent $15/month on one app that promised to spot form issues through my phone camera - it couldn't even tell the difference between a squat and a deadlift half the time. Another one kept suggesting I had \"muscle imbalances\" and wanted me to buy their premium coaching for $80/month to fix problems I don't even have.\n\nYour spreadsheet is probably more accurate than any of these apps. At least you know what data you're putting in and can trust your own analysis. These companies are just trying to solve a problem that doesn't really exist so they can charge subscription fees.",
+          "score": 19,
+          "sentiment": "negative",
+          "persona_id": 10,
+          "persona_name": "Negative Nancy"
+        },
+        {
+          "author": "fitness_fanatic_jason",
+          "body": "Yo! PT here and I've been diving deep into this stuff. Been testing out Hevy Pro and Strong's analytics features - honestly pretty impressed with how they spot plateau patterns I might miss when I'm programming for 20+ clients.\n\nThe real game-changer for me has been using OpenBarbell for velocity-based training. It's not flashy AI but the data actually helps me adjust loads in real-time based on bar speed. Way more actionable than generic \"add 5lbs next week\" advice.\n\nThat said, 90% of the \"AI fitness\" apps are just glorified calculators with fancy marketing. I always tell my clients - if it promises to \"revolutionize your training\" without you putting in the work, it's probably BS. The tools that actually help are the ones that make your existing knowledge more precise, not replace it.\n\nWhat specific weaknesses are you trying to identify? Might be able to point you toward something that actually works.",
+          "score": 61,
+          "sentiment": "positive",
+          "persona_id": 3,
+          "persona_name": "Fitness Fanatic Jason"
+        },
+        {
+          "author": "skeptical_susan",
+          "body": "I've been in marketing for 20+ years and let me tell you - 90% of these \"AI fitness apps\" are just glorified data collection schemes wrapped in buzzword salad. They're harvesting your workout data, biometrics, and behavioral patterns to sell to advertisers while giving you basic analytics any decent spreadsheet could handle.\n\nThat said, if you're dead set on trying something, look for tools that can actually show you their methodology. Most of these apps use the same generic algorithms with fancy UI slapped on top. The \"form analysis\" features are particularly laughable unless you're using professional motion capture equipment.\n\nHonestly? Your spreadsheet probably gives you better insights because YOU understand your own data patterns. Don't fix what isn't broken just because some startup claims their \"revolutionary AI\" will transform your gains.",
+          "score": 38,
+          "sentiment": "negative",
+          "persona_id": 4,
+          "persona_name": "Skeptical Susan"
+        },
+        {
+          "author": "wellness_wendy",
+          "body": "I've been exploring this too, but honestly I find most AI fitness tools create more disconnection from your body rather than deeper awareness. I use a simple app called HRV4Training that tracks heart rate variability to understand my nervous system patterns - it helps me know when to push harder in my vinyasa classes versus when my body needs more restorative practice.\n\nBut the real game-changer has been combining basic data tracking with mindful body scanning. I spend 5 minutes after each session doing a mental inventory of how different muscle groups feel, energy levels, emotional state. That intuitive data is way more valuable than any algorithm analyzing my reps.\n\nThe best \"AI\" is honestly your own body intelligence when you learn to listen deeply. Maybe start there before adding another layer of tech between you and your practice?",
+          "score": 7,
+          "sentiment": "neutral",
+          "persona_id": 13,
+          "persona_name": "Wellness Wendy"
+        },
+        {
+          "author": "creative_chloe",
+          "body": "Honestly, I've tried a few of these AI fitness apps and most of them are just... visually overwhelming? Like the dashboards look like they were designed by engineers, not humans. SO much data crammed everywhere with zero thought to visual hierarchy.\n\nThat said, I've been using Tempo Studio (the mirror one) and while it's pricey, the form analysis actually feels useful - it creates these really clean movement visualizations that help me *see* what I'm doing wrong instead of just telling me. Way more intuitive than staring at spreadsheet numbers.\n\nFor tracking, I actually built myself a custom Notion template with some basic conditional formatting that color-codes my progress patterns. Not AI exactly, but it turns my boring workout data into something that's actually pleasant to look at and easier to spot trends. Sometimes the creative DIY approach beats the \"smart\" solution!",
+          "score": 28,
+          "sentiment": "neutral",
+          "persona_id": 9,
+          "persona_name": "Creative Chloe"
+        },
+        {
+          "author": "budget-conscious_sarah",
+          "body": "Honestly, I've tried a few of the free AI fitness apps but most of them want you to upgrade to premium for any of the actual analysis features you're talking about. I'm still using a basic app that just logs my workouts because paying $10-15/month for something that might give me insights I could figure out myself seems steep on a teacher's salary.\n\nThat said, I did find that even just having consistent data in any format helps me spot my own patterns - like realizing I always skip leg day when I'm stressed at work lol. Have you considered trying some of the free tiers first? MyFitnessPal has some basic trend analysis that might scratch that itch without the subscription fees. Sometimes the simple solutions work just as well as the fancy AI stuff.",
+          "score": 1,
+          "sentiment": "neutral",
+          "persona_id": 2,
+          "persona_name": "Budget-Conscious Sarah"
+        },
+        {
+          "author": "veteran_victor",
+          "body": "Well, in my forty-plus years of training, I've watched the fitness industry cycle through countless fads and gadgets promising to revolutionize everything. Started with simple pen and paper back in '78, moved to Excel in the '90s when computers became commonplace at the office, and honestly, that system has served me remarkably well.\n\nThat said, I recently tried MyFitnessPal's premium features at my trainer's suggestion - decent outfit, been around long enough to prove themselves. The trend analysis actually helped me realize I was plateauing on my bench press every six weeks like clockwork. Sometimes an outside perspective, even from software, can spot patterns you've grown blind to.\n\nMy advice? Stick with established companies that have been in the game for more than a few years. Too many of these AI startups fold before you've even finished entering your data. Quality and reliability beat flashy features every time.",
+          "score": 19,
+          "sentiment": "positive",
+          "persona_id": 6,
+          "persona_name": "Veteran Victor"
+        },
+        {
+          "author": "negative_nancy",
+          "body": "Don't waste your money. I fell for the hype and tried three different \"AI fitness apps\" over the past two years and they were all garbage. The first one kept telling me I was making \"incredible progress\" when I was literally plateauing for months. The second one suggested I increase my deadlift by 40lbs in one week - nearly threw out my back following that brilliant \"AI analysis.\" \n\nThe third app crashed and lost 6 months of data right before they conveniently pushed a premium subscription update. Customer service was nonexistent of course.\n\nYour spreadsheet method actually works and doesn't cost you $15/month for the privilege of being lied to by an algorithm. These companies are just riding the AI wave to separate you from your money while delivering the same basic tracking features wrapped in fancy marketing. Save yourself the headache and stick with what's already working.",
+          "score": 13,
+          "sentiment": "negative",
+          "persona_id": 10,
+          "persona_name": "Negative Nancy"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83d\udcaa Consider creating a follow-up post sharing specific AI fitness tools you've researched or tried, as the high upvote-to-comment ratio suggests people are interested but may need more concrete examples to spark deeper discussion.",
+      "keywords": [
+        "FitnessAI",
+        "AI fitness apps",
+        "game changer",
+        "automatically adjusts weights",
+        "data collectors"
+      ],
+      "why_this_post_fits": "This question leverages the community's preference for practical, experience-based advice while naturally introducing the concept of AI tools for fitness without explicit product mention. The question format invites genuine discussion and positions the product space as something the community is already curious about. Respects the 'no spam' rule by framing as genuine information-seeking rather than promotion.",
+      "why_subreddit_selected": ""
+    }
+  ],
+  "recommendations": [],
+  "campaign_id": "example_product_20260221_084959",
+  "created_at": "2026-02-21T08:49:59.032128"
+}
