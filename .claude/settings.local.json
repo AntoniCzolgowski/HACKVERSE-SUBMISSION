@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git pull:*)",
+      "Bash(python -c:*)",
+      "Bash(npx next build:*)",
+      "Bash(npx tsc:*)",
+      "Bash(pip install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(curl:*)",
+      "Bash(uvicorn:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill)"
+    ]
+  }
+}

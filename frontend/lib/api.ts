@@ -1,4 +1,4 @@
-import { DiscoverRequest, DiscoverResponse, PublishRequest, PublishResponse, ScrapeProgressEvent, ScrapeResponse } from "./types";
+import { DiscoverRequest, DiscoverResponse, GenerateRequest, GenerateResponse, PublishRequest, PublishResponse, ScrapeProgressEvent, ScrapeResponse } from "./types";
 import { mockDiscoverResponse } from "./mock-data";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
@@ -134,6 +134,57 @@ export async function scrapeSubredditsStream(
 
   if (!finalResult) throw new Error("Stream ended without results");
   return finalResult;
+}
+
+export async function generatePosts(request: GenerateRequest): Promise<GenerateResponse> {
+  if (!API_URL) {
+    // Mock fallback: generate fake drafts after a delay
+    await new Promise((r) => setTimeout(r, 2000));
+    return {
+      product_name: request.product_name,
+      subreddit_drafts: request.subreddits.map((s) => ({
+        subreddit: s.subreddit,
+        drafts: [
+          {
+            type: "question_post" as const,
+            label: "Question Post",
+            title: `Has anyone here tried solutions for ${request.niche_category}?`,
+            body: `I've been looking into ${request.product_description} and wanted to hear what r/${s.subreddit} thinks. What's worked for you?`,
+            strategy: "Authentic discussion starter framed as personal experience.",
+            confidence_score: 0.7,
+            recommended_cadence: "Post during peak hours for this subreddit.",
+          },
+          {
+            type: "discussion_post" as const,
+            label: "Discussion Post",
+            title: `What's your biggest challenge with ${request.niche_category}?`,
+            body: `Curious what pain points people face in this space. What tools or approaches have you tried?`,
+            strategy: "Open question surfacing the problem without product mention.",
+            confidence_score: 0.8,
+            recommended_cadence: "Best posted mid-week for discussion engagement.",
+          },
+          {
+            type: "resource_share" as const,
+            label: "Resource Share",
+            title: `We built ${request.product_name} — looking for feedback`,
+            body: `Hi r/${s.subreddit}! We built ${request.product_name}: ${request.product_description}. We'd love honest feedback from this community.`,
+            strategy: "Transparent brand introduction with feedback request.",
+            confidence_score: 0.55,
+            recommended_cadence: "Check subreddit self-promo rules before posting.",
+          },
+        ],
+      })),
+    };
+  }
+
+  const res = await fetch(`${API_URL}/api/generate`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(request),
+  });
+
+  if (!res.ok) throw new Error(`Generation failed: ${res.statusText}`);
+  return res.json();
 }
 
 export async function publishPosts(request: PublishRequest): Promise<PublishResponse> {

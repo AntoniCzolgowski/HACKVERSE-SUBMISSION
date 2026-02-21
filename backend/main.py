@@ -4,10 +4,11 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import StreamingResponse
 from pydantic import BaseModel
-from models.schemas import ProductInput
+from models.schemas import ProductInput, GenerateRequest, GenerateResponse, SubredditDrafts
 from services.subreddit_discovery import discover_subreddits
 from services.website_extract import extract_product_from_url
 from services.reddit_scraper import scrape_and_rank, scrape_and_rank_stream
+from services.post_generator import generate_all_posts
 
 app = FastAPI(title="LexTrack AI Backend")
 
@@ -95,3 +96,28 @@ async def api_scrape_stream(body: ScrapeRequest):
         media_type="text/event-stream",
         headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
     )
+
+
+# ==========================================
+#  /api/generate — AI post generation
+# ==========================================
+
+@app.post("/api/generate")
+async def api_generate(body: GenerateRequest):
+    """Takes product info + scraped subreddits, generates tailored post drafts."""
+    try:
+        product = {
+            "product_name": body.product_name,
+            "product_description": body.product_description,
+            "niche_category": body.niche_category,
+            "target_audience": body.target_audience,
+            "keywords": body.keywords,
+        }
+        subreddits = [s.model_dump() for s in body.subreddits]
+        results = generate_all_posts(product, subreddits)
+        return GenerateResponse(
+            product_name=body.product_name,
+            subreddit_drafts=[SubredditDrafts(**r) for r in results],
+        )
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)

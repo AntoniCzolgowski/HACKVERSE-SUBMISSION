@@ -7,11 +7,13 @@ export interface DiscoverRequest {
 }
 
 export interface PostDraft {
-  type: "organic_user" | "company_professional" | "subtle_engagement";
+  type: "question_post" | "discussion_post" | "resource_share";
   label: string;
   title: string;
   body: string;
   strategy: string;
+  confidence_score: number;
+  recommended_cadence: string;
 }
 
 export interface SubredditResult {
@@ -106,6 +108,27 @@ export interface AnalysisResult {
   keywords: string[];
   discovered_subreddits: { name: string; url: string; reason: string }[];
   scrape_results: ScrapeResponse;
+}
+
+// --- Generate types ---
+
+export interface GenerateRequest {
+  product_name: string;
+  product_description: string;
+  niche_category: string;
+  target_audience: string;
+  keywords: string[];
+  subreddits: ScrapedSubreddit[];
+}
+
+export interface SubredditDrafts {
+  subreddit: string;
+  drafts: PostDraft[];
+}
+
+export interface GenerateResponse {
+  product_name: string;
+  subreddit_drafts: SubredditDrafts[];
 }
 
 // --- Dashboard / monitoring types ---
