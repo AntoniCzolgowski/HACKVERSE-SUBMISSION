@@ -74,6 +74,7 @@ export interface PostMetrics {
   top_comments: CommentData[];
   recommendation?: string;
   keywords?: string[];
+  reddit_url?: string;
 }
 
 export interface CampaignData {

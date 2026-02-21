@@ -142,6 +142,7 @@ export default function DashboardPage() {
                 comments: selectedPost.num_comments || 0,
                 sentiment_score: (avgSentiment + 1) / 2,
                 top_comments: topComments,
+                reddit_url: `https://reddit.com${selectedPost.permalink}`,
               });
             }
           }
@@ -532,9 +533,21 @@ export default function DashboardPage() {
                         {post.post_type}
                       </span>
                     </div>
-                    <h3 className="text-base font-semibold text-gray-900 line-clamp-2 group-hover:text-coral transition-colors">
-                      {post.title}
-                    </h3>
+                    {post.reddit_url ? (
+                      <a
+                        href={post.reddit_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-base font-semibold text-gray-900 line-clamp-2 hover:text-coral transition-colors hover:underline"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {post.title}
+                      </a>
+                    ) : (
+                      <h3 className="text-base font-semibold text-gray-900 line-clamp-2">
+                        {post.title}
+                      </h3>
+                    )}
                   </div>
                   <SentimentBadge score={post.sentiment_score} />
                 </div>
