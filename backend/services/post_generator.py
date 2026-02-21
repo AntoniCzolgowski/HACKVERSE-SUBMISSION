@@ -8,6 +8,7 @@ crafting posts that feel like they belong.
 
 import os
 import json
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from anthropic import Anthropic
 from dotenv import load_dotenv
 
@@ -226,15 +227,20 @@ def _fallback_drafts(product: dict, subreddit: dict) -> list[dict]:
 
 def generate_all_posts(product: dict, subreddits: list[dict]) -> list[dict]:
     """
-    Generate post drafts for all subreddits.
-    Each subreddit gets its own Claude call with full community context.
+    Generate post drafts for all subreddits in parallel.
+    All Claude calls fire concurrently via ThreadPoolExecutor.
     """
-    results = []
-    for sub in subreddits:
+    results = [None] * len(subreddits)
+
+    def _generate(index: int, sub: dict):
         print(f"[post_generator] Generating posts for r/{sub.get('subreddit', '?')}...")
         drafts = generate_posts_for_subreddit(product, sub)
-        results.append({
-            "subreddit": sub.get("subreddit", ""),
-            "drafts": drafts,
-        })
+        return index, {"subreddit": sub.get("subreddit", ""), "drafts": drafts}
+
+    with ThreadPoolExecutor(max_workers=len(subreddits)) as executor:
+        futures = [executor.submit(_generate, i, sub) for i, sub in enumerate(subreddits)]
+        for future in as_completed(futures):
+            idx, result = future.result()
+            results[idx] = result
+
     return results
