@@ -4,3 +4,6 @@ anthropic
 python-dotenv
 pydantic
 jinja2
+python-multipart
+httpx
+beautifulsoup4

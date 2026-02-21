@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { discoverSubreddits } from "@/lib/api";
+import { discoverSubreddits, autofillFromUrl } from "@/lib/api";
 import { DiscoverRequest } from "@/lib/types";
-import { Search, Sparkles, Users, FileText } from "lucide-react";
+import { Search, Sparkles, Users, FileText, Link, Loader2 } from "lucide-react";
 
 const steps = [
   { label: "Enhancing search queries", icon: Sparkles },
@@ -27,6 +27,11 @@ export default function DiscoverPage() {
   const [error, setError] = useState("");
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  // Autofill state
+  const [autofillUrl, setAutofillUrl] = useState("");
+  const [autofilling, setAutofilling] = useState(false);
+  const [autofillStatus, setAutofillStatus] = useState<{ type: "success" | "error"; msg: string } | null>(null);
+
   useEffect(() => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
@@ -35,13 +40,37 @@ export default function DiscoverPage() {
 
   const currentStep = Math.min(Math.floor(progress / 25), 3);
 
+  async function handleAutofill() {
+    if (!autofillUrl.trim()) return;
+    setAutofilling(true);
+    setAutofillStatus(null);
+
+    try {
+      const fields = await autofillFromUrl(autofillUrl.trim());
+      setForm({
+        product_name: fields.product_name || "",
+        product_description: fields.product_description || "",
+        niche_category: fields.niche_category || "",
+        target_audience: fields.target_audience || "",
+        keywords: fields.keywords || "",
+      });
+      setAutofillStatus({ type: "success", msg: "All fields populated from website" });
+    } catch (err) {
+      setAutofillStatus({
+        type: "error",
+        msg: err instanceof Error ? err.message : "Failed to extract product info",
+      });
+    } finally {
+      setAutofilling(false);
+    }
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setProgress(0);
     setError("");
 
-    // Smooth progress: accelerates to ~90%, then waits for real completion
     let current = 0;
     intervalRef.current = setInterval(() => {
       current += Math.random() * 3 + 0.5;
@@ -64,7 +93,6 @@ export default function DiscoverPage() {
       sessionStorage.setItem("discoverResult", JSON.stringify(result));
 
       if (intervalRef.current) clearInterval(intervalRef.current);
-      // Animate to 100% before navigating
       setProgress(100);
       setTimeout(() => router.push("/results"), 400);
     } catch {
@@ -82,6 +110,66 @@ export default function DiscoverPage() {
           <span className="text-bold">Tell us about your product.</span>{" "}
           <span className="text-muted">We&apos;ll find your Reddit audience.</span>
         </h1>
+
+        {/* Autofill from URL */}
+        <div
+          className={`border-2 border-dashed rounded-2xl p-5 mb-6 transition-colors duration-300 ${
+            autofilling ? "border-coral/50 bg-coral/[0.02]" : "border-gray-200 bg-white hover:border-gray-300"
+          }`}
+        >
+          <div className="flex items-center gap-2 mb-1">
+            <Link className="w-4 h-4 text-coral" />
+            <span className="text-sm font-semibold text-gray-900">Auto-fill from website</span>
+          </div>
+          <p className="text-xs text-gray-400 mb-3">
+            Paste a company URL and AI will extract all product details automatically
+          </p>
+          <div className="flex gap-2">
+            <input
+              type="url"
+              className="input-field flex-1"
+              placeholder="https://example.com"
+              value={autofillUrl}
+              onChange={(e) => setAutofillUrl(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  handleAutofill();
+                }
+              }}
+            />
+            <button
+              type="button"
+              onClick={handleAutofill}
+              disabled={autofilling || !autofillUrl.trim()}
+              className="px-5 py-2.5 bg-gray-900 text-white text-sm font-semibold rounded-xl hover:bg-gray-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-200 inline-flex items-center gap-2 whitespace-nowrap"
+            >
+              {autofilling ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  Extracting...
+                </>
+              ) : (
+                "Extract"
+              )}
+            </button>
+          </div>
+          {autofillStatus && (
+            <p
+              className={`text-xs mt-2 font-medium ${
+                autofillStatus.type === "success" ? "text-emerald-600" : "text-red-500"
+              }`}
+            >
+              {autofillStatus.msg}
+            </p>
+          )}
+        </div>
+
+        <div className="flex items-center gap-3 mb-6">
+          <div className="flex-1 h-px bg-gray-200" />
+          <span className="text-xs text-gray-400 font-medium">or fill in manually</span>
+          <div className="flex-1 h-px bg-gray-200" />
+        </div>
 
         <form onSubmit={handleSubmit} className="card flex flex-col gap-5">
           <div>
@@ -162,7 +250,6 @@ export default function DiscoverPage() {
 
           {loading && (
             <div className="mt-6 space-y-4">
-              {/* Progress bar */}
               <div className="relative">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium text-gray-700">
@@ -183,7 +270,6 @@ export default function DiscoverPage() {
                 </div>
               </div>
 
-              {/* Step indicators */}
               <div className="flex items-center justify-between px-1">
                 {steps.map((s, i) => {
                   const Icon = s.icon;

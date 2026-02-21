@@ -1,9 +1,10 @@
-from fastapi import FastAPI, Request, Form
-from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 from models.schemas import ProductInput
 from services.subreddit_discovery import discover_subreddits
+from services.website_extract import extract_product_from_url
 
 app = FastAPI(title="LexTrack AI Backend")
 
@@ -15,8 +16,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-templates = Jinja2Templates(directory="templates")
-
 
 @app.get("/health")
 def health():
@@ -24,80 +23,42 @@ def health():
 
 
 # ==========================================
-#  TEST PAGE - Remove before production
+#  /api/discover — subreddit discovery
 # ==========================================
 
-@app.get("/test", response_class=HTMLResponse)
-async def test_form(request: Request):
-    """Show the test form"""
-    return templates.TemplateResponse("test.html", {
-        "request": request,
-        "results": None,
-        "error": None,
-        "prefill": {
-            "product_name": "FitMatch",
-            "product_description": "A niche dating app for gym and fitness enthusiasts who want to find partners that share their active lifestyle",
-            "niche_category": "Fitness & Dating",
-            "target_audience": "Gym-goers aged 20-35 looking for partners who share their fitness lifestyle",
-            "keywords": "gym dating, fitness singles, workout partner, gym crush"
-        }
-    })
-
-
-@app.post("/test", response_class=HTMLResponse)
-async def test_submit(
-    request: Request,
-    product_name: str = Form(...),
-    product_description: str = Form(...),
-    niche_category: str = Form(...),
-    target_audience: str = Form(...),
-    keywords: str = Form(...)
-):
-    """Process the test form and show results"""
+@app.post("/api/discover")
+async def api_discover(product: ProductInput):
+    """Takes product info, returns 5 relevant subreddit URLs via Claude."""
     try:
-        product = ProductInput(
-            product_name=product_name,
-            product_description=product_description,
-            niche_category=niche_category,
-            target_audience=target_audience,
-            keywords=[k.strip() for k in keywords.split(",") if k.strip()]
-        )
-
         result = discover_subreddits(product)
-
-        return templates.TemplateResponse("test.html", {
-            "request": request,
-            "results": result,
-            "error": None,
-            "prefill": {
-                "product_name": product_name,
-                "product_description": product_description,
-                "niche_category": niche_category,
-                "target_audience": target_audience,
-                "keywords": keywords
-            }
-        })
+        return result
     except Exception as e:
-        return templates.TemplateResponse("test.html", {
-            "request": request,
-            "results": None,
-            "error": str(e),
-            "prefill": {
-                "product_name": product_name,
-                "product_description": product_description,
-                "niche_category": niche_category,
-                "target_audience": target_audience,
-                "keywords": keywords
-            }
-        })
+        return JSONResponse(content={"error": str(e)}, status_code=500)
 
 
 # ==========================================
-#  FUTURE API ENDPOINTS (Nivid plugs in here)
+#  /api/autofill — extract product info from URL
 # ==========================================
 
-# from routers import discover, generate, publish, monitor
-# app.include_router(discover.router, prefix="/api")
+class AutofillRequest(BaseModel):
+    url: str
+
+
+@app.post("/api/autofill")
+async def api_autofill(body: AutofillRequest):
+    """Fetch a website URL and extract product info via Claude."""
+    try:
+        fields = extract_product_from_url(body.url)
+        return JSONResponse(content={"ok": True, "fields": fields})
+    except Exception as e:
+        return JSONResponse(content={"ok": False, "error": str(e)}, status_code=400)
+
+
+# ==========================================
+#  FUTURE ENDPOINTS
+# ==========================================
+
+# from routers import generate, publish, monitor
 # app.include_router(generate.router, prefix="/api")
 # app.include_router(publish.router, prefix="/api")
 # app.include_router(monitor.router, prefix="/api")

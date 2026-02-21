@@ -52,11 +52,11 @@ Return exactly 5 subreddits as a JSON array."""
 
     response = client.messages.create(
         model="claude-sonnet-4-6",
-        max_tokens=4096,
+        max_tokens=16000,
         thinking={
-            "type": "adaptive"
+            "type": "enabled",
+            "budget_tokens": 5000
         },
-        effort="medium",
         system=SYSTEM_PROMPT,
         messages=[
             {"role": "user", "content": user_prompt}

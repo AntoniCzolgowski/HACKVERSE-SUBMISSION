@@ -3,6 +3,38 @@ import { mockDiscoverResponse } from "./mock-data";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
+export interface AutofillResult {
+  product_name: string;
+  product_description: string;
+  niche_category: string;
+  target_audience: string;
+  keywords: string;
+}
+
+export async function autofillFromUrl(url: string): Promise<AutofillResult> {
+  if (!API_URL) {
+    // Mock fallback for dev without backend
+    await new Promise((r) => setTimeout(r, 2000));
+    return {
+      product_name: "Example Product",
+      product_description: "An AI-powered tool extracted from the provided website.",
+      niche_category: "Technology",
+      target_audience: "Tech-savvy professionals aged 25-45",
+      keywords: "ai, saas, productivity, automation",
+    };
+  }
+
+  const res = await fetch(`${API_URL}/api/autofill`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ url }),
+  });
+
+  const data = await res.json();
+  if (!data.ok) throw new Error(data.error || "Autofill failed");
+  return data.fields;
+}
+
 export async function discoverSubreddits(input: DiscoverRequest): Promise<DiscoverResponse> {
   if (!API_URL) {
     await new Promise((r) => setTimeout(r, 3000));
