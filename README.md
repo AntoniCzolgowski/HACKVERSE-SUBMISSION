@@ -32,51 +32,61 @@ Startups and growth teams need to reach their target audience on Reddit, but the
 **RedditReach** is an AI-powered Reddit outreach platform that automates the entire community discovery and content creation pipeline.
 
 - **Input:** Product name, description, niche, target audience, and keywords (or just a website URL for auto-extraction).
-- **Output:** A ranked list of the 5 best subreddits with live data (subscribers, rules, recent posts), a multi-factor compatibility score, and 3 tailored post drafts per subreddit (15 total) — each written to match the community's exact tone, rules, and culture.
-- **What makes it unique:** Unlike generic "find subreddits" tools, RedditReach scores communities on three dimensions (semantic relevance, self-promotion tolerance, and activity level), then generates posts that are indistinguishable from native community content. Every draft includes a strategy explanation and confidence score so marketers can make informed decisions.
+- **Output:** A ranked list of the 5 best subreddits with live data (subscribers, rules, recent posts), a multi-factor compatibility score, and 3 tailored post drafts per subreddit (15 total) — each written to match the community's exact tone, rules, and culture. After publishing, a full analytics dashboard shows simulated engagement, AI-generated persona comments, sentiment analysis, and AI recommendations.
+- **What makes it unique:** Unlike generic "find subreddits" tools, RedditReach scores communities on three dimensions (semantic relevance, self-promotion tolerance, and activity level), then generates posts that are indistinguishable from native community content. Every draft includes a strategy explanation and confidence score. After publishing, the platform simulates realistic community reactions using persona-based AI comments and provides a full analytics dashboard with sentiment breakdowns and strategic recommendations.
 
 ---
 
 ## 4. Architecture & System Design
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                    FRONTEND (Next.js 16 / React 19)             │
-│              Landing  →  Discover Form  →  Results Page         │
-│                          (SSE progress)    (Post drafts)        │
-└──────────────────────────────┬──────────────────────────────────┘
-                               │  REST + SSE
-                               ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                     BACKEND (FastAPI / Python)                  │
-│                                                                 │
-│  ┌────────────────┐  ┌────────────────┐  ┌──────────────────┐  │
-│  │  /api/autofill  │  │ /api/discover  │  │ /api/scrape-stream│ │
-│  │  Website → AI   │  │ Claude Sonnet  │  │  Public Reddit   │  │
-│  │  extraction     │  │ finds 5 subs   │  │  API + ranking   │  │
-│  └────────────────┘  └────────────────┘  └──────────────────┘  │
-│                                                                 │
-│  ┌──────────────────────────────────────────────────────────┐  │
-│  │                    /api/generate                          │  │
-│  │   Claude Haiku generates 3 drafts/sub (parallel threads)  │  │
-│  └──────────────────────────────────────────────────────────┘  │
-└───────────┬───────────────────────────────┬────────────────────┘
-            │                               │
-            ▼                               ▼
-   ┌─────────────────┐           ┌────────────────────┐
-   │  Anthropic API   │           │  Reddit Public API  │
-   │                  │           │                     │
-   │  Claude Sonnet   │           │  /r/{sub}/about     │
-   │  (discovery +    │           │  /r/{sub}/rules     │
-   │   extraction)    │           │  /r/{sub}/hot       │
-   │                  │           │                     │
-   │  Claude Haiku    │           └────────────────────┘
-   │  (post gen +     │
-   │   tolerance)     │           ┌────────────────────┐
-   └─────────────────┘           │  sentence-transformers│
-                                  │  (all-MiniLM-L6-v2)  │
-                                  │  Semantic similarity  │
-                                  └────────────────────┘
+┌──────────────────────────────────────────────────────────────────────┐
+│                     FRONTEND (Next.js 16 / React 19)                 │
+│     Landing  →  Discover Form  →  Results Page  →  Dashboard         │
+│                  (SSE progress)   (Post drafts)   (Analytics)        │
+└─────────────────────────────┬────────────────────────────────────────┘
+                              │  REST + SSE
+                              ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                      BACKEND (FastAPI / Python)                      │
+│                                                                      │
+│  ┌───────────────┐  ┌───────────────┐  ┌────────────────────────┐   │
+│  │ /api/autofill  │  │ /api/discover │  │ /api/scrape-stream     │   │
+│  │ Website → AI   │  │ Claude Sonnet │  │ Public Reddit API      │   │
+│  │ extraction     │  │ finds 5 subs  │  │ + multi-factor ranking │   │
+│  └───────────────┘  └───────────────┘  └────────────────────────┘   │
+│                                                                      │
+│  ┌──────────────────────────────────────────────────────────────┐   │
+│  │                      /api/generate                           │   │
+│  │    Claude Haiku generates 3 drafts/sub (parallel threads)    │   │
+│  └──────────────────────────────────────────────────────────────┘   │
+│                                                                      │
+│  ┌──────────────────────────────────────────────────────────────┐   │
+│  │                 /api/campaigns/publish                        │   │
+│  │  Persona comment generation → Sentiment analysis → Storage   │   │
+│  └──────────────────────────────────────────────────────────────┘   │
+│                                                                      │
+│  ┌──────────────────────────────────────────────────────────────┐   │
+│  │                /api/campaigns/latest                          │   │
+│  │           Retrieve campaign analytics for dashboard           │   │
+│  └──────────────────────────────────────────────────────────────┘   │
+└──────────┬──────────────────────────────┬────────────────────────────┘
+           │                              │
+           ▼                              ▼
+  ┌─────────────────┐          ┌────────────────────┐
+  │  Anthropic API   │          │  Reddit Public API  │
+  │                  │          │                     │
+  │  Claude Sonnet   │          │  /r/{sub}/about     │
+  │  (discovery,     │          │  /r/{sub}/rules     │
+  │   extraction,    │          │  /r/{sub}/hot       │
+  │   sentiment,     │          │                     │
+  │   personas)      │          └────────────────────┘
+  │                  │
+  │  Claude Haiku    │          ┌────────────────────┐
+  │  (post gen +     │          │ sentence-transformers│
+  │   tolerance)     │          │ (all-MiniLM-L6-v2)  │
+  └─────────────────┘          │ Semantic similarity  │
+                                └────────────────────┘
 ```
 
 ### Data Flow
@@ -86,7 +96,8 @@ Startups and growth teams need to reach their target audience on Reddit, but the
 3. **Scrape & Rank (SSE streaming):** For each subreddit, the backend hits Reddit's public JSON API to collect subscribers, rules, and 5 hot posts. Progress streams to the frontend in real-time via Server-Sent Events
 4. **Scoring:** Each subreddit is ranked by three factors (see Section 6)
 5. **Post Generation (parallel):** Claude Haiku generates 3 tailored drafts per subreddit concurrently via ThreadPoolExecutor — all 5 subreddits in parallel
-6. **Export:** User selects posts, downloads a structured JSON plan or copies individual posts
+6. **Publish:** User selects 1–5 posts and publishes. The backend generates realistic persona-based comments (2–15 per post), runs sentiment analysis on each comment, computes engagement metrics, and generates AI recommendations
+7. **Dashboard:** Campaign analytics page shows total reach, engagement trends, sentiment breakdown (pie chart), per-post metrics with persona comments, AI recommendations, and trending keywords
 
 ### Why this architecture?
 
@@ -130,6 +141,7 @@ Startups and growth teams need to reach their target audience on Reddit, but the
 | Model | Purpose | Why chosen |
 |-------|---------|-----------|
 | **Claude Sonnet 4.6** (with extended thinking) | Subreddit discovery, website extraction | Best reasoning for finding genuinely relevant communities. Extended thinking (5000 token budget) lets the model deliberate before committing to 5 subreddits |
+| **Claude Sonnet 4** | Persona comment generation, sentiment analysis, recommendations, keyword extraction | Used in the publish pipeline for generating realistic community reactions and post-campaign analytics |
 | **Claude Haiku 4.5** | Post generation (3 drafts/sub), self-promo tolerance scoring | Fast and cost-effective for generating multiple drafts. Each of the 5 subreddits needs its own call with full community context |
 | **all-MiniLM-L6-v2** (sentence-transformers) | Semantic similarity scoring | Lightweight, fast embedding model. No GPU required. Excellent for measuring topic overlap between product description and subreddit content |
 
@@ -166,6 +178,10 @@ Each draft includes:
 - **User prompt** provides full subreddit context: description, subscriber count, rules, recent posts with engagement metrics, and self-promo tolerance score
 - Posts must comply with every subreddit rule — if self-promotion is banned, the resource share is reframed as a personal discovery
 - Explicit anti-marketing-speak rules: no "revolutionary", "game-changing", "excited to announce"
+
+### Persona-Based Comment Simulation
+
+After publishing, the system generates realistic Reddit-style comments using a persona library. Each persona has a defined personality (skeptical techie, supportive community member, aggressive marketer critic, etc.) and Claude generates comments in-character. This lets marketers preview how a community might actually react before posting for real.
 
 ### Alternatives Considered
 
@@ -245,10 +261,10 @@ Each subreddit card in the UI displays three color-coded score bars:
 
 ### Limitations
 
-- Does not actually post to Reddit (publish is simulated) — users copy/paste manually
+- Does not actually post to Reddit — users copy/paste manually or use the simulated publish flow
 - Confidence scores are estimates, not guarantees of post success
 - Reddit community dynamics change; results are point-in-time snapshots
-- Dashboard monitoring (tracking post performance) is planned but not yet implemented
+- Dashboard engagement data is simulated (persona comments + estimated upvotes), not live Reddit metrics
 
 ---
 
@@ -337,12 +353,17 @@ HACKVERSE-SUBMISSION/
 │   ├── requirements.txt           # Python dependencies
 │   ├── .env.example               # Environment template
 │   ├── models/
-│   │   └── schemas.py             # Pydantic request/response models
-│   └── services/
-│       ├── subreddit_discovery.py  # Claude-powered subreddit finder
-│       ├── website_extract.py     # URL → product info extraction
-│       ├── reddit_scraper.py      # Reddit scraping + multi-factor ranking
-│       └── post_generator.py      # Parallel AI post draft generation
+│   │   ├── schemas.py             # Pydantic request/response models
+│   │   └── published_posts_schemas.py  # Campaign & publish models
+│   ├── services/
+│   │   ├── subreddit_discovery.py  # Claude-powered subreddit finder
+│   │   ├── website_extract.py     # URL → product info extraction
+│   │   ├── reddit_scraper.py      # Reddit scraping + multi-factor ranking
+│   │   ├── post_generator.py      # Parallel AI post draft generation
+│   │   ├── campaign_storage.py    # File-based campaign persistence
+│   │   └── persona_comments.py    # AI persona comment generation
+│   ├── data/campaigns/            # Stored campaign JSON files
+│   └── personas.json              # Persona definitions
 │
 └── frontend/
     ├── package.json               # Node dependencies
@@ -352,15 +373,21 @@ HACKVERSE-SUBMISSION/
     │   ├── page.tsx               # Landing page
     │   ├── layout.tsx             # Root layout (nav + footer)
     │   ├── discover/page.tsx      # Discovery form + progress
-    │   ├── results/page.tsx       # Ranked results + post drafts
-    │   └── dashboard/page.tsx     # Monitoring dashboard (planned)
+    │   ├── results/page.tsx       # Ranked results + post drafts + publish
+    │   ├── dashboard/page.tsx     # Campaign analytics dashboard
+    │   └── api/
+    │       ├── keywords/route.ts      # Keyword extraction API route
+    │       ├── sentiment/route.ts     # Sentiment analysis API route
+    │       └── post-recommendation/route.ts  # Post recommendation route
     ├── components/
     │   ├── nav.tsx                 # Navigation bar
     │   └── footer.tsx             # Footer
     └── lib/
         ├── api.ts                 # API client functions
         ├── types.ts               # TypeScript interfaces
-        └── mock-data.ts           # Mock data for offline development
+        ├── mock-data.ts           # Mock data for offline development
+        ├── sentiment-api.ts       # Sentiment analysis client
+        └── personas.json          # Persona definitions for comments
 ```
 
 ---
