@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { discoverSubreddits } from "@/lib/api";
 import { DiscoverRequest } from "@/lib/types";
+import { Search, Sparkles, Users, FileText } from "lucide-react";
 
 const steps = [
-  "Enhancing search queries...",
-  "Discovering relevant subreddits...",
-  "Analyzing community culture...",
-  "Generating tailored posts...",
+  { label: "Enhancing search queries", icon: Sparkles },
+  { label: "Discovering relevant subreddits", icon: Search },
+  { label: "Analyzing community culture", icon: Users },
+  { label: "Generating tailored posts", icon: FileText },
 ];
 
 export default function DiscoverPage() {
@@ -22,18 +23,31 @@ export default function DiscoverPage() {
     keywords: "",
   });
   const [loading, setLoading] = useState(false);
-  const [step, setStep] = useState(0);
+  const [progress, setProgress] = useState(0);
   const [error, setError] = useState("");
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
+
+  const currentStep = Math.min(Math.floor(progress / 25), 3);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    setStep(0);
+    setProgress(0);
     setError("");
 
-    const interval = setInterval(() => {
-      setStep((prev) => Math.min(prev + 1, 3));
-    }, 800);
+    // Smooth progress: accelerates to ~90%, then waits for real completion
+    let current = 0;
+    intervalRef.current = setInterval(() => {
+      current += Math.random() * 3 + 0.5;
+      if (current > 92) current = 92;
+      setProgress(current);
+    }, 80);
 
     try {
       const request: DiscoverRequest = {
@@ -48,12 +62,16 @@ export default function DiscoverPage() {
       };
       const result = await discoverSubreddits(request);
       sessionStorage.setItem("discoverResult", JSON.stringify(result));
-      clearInterval(interval);
-      router.push("/results");
+
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      // Animate to 100% before navigating
+      setProgress(100);
+      setTimeout(() => router.push("/results"), 400);
     } catch {
       setError("Something went wrong. Please try again.");
       setLoading(false);
-      clearInterval(interval);
+      setProgress(0);
+      if (intervalRef.current) clearInterval(intervalRef.current);
     }
   }
 
@@ -62,7 +80,7 @@ export default function DiscoverPage() {
       <div className="max-w-[640px] mx-auto px-4">
         <h1 className="heading-section text-center mb-8">
           <span className="text-bold">Tell us about your product.</span>{" "}
-          <span className="text-muted">We'll find your Reddit audience.</span>
+          <span className="text-muted">We&apos;ll find your Reddit audience.</span>
         </h1>
 
         <form onSubmit={handleSubmit} className="card flex flex-col gap-5">
@@ -128,31 +146,73 @@ export default function DiscoverPage() {
           <button
             type="submit"
             disabled={loading}
-            className="btn-primary w-full mt-2 disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
+            className="btn-primary w-full mt-2 disabled:opacity-70 disabled:cursor-not-allowed inline-flex justify-center items-center gap-2"
           >
-            {loading ? "Analyzing..." : "🔍 Analyze Reddit →"}
+            {loading ? (
+              <>
+                <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                Analyzing...
+              </>
+            ) : (
+              <>
+                <Search className="w-4 h-4" /> Analyze Reddit
+              </>
+            )}
           </button>
 
           {loading && (
-            <div className="mt-6 flex flex-col gap-2">
-              {steps.map((text, i) => (
-                <div key={i} className="flex items-center gap-3 text-sm">
-                  <span className="text-lg">
-                    {i < step ? "✅" : i === step ? "⏳" : "⬜"}
+            <div className="mt-6 space-y-4">
+              {/* Progress bar */}
+              <div className="relative">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-sm font-medium text-gray-700">
+                    {steps[currentStep].label}...
                   </span>
-                  <span
-                    className={
-                      i < step
-                        ? "text-gray-900"
-                        : i === step
-                        ? "text-[#E94560] animate-pulse font-medium"
-                        : "text-gray-400"
-                    }
-                  >
-                    {text}
+                  <span className="text-sm font-mono font-semibold text-coral">
+                    {Math.round(progress)}%
                   </span>
                 </div>
-              ))}
+                <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div
+                    className="h-full rounded-full transition-all duration-300 ease-out"
+                    style={{
+                      width: `${progress}%`,
+                      background: "linear-gradient(90deg, #E94560 0%, #FF6B81 100%)",
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Step indicators */}
+              <div className="flex items-center justify-between px-1">
+                {steps.map((s, i) => {
+                  const Icon = s.icon;
+                  const isDone = i < currentStep;
+                  const isActive = i === currentStep;
+                  return (
+                    <div key={i} className="flex flex-col items-center gap-1.5">
+                      <div
+                        className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-500 ${
+                          isDone
+                            ? "bg-coral text-white"
+                            : isActive
+                            ? "bg-coral/10 text-coral ring-2 ring-coral/30"
+                            : "bg-gray-100 text-gray-300"
+                        }`}
+                      >
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <span
+                        className={`text-[11px] font-medium transition-colors duration-300 ${
+                          isDone || isActive ? "text-gray-700" : "text-gray-300"
+                        }`}
+                      >
+                        {s.label.split(" ")[0]}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           )}
         </form>

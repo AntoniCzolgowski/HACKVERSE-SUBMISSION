@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { DiscoverResponse, PostDraft } from "@/lib/types";
 import { publishPosts } from "@/lib/api";
 import ScoreBadge from "@/components/ui/score-badge";
+import { User, Building2, MessageCircle, Download, Send } from "lucide-react";
 
 export default function ResultsPage() {
   const router = useRouter();
@@ -198,21 +199,30 @@ export default function ResultsPage() {
                 {/* Editor Tabs */}
                 {draft && (
                   <div className="mt-8 border-t border-gray-100 pt-6">
-                    <div className="tab-group flex gap-2 mb-4 overflow-x-auto">
-                      {sub.post_drafts.map((p) => (
-                        <button
-                          key={p.type}
-                          onClick={() =>
-                            setActiveTab((prev) => ({ ...prev, [sub.name]: p.type }))
-                          }
-                          className={currentTab === p.type ? "tab-item-active" : "tab-item"}
-                        >
-                          {p.type
-                            .split("_")
-                            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                            .join(" ")}
-                        </button>
-                      ))}
+                    <div className="relative inline-flex bg-gray-100 rounded-full p-1 mb-6">
+                      {sub.post_drafts.map((p) => {
+                        const isActive = currentTab === p.type;
+                        const Icon = p.type === "organic_user" ? User : p.type === "company_professional" ? Building2 : MessageCircle;
+                        return (
+                          <button
+                            key={p.type}
+                            onClick={() =>
+                              setActiveTab((prev) => ({ ...prev, [sub.name]: p.type }))
+                            }
+                            className={`relative z-10 flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                              isActive
+                                ? "bg-white text-gray-900 shadow-md"
+                                : "text-gray-500 hover:text-gray-700"
+                            }`}
+                          >
+                            <Icon className="w-4 h-4" />
+                            {p.type
+                              .split("_")
+                              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                              .join(" ")}
+                          </button>
+                        );
+                      })}
                     </div>
 
                     <div className="flex flex-col gap-4">
@@ -248,15 +258,15 @@ export default function ResultsPage() {
 
         {/* Bottom Bar Action */}
         <div className="mt-12 flex justify-end gap-4">
-          <button onClick={downloadJSON} className="btn-secondary">
-            📥 Download JSON
+          <button onClick={downloadJSON} className="btn-secondary inline-flex items-center gap-2">
+            <Download className="w-4 h-4" /> Download JSON
           </button>
           <button
             onClick={handlePublish}
             disabled={selected.size === 0 || publishing}
-            className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+            className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center gap-2"
           >
-            🚀 Publish Selected
+            <Send className="w-4 h-4" /> Publish Selected
           </button>
         </div>
       </div>
