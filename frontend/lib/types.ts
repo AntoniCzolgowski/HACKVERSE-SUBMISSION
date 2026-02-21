@@ -72,6 +72,8 @@ export interface PostMetrics {
   comments: number;
   sentiment_score: number;
   top_comments: CommentData[];
+  recommendation?: string;
+  keywords?: string[];
 }
 
 export interface CampaignData {
