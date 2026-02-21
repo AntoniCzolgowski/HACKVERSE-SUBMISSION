@@ -9,3 +9,8 @@ node_modules/
 .next/
 .env.local
 .env
+
+# Backend
+backend/.env
+backend/__pycache__/
+backend/**/__pycache__/

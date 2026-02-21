@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LexTrack AI — Subreddit Discovery Test</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f9fafb;
+            color: #1a1a1a;
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; margin: 0 auto; }
+        h1 { font-size: 28px; margin-bottom: 4px; }
+        .subtitle { color: #6b7280; font-size: 15px; margin-bottom: 32px; }
+        .form-group { margin-bottom: 16px; }
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6b7280;
+            margin-bottom: 6px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        input:focus, textarea:focus { border-color: #E94560; }
+        textarea { resize: vertical; }
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        button[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            background: #E94560;
+            color: white;
+            border: none;
+            border-radius: 24px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s, transform 0.1s;
+        }
+        button[type="submit"]:hover { background: #D63851; transform: scale(1.01); }
+        button[type="submit"]:active { transform: scale(0.99); }
+        button[type="submit"]:disabled { background: #9CA3AF; cursor: wait; }
+
+        .results { margin-top: 40px; }
+        .results h2 { font-size: 22px; margin-bottom: 16px; }
+        .card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+        .card:hover { border-color: #d1d5db; }
+        .card-header { display: flex; justify-content: space-between; align-items: center; }
+        .sub-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #E94560;
+            text-decoration: none;
+        }
+        .sub-name:hover { text-decoration: underline; }
+        .sub-url {
+            font-size: 13px;
+            color: #9CA3AF;
+            margin-top: 4px;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .copy-btn {
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 2px 8px;
+            font-size: 11px;
+            cursor: pointer;
+            color: #6b7280;
+        }
+        .copy-btn:hover { background: #e5e7eb; }
+        .reason { font-size: 14px; color: #4b5563; margin-top: 8px; }
+        .badge {
+            display: inline-block;
+            background: #f0fdf4;
+            color: #15803d;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+        .error {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #b91c1c;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .divider { border-top: 1px solid #e5e7eb; margin: 32px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LexTrack AI — Subreddit Discovery</h1>
+        <p class="subtitle">Enter product details — Claude Sonnet 4.6 finds 5 relevant subreddits</p>
+
+        <form method="post" action="/test" id="discoveryForm">
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" name="product_name" value="{{ prefill.product_name }}" required>
+            </div>
+            <div class="form-group">
+                <label>Product Description</label>
+                <textarea name="product_description" rows="3" required>{{ prefill.product_description }}</textarea>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label>Niche Category</label>
+                    <input type="text" name="niche_category" value="{{ prefill.niche_category }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Target Audience</label>
+                    <input type="text" name="target_audience" value="{{ prefill.target_audience }}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Keywords (comma-separated)</label>
+                <input type="text" name="keywords" value="{{ prefill.keywords }}" required>
+            </div>
+            <button type="submit" id="submitBtn">Discover Subreddits</button>
+        </form>
+
+        {% if error %}
+        <div class="error">
+            <strong>Error:</strong> {{ error }}
+        </div>
+        {% endif %}
+
+        {% if results %}
+        <div class="divider"></div>
+        <div class="results">
+            <h2>Results for "{{ results.product_name }}"</h2>
+            {% for sub in results.subreddits %}
+            <div class="card">
+                <div class="card-header">
+                    <a href="{{ sub.url }}" target="_blank" class="sub-name">{{ sub.name }}</a>
+                    <span class="badge">#{{ loop.index }}</span>
+                </div>
+                <div class="sub-url">
+                    <span id="url-{{ loop.index }}">{{ sub.url }}</span>
+                    <button class="copy-btn" onclick="navigator.clipboard.writeText('{{ sub.url }}');this.textContent='Copied!'">Copy</button>
+                </div>
+                <p class="reason">{{ sub.reason }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById('discoveryForm').addEventListener('submit', function() {
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Analyzing with Claude Sonnet 4.6...';
+        });
+    </script>
+</body>
+</html>
