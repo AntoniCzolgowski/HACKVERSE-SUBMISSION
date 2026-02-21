@@ -191,31 +191,6 @@ After publishing, the system generates realistic Reddit-style comments using a p
 
 ---
 
-## 7. Evaluation & Metrics
-
-### Evaluation Approach
-
-Since this is a generation system (not classification), we evaluate across multiple dimensions:
-
-### Test Cases
-
-| # | Product | Niche | Expected Behavior | Result |
-|---|---------|-------|-------------------|--------|
-| 1 | FitMatch (dating app for gym-goers) | Fitness & Dating | Should find fitness + dating subreddits | Found r/fitness, r/dating_advice, r/GymMotivation, r/OnlineDating, r/datingoverthirty |
-| 2 | Basketball shoe brand | Sneakers & Sports | Should find sneaker + basketball communities | Found r/Basketball, r/Sneakers, r/FashionReps, r/running, r/xxfitness |
-| 3 | AI writing tool | SaaS & Productivity | Should find writing + productivity + AI subs | Found relevant writing and tech communities |
-| 4 | Vegan meal kit | Food & Health | Should find vegan + cooking + health subs | Found diet, cooking, and plant-based communities |
-| 5 | Indie game | Gaming | Should find gamedev + gaming communities | Found relevant gaming and indie dev subreddits |
-
-### Metrics
-
-| Metric | What it measures | Target | Achieved |
-|--------|-----------------|--------|----------|
-| **Discovery relevance** | Are the 5 subreddits actually relevant? | All 5 should be real, active, topically aligned | 5/5 in all test cases |
-| **Rule compliance** | Do generated posts respect subreddit rules? | 100% compliance | Posts adapt strategy based on rules (verified manually) |
-| **Tone matching** | Do posts match community writing style? | Indistinguishable from native content | Claude analyzes recent posts and mirrors style |
-| **Generation speed** | Time from request to all 15 drafts | < 30 seconds | ~20s with parallel ThreadPoolExecutor (down from 90s sequential) |
-| **Scoring accuracy** | Does the ranking match intuitive relevance? | Top-ranked sub should be most relevant | Semantic + tolerance + activity weighting produces intuitive rankings |
 
 ### Scoring Breakdown Visualization
 
@@ -232,7 +207,7 @@ Each subreddit card in the UI displays three color-coded score bars:
 
 ---
 
-## 8. Business Impact & Actionability
+## 7. Business Impact & Actionability
 
 ### How This Helps Decision-Makers
 
@@ -268,7 +243,7 @@ Each subreddit card in the UI displays three color-coded score bars:
 
 ---
 
-## 9. Tech Stack
+## 8. Tech Stack
 
 | Layer | Technology | Version |
 |-------|-----------|---------|
@@ -293,7 +268,7 @@ Each subreddit card in the UI displays three color-coded score bars:
 
 ---
 
-## 10. How to Run the Project
+## 9. How to Run the Project
 
 ### Prerequisites
 - Python 3.12+
@@ -340,7 +315,7 @@ npm run dev
 
 ---
 
-## 11. Repository Structure
+## 10. Repository Structure
 
 ```
 HACKVERSE-SUBMISSION/
@@ -390,26 +365,8 @@ HACKVERSE-SUBMISSION/
         └── personas.json          # Persona definitions for comments
 ```
 
----
 
-## 12. Alignment with HackVerse Rubric
 
-| Criterion | How we address it |
-|-----------|------------------|
-| **Problem Understanding** | Clear articulation of the Reddit outreach problem, who it affects, and why current approaches fail |
-| **Data & System Design** | Clean separation between frontend/backend, well-defined API contracts, SSE streaming for real-time UX |
-| **Technical Depth** | Multi-factor ranking (semantic + tolerance + activity), extended thinking for discovery, parallel generation, sentence-transformer embeddings |
-| **Modeling Strategy** | Strategic use of two Claude models (Sonnet for reasoning, Haiku for speed), custom scoring algorithm, rule-aware post generation |
-| **Evaluation** | 5 test cases across different niches, multiple quality metrics, manual verification of rule compliance |
-| **Business Actionability** | Directly usable output (copy-paste posts), exportable plans, confidence scores for risk assessment |
-| **Visualization** | Score breakdown bars, real-time progress streaming, ranked card layout with collapsible details |
-| **Innovation** | Self-promo tolerance scoring via AI, community-native content generation, parallel API architecture |
 
 ---
 
-## Compliance Statement
-
-We confirm that this project was developed during HackVerse 2026.
-We used only permitted datasets and tools.
-No private code sharing occurred between teams.
-All work is original.
