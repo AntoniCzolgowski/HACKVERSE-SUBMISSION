@@ -1,7 +1,7 @@
-# RedditReach - LexTrack AI
+# Stack Underflow - LexTrack AI
 
 **Company Track:** Lextrack AI
-**Team Name:** RedditReach
+**Team Name:** Stack Underflow
 **Team Members:** Antoni Czolgowski, Nivid Pathak, Atharva Zodpe, Zach
 
 ---
