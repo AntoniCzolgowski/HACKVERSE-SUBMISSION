@@ -10,7 +10,10 @@
       "Bash(curl:*)",
       "Bash(uvicorn:*)",
       "Bash(lsof:*)",
-      "Bash(xargs kill)"
+      "Bash(xargs kill)",
+      "Bash(taskkill:*)",
+      "Bash(git add:*)",
+      "Bash(git remote add:*)"
     ]
   }
 }

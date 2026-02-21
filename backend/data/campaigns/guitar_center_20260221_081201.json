@@ -1,0 +1,458 @@
+{
+  "product": {
+    "name": "Guitar Center",
+    "description": "Guitar Center is a leading musical instrument retailer offering a wide selection of left-handed electric guitars from top brands like Fender, Gibson, Ibanez, and more. Customers can shop online or in-store with competitive pricing, free shipping on most orders, and financing options. The store also carries guitars, amps, effects, accessories, and offers lessons, repairs, and rentals.",
+    "niche_category": "Music Retail & Instruments",
+    "target_audience": "Left-handed guitarists and musicians of all skill levels seeking electric guitars and music gear",
+    "keywords": [
+      "left-handed electric guitars",
+      "guitar store",
+      "music instruments",
+      "Fender",
+      "Gibson",
+      "guitar accessories",
+      "electric guitar",
+      "online music retailer"
+    ]
+  },
+  "published_posts": [
+    {
+      "subreddit": "r/guitar",
+      "post_type": "discussion_post",
+      "title": "Why is gear selection still so limited for left-handed players in 2024?",
+      "body": "I was thinking about this the other day while scrolling through some gear forums. We're in 2024, left-handed people make up roughly 10% of the population, and yet finding quality left-handed guitars still feels like pulling teeth.\n\nMost manufacturers treat left-handed versions like an afterthought. You'll see a Fender Stratocaster in 47 color options for right-handers, but maybe 2-3 for lefties. Gibson's the same story. Even newer brands that pride themselves on customization options sometimes don't even bother with lefty versions.\n\nI get that economics matter - lower demand means smaller production runs. But it feels like the market is stuck in this loop where manufacturers don't stock lefties, so fewer people can find what they want, which keeps demand artificially low.\n\nThinking about it from a player perspective: if you're a young left-handed kid who wants to learn guitar, what are your actual options? The selection barrier is real.\n\nDoes anyone here think this is changing, or does it feel like it's been the same for years?",
+      "upvotes": 223,
+      "comments": 6,
+      "sentiment_score": 0.6666666666666666,
+      "top_comments": [
+        {
+          "author": "pragmatic_paul",
+          "body": "The economics make perfect sense when you run the numbers. If lefties are 10% of the population but only 3-4% actually play guitar (rough estimate), you're looking at maybe 0.3-0.4% of total market demand. Factor in inventory carrying costs, tooling changes, and longer shelf time, and the ROI just isn't there for most SKUs.\n\nFrom a business standpoint, manufacturers are being rational. They'd rather sell 1000 units of a popular right-handed model than tie up capital in 50 lefty versions that might sit for months.\n\nYour best bet is probably going direct-to-consumer or boutique builders who can justify the premium pricing that makes small-batch lefty production viable. Or honestly, learn to play right-handed - lots of lefties do just fine that way and it opens up the entire used market.",
+          "score": 33,
+          "sentiment": "neutral",
+          "persona_id": 8,
+          "persona_name": "Pragmatic Paul"
+        },
+        {
+          "author": "wellness_wendy",
+          "body": "This resonates with me on such a deep level! As someone who believes in honoring our natural tendencies and authentic selves, it feels so backwards that the guitar industry hasn't embraced left-handed players more fully. We wouldn't ask someone to write with their non-dominant hand, so why force musical expression through an unnatural orientation?\n\nI've noticed this same pattern in other industries too - there's this manufactured scarcity that keeps people from accessing what naturally serves their body and spirit. When we honor our innate gifts and work WITH our natural inclinations rather than against them, that's where the real magic happens.\n\nMaybe it's time for more conscious, mindful manufacturers to step up and fill this gap? The universe has a way of providing when we're aligned with authentic need. Sending good energy to all the lefty players out there! \ud83d\ude4f",
+          "score": 26,
+          "sentiment": "positive",
+          "persona_id": 13,
+          "persona_name": "Wellness Wendy"
+        },
+        {
+          "author": "wellness_wendy",
+          "body": "This is such an interesting parallel to what I see in the wellness industry! It's like how most supplement companies only focus on mainstream formulations and ignore people with specific needs or sensitivities. The guitar industry seems trapped in the same limited mindset.\n\nAs someone who teaches yoga, I work with bodies of all different orientations and needs - some students are naturally left-dominant, others right-dominant. There's such beauty in honoring these natural differences instead of forcing everyone into the same mold.\n\nMaybe what the guitar world needs is more small, conscious manufacturers who truly see the whole market? Like how artisanal wellness brands often fill gaps that big pharma ignores. Sometimes the most authentic growth comes from embracing diversity rather than mass-producing sameness.\n\nThe universe has a way of eventually balancing these things out, but it takes mindful consumers supporting the change they want to see! \ud83c\udf31",
+          "score": 68,
+          "sentiment": "positive",
+          "persona_id": 13,
+          "persona_name": "Wellness Wendy"
+        },
+        {
+          "author": "optimistic_oliver",
+          "body": "Yo this is actually so true!! \ud83d\ude2d I'm a righty but my roommate is lefty and he's always complaining about this exact thing lol. It's wild that in 2024 we can get like custom everything but lefty guitars are still treated like some rare specialty item?? \n\nI feel like this has gotta change soon though - Gen Z is way more aware of accessibility stuff and companies are starting to listen to us more. Plus with social media, lefty players can actually organize and make noise about it now! Have you tried any of those smaller boutique builders on Instagram? I see them posting lefty builds all the time and they look sick \ud83d\udd25\n\nMaybe if enough people start calling out the big brands on TikTok they'll finally get the message haha. The younger market has way more power than people think!",
+          "score": 68,
+          "sentiment": "positive",
+          "persona_id": 5,
+          "persona_name": "Optimistic Oliver"
+        },
+        {
+          "author": "budget-conscious_sarah",
+          "body": "As someone who's helped left-handed students find guitars over the years, I totally feel this frustration. The limited selection means lefty guitars often cost 20-30% more than identical right-handed models, which is brutal for families on tight budgets.\n\nI've started recommending parents check out used markets, pawn shops, and even Facebook Marketplace more aggressively. Sometimes you can find decent Yamaha or Epiphone lefties for reasonable prices. Also worth mentioning - some kids do fine learning right-handed if they start young enough, though I know that's controversial.\n\nThe economics make sense from a manufacturer standpoint, but it definitely creates a barrier. Have you looked into any of the direct-to-consumer brands? I've heard some are more flexible with lefty options and cut out the middleman markup, though I haven't tried them personally.",
+          "score": 1,
+          "sentiment": "neutral",
+          "persona_id": 2,
+          "persona_name": "Budget-Conscious Sarah"
+        },
+        {
+          "author": "budget-conscious_sarah",
+          "body": "This is so frustrating! My daughter is left-handed and when we were looking for her first guitar last year, I was shocked at the price difference. The few lefty options at Guitar Center were either $100+ more expensive than the right-handed versions or just cheap beginner models with terrible reviews.\n\nI ended up buying a used Yamaha online for $80 more than I budgeted because that was literally the only decent left-handed acoustic in our price range. Meanwhile my friend found the same model right-handed on sale for $40 less at three different stores.\n\nIt really does feel like lefties get punished twice - limited selection AND higher prices. I've been tempted to just flip a right-handed guitar and restring it, but everyone says that messes with the nut and bridge. Has anyone actually tried that route successfully?",
+          "score": 34,
+          "sentiment": "negative",
+          "persona_id": 2,
+          "persona_name": "Budget-Conscious Sarah"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83c\udfb8 This post shows strong engagement potential - consider creating follow-up content about specific left-handed gear solutions or interviewing left-handed musicians, as the topic clearly resonates with the community despite limited discussion in comments.",
+      "keywords": [
+        "lefty guitars",
+        "direct-to-consumer",
+        "boutique builders",
+        "market demand",
+        "inventory carrying costs"
+      ],
+      "why_this_post_fits": "This post frames a genuine industry observation that the community cares about without mentioning any retailer or product. It invites debate and personal stories from left-handed players, which is highly relevant to r/guitar's discussion culture. The analytical but conversational tone matches recent hot posts. It positions the user as a thoughtful community member asking real questions about an industry problem.",
+      "why_subreddit_selected": "1M+ members actively discussing all aspects of guitar buying, gear recommendations, and brand comparisons \u2014 prime audience for Guitar Center's product range"
+    },
+    {
+      "subreddit": "r/guitars",
+      "post_type": "question_post",
+      "title": "Anyone else struggle finding lefty guitars in stock locally?",
+      "body": "I've been on the hunt for a decent left-handed electric for a while now and it's honestly frustrating. Every local music store seems to have like 2-3 lefty options at most, and they're usually the expensive or weird stuff nobody wants.\n\nI know online shopping isn't ideal because you can't touch and feel the guitar first, but at this point I'm considering it just to have actual variety to choose from. Do most of you lefty players end up going the online route? How do you deal with not being able to play it before buying? Any tips for ordering without losing your mind about whether it'll feel right?\n\nAlso curious if anyone's had better luck finding good lefty stock anywhere specific - just wondering if I'm looking in the wrong places.",
+      "upvotes": 340,
+      "comments": 4,
+      "sentiment_score": 1.0,
+      "top_comments": [
+        {
+          "author": "trendy_taylor",
+          "body": "ugh literally the lefty struggle is SO real!! i've been seeing this complaint everywhere on guitar tiktok lately and it's wild how stores just don't stock them. honestly at this point online might be your best bet - i know reverb and sweetwater have way better lefty selections and their return policies are pretty solid if the vibe is off\n\nhave you checked if any of the guitar center locations near you can order stuff in? i've heard mixed things but some people swear by it. also idk if this helps but i keep seeing left-handed players on social media raving about certain brands that are more lefty-friendly - like schecter and esp seem to actually make effort with their lefty lineups?\n\nthe whole \"can't try before you buy\" thing is rough but honestly with how limited local stock is, what choice do we have \ud83d\ude2d at least most places have decent return windows now",
+          "score": 76,
+          "sentiment": "positive",
+          "persona_id": 11,
+          "persona_name": "Trendy Taylor"
+        },
+        {
+          "author": "eco-warrior_emma",
+          "body": "Have you considered looking into local luthiers or guitar repair shops that might do conversions? I know it sounds unconventional, but converting a right-handed guitar to lefty can be way more sustainable than constantly shipping new instruments around. Plus you'd be supporting local craftspeople instead of big box stores.\n\nAlso, if you do go the online route, maybe check out reverb or other secondhand marketplaces first? There's already so many guitars out there that just need new homes instead of contributing to more manufacturing demand. I've seen some lefty players in forums mention having luck with estate sales and pawn shops too - might take more hunting but you could find something unique while keeping it out of a landfill.\n\nThe whole \"try before you buy\" thing is tough, but honestly most online retailers have decent return policies these days if the environmental cost of potential shipping back and forth doesn't bother you too much.",
+          "score": 64,
+          "sentiment": "positive",
+          "persona_id": 7,
+          "persona_name": "Eco-Warrior Emma"
+        },
+        {
+          "author": "budget-conscious_sarah",
+          "body": "I feel your pain! As someone on a teacher's budget, I've found that buying lefty guitars locally is basically impossible unless you want to pay premium prices. I ended up going the online route through Reverb and got a decent Yamaha Pacifica for way less than what the local shops wanted for their limited lefty stock.\n\nMy advice: look for sellers with good return policies and tons of detailed photos. I also asked the seller specific questions about neck feel, fret condition, etc. Yeah, it's not ideal not being able to play it first, but honestly the selection and prices online make it worth the risk. Plus most places give you at least a week to return if it's not right.\n\nCheck out Guitar Center's used section online too - they often have lefties that never make it to the floor at local stores.",
+          "score": 1,
+          "sentiment": "positive",
+          "persona_id": 2,
+          "persona_name": "Budget-Conscious Sarah"
+        },
+        {
+          "author": "eco-warrior_emma",
+          "body": "Hey fellow lefty! I totally feel your frustration - the selection is abysmal everywhere. But before you go the online route, have you considered checking out some local luthiers or repair shops? A lot of them work with vintage and refurbished instruments, which is honestly way better for the planet than buying new. Plus they often have unique lefty pieces that big box stores would never carry.\n\nI picked up an amazing 70s Yamaha that way - got it restored locally and it plays like a dream. The environmental impact is so much lower when you're giving an existing instrument new life instead of contributing to more manufacturing. And supporting small local craftspeople is always a win! Many luthiers will even do custom lefty conversions if you find a righty you love. Just a thought - might solve your selection problem while being more sustainable!",
+          "score": 110,
+          "sentiment": "positive",
+          "persona_id": 7,
+          "persona_name": "Eco-Warrior Emma"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83c\udfb8 Create a follow-up post sharing specific resources or online retailers for left-handed guitars, as your high-engagement question shows there's strong community interest in this topic.",
+      "keywords": [
+        "lefty struggle",
+        "guitar tiktok",
+        "try before you buy",
+        "lefty-friendly",
+        "return policies"
+      ],
+      "why_this_post_fits": "This post targets a real pain point for left-handed guitarists while asking for genuine community advice. It mirrors the casual, conversational style of hot posts like 'I love cheap weird guitars' and avoids any direct product mentions. The question format invites authentic discussion about where people shop, which naturally surfaces online retailers without violating rule 2 (no buying/selling links). High engagement potential because lefty players are underserved in the community.",
+      "why_subreddit_selected": "Large enthusiast community focused on guitar purchases, brand discussions (Fender, Gibson, Ibanez), and gear reviews relevant to Guitar Center's inventory"
+    },
+    {
+      "subreddit": "r/leftyguitar",
+      "post_type": "question_post",
+      "title": "Anyone else struggle finding left-handed electrics in stock locally?",
+      "body": "I've been looking for a decent left-handed Strat or Jazzmaster in my area for weeks now, and it's been a nightmare. Every music store around me has maybe one or two lefty options, and they're usually the cheaper beginner stuff or already spoken for.\n\nDo you guys just end up ordering online? I'm hesitant to buy an electric without playing it first, but I'm starting to think that's just not realistic for us southpaws. What's been your experience \u2014 are you finding stock anywhere, or is online ordering just the way to go at this point?",
+      "upvotes": 464,
+      "comments": 6,
+      "sentiment_score": 0.8333333333333334,
+      "top_comments": [
+        {
+          "author": "pragmatic_paul",
+          "body": "I ran the numbers on this exact issue last year when I was shopping for my daughter. Local stores had maybe 15% of the inventory that righties get, and the markup was typically 8-12% higher on comparable models.\n\nHere's what worked: I called ahead to 6 stores within a 50-mile radius, got their lefty inventory lists emailed to me, then made targeted trips only when they had something worth my time. Saved probably 15 hours of browsing.\n\nFor the actual purchase, I bought online from Sweetwater after playing a righty version locally to test the electronics and neck feel. Their return policy made the ROI math work - even factoring in potential return shipping, I saved $180 vs local pricing and got exactly what I wanted. Sometimes you just have to optimize around the constraints.",
+          "score": 43,
+          "sentiment": "positive",
+          "persona_id": 8,
+          "persona_name": "Pragmatic Paul"
+        },
+        {
+          "author": "diy_dave",
+          "body": "Honestly, I'd skip the endless searching and just build one yourself. You can get a solid lefty neck from Warmoth or similar suppliers, route out a body blank (or buy pre-routed), and spec it exactly how you want. Did this with a Tele-style build last year - cost about the same as a mid-tier Fender but plays better than anything I've tried in stores.\n\nThe routing isn't that complex if you've got basic woodworking skills and a router. Electronics are straightforward - just follow a wiring diagram. Plus you'll actually understand your instrument instead of being at the mercy of whatever limited lefty stock happens to be sitting around gathering dust.\n\nOnly downside is the time investment, but you end up with something that's actually yours instead of settling for whatever scraps the manufacturers decide to throw our way.",
+          "score": 16,
+          "sentiment": "positive",
+          "persona_id": 12,
+          "persona_name": "DIY Dave"
+        },
+        {
+          "author": "fitness_fanatic_jason",
+          "body": "Hey man, I feel you on this! Been dealing with the same struggle for years. As someone who's super into researching everything before I buy (occupational hazard lol), I totally get wanting to test drive before dropping cash on an instrument.\n\nHere's what worked for me - I started hitting up guitar shops during my rest days and building relationships with the staff. Let them know what you're looking for and ask them to call when lefty models come in. Most shops will let you return within a week if you order online and it doesn't feel right.\n\nAlso, don't sleep on the \"beginner\" models - some of those Squier lefties punch way above their weight with a good setup. Just like with workout gear, sometimes the simpler option gets the job done better than the flashy stuff!",
+          "score": 67,
+          "sentiment": "positive",
+          "persona_id": 3,
+          "persona_name": "Fitness Fanatic Jason"
+        },
+        {
+          "author": "eco-warrior_emma",
+          "body": "Have you considered looking into used/vintage lefty guitars instead? I know it doesn't solve the stock issue, but buying secondhand is so much better for the planet than supporting new manufacturing. Plus vintage instruments often have way more character! \n\nCheck out local Facebook Marketplace, Reverb, or even put up a \"wanted\" post in local musician groups. You might find someone willing to let you try before buying. I've had great luck with estate sales too - found my partner an amazing 80s Yamaha that way.\n\nThe guitar industry is pretty wasteful with all the new models they push out constantly, so supporting the secondhand market feels way better ethically. And honestly, a well-maintained older instrument often plays better than new stuff anyway!",
+          "score": 104,
+          "sentiment": "positive",
+          "persona_id": 7,
+          "persona_name": "Eco-Warrior Emma"
+        },
+        {
+          "author": "budget-conscious_sarah",
+          "body": "I feel your pain! I've been hunting for a lefty for months and ended up going the online route. Honestly, I'd suggest checking out the used market first - Reverb, Facebook Marketplace, even Craigslist. You'll save hundreds and sometimes find gems that stores don't carry anymore.\n\nIf you do go new online, Guitar Center and Sweetwater have decent return policies, so you can send it back if it doesn't feel right. I actually found a Mexican Strat lefty on Reverb for $350 that plays better than the $700 ones I tried in stores. \n\nAlso worth calling around to smaller local shops - sometimes they'll special order without charging extra, and you might get better service than the big chains. The wait sucks but beats paying full retail plus shipping!",
+          "score": 16,
+          "sentiment": "positive",
+          "persona_id": 2,
+          "persona_name": "Budget-Conscious Sarah"
+        },
+        {
+          "author": "trendy_taylor",
+          "body": "Ugh the lefty struggle is SO real! I've been seeing this complaint everywhere on guitar TikTok lately. Honestly at this point I just order online - like yeah it's not ideal but the selection is actually way better and you can read tons of reviews first. \n\nI got my Jazzmaster off Reverb after watching like 20 different YouTube demos and reading every single review lol. Most places have decent return policies now anyway so if it feels weird when it arrives you can usually send it back. Plus I feel like half the guitar influencers I follow are lefties dealing with the same thing and they all seem to be going the online route now. The days of trying before buying might just be over for us unfortunately \ud83d\ude2d",
+          "score": 24,
+          "sentiment": "negative",
+          "persona_id": 11,
+          "persona_name": "Trendy Taylor"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83c\udfb8 This post's strong performance (464 upvotes, 83% positive sentiment) shows there's high demand for content about left-handed guitar availability issues, so consider creating more posts about sourcing tips, store recommendations, or leftie guitar reviews to engage this underserved community.",
+      "keywords": [
+        "lefty inventory",
+        "ROI math",
+        "Warmoth",
+        "route out a body",
+        "targeted trips"
+      ],
+      "why_this_post_fits": "This post mirrors the natural frustration left-handed guitarists experience with inventory scarcity. It invites community problem-solving discussion and naturally leads to recommendations about where people actually find and buy their instruments. The post feels authentic to a genuine pain point rather than manufactured.",
+      "why_subreddit_selected": "Dedicated community of left-handed guitarists who frequently discuss the challenge of finding quality lefty instruments, exactly the problem Guitar Center's selection solves"
+    }
+  ],
+  "posted_at": "2026-02-21T15:11:46.563Z",
+  "overall": {
+    "total_reach": 15405,
+    "total_engagement": 1043,
+    "positive_sentiment": 0.8333333333333334,
+    "active_posts": 3,
+    "total_posts": 3
+  },
+  "engagement_over_time": [
+    {
+      "hour": "03AM",
+      "upvotes": 112,
+      "comments": 60
+    },
+    {
+      "hour": "04AM",
+      "upvotes": 225,
+      "comments": 121
+    },
+    {
+      "hour": "05AM",
+      "upvotes": 338,
+      "comments": 182
+    },
+    {
+      "hour": "06AM",
+      "upvotes": 451,
+      "comments": 243
+    },
+    {
+      "hour": "07AM",
+      "upvotes": 564,
+      "comments": 304
+    },
+    {
+      "hour": "08AM",
+      "upvotes": 677,
+      "comments": 365
+    }
+  ],
+  "sentiment": {
+    "positive": 66,
+    "neutral": 33,
+    "negative": 0
+  },
+  "posts": [
+    {
+      "subreddit": "r/guitar",
+      "post_type": "discussion_post",
+      "title": "Why is gear selection still so limited for left-handed players in 2024?",
+      "body": "I was thinking about this the other day while scrolling through some gear forums. We're in 2024, left-handed people make up roughly 10% of the population, and yet finding quality left-handed guitars still feels like pulling teeth.\n\nMost manufacturers treat left-handed versions like an afterthought. You'll see a Fender Stratocaster in 47 color options for right-handers, but maybe 2-3 for lefties. Gibson's the same story. Even newer brands that pride themselves on customization options sometimes don't even bother with lefty versions.\n\nI get that economics matter - lower demand means smaller production runs. But it feels like the market is stuck in this loop where manufacturers don't stock lefties, so fewer people can find what they want, which keeps demand artificially low.\n\nThinking about it from a player perspective: if you're a young left-handed kid who wants to learn guitar, what are your actual options? The selection barrier is real.\n\nDoes anyone here think this is changing, or does it feel like it's been the same for years?",
+      "upvotes": 223,
+      "comments": 6,
+      "sentiment_score": 0.6666666666666666,
+      "top_comments": [
+        {
+          "author": "pragmatic_paul",
+          "body": "The economics make perfect sense when you run the numbers. If lefties are 10% of the population but only 3-4% actually play guitar (rough estimate), you're looking at maybe 0.3-0.4% of total market demand. Factor in inventory carrying costs, tooling changes, and longer shelf time, and the ROI just isn't there for most SKUs.\n\nFrom a business standpoint, manufacturers are being rational. They'd rather sell 1000 units of a popular right-handed model than tie up capital in 50 lefty versions that might sit for months.\n\nYour best bet is probably going direct-to-consumer or boutique builders who can justify the premium pricing that makes small-batch lefty production viable. Or honestly, learn to play right-handed - lots of lefties do just fine that way and it opens up the entire used market.",
+          "score": 33,
+          "sentiment": "neutral",
+          "persona_id": 8,
+          "persona_name": "Pragmatic Paul"
+        },
+        {
+          "author": "wellness_wendy",
+          "body": "This resonates with me on such a deep level! As someone who believes in honoring our natural tendencies and authentic selves, it feels so backwards that the guitar industry hasn't embraced left-handed players more fully. We wouldn't ask someone to write with their non-dominant hand, so why force musical expression through an unnatural orientation?\n\nI've noticed this same pattern in other industries too - there's this manufactured scarcity that keeps people from accessing what naturally serves their body and spirit. When we honor our innate gifts and work WITH our natural inclinations rather than against them, that's where the real magic happens.\n\nMaybe it's time for more conscious, mindful manufacturers to step up and fill this gap? The universe has a way of providing when we're aligned with authentic need. Sending good energy to all the lefty players out there! \ud83d\ude4f",
+          "score": 26,
+          "sentiment": "positive",
+          "persona_id": 13,
+          "persona_name": "Wellness Wendy"
+        },
+        {
+          "author": "wellness_wendy",
+          "body": "This is such an interesting parallel to what I see in the wellness industry! It's like how most supplement companies only focus on mainstream formulations and ignore people with specific needs or sensitivities. The guitar industry seems trapped in the same limited mindset.\n\nAs someone who teaches yoga, I work with bodies of all different orientations and needs - some students are naturally left-dominant, others right-dominant. There's such beauty in honoring these natural differences instead of forcing everyone into the same mold.\n\nMaybe what the guitar world needs is more small, conscious manufacturers who truly see the whole market? Like how artisanal wellness brands often fill gaps that big pharma ignores. Sometimes the most authentic growth comes from embracing diversity rather than mass-producing sameness.\n\nThe universe has a way of eventually balancing these things out, but it takes mindful consumers supporting the change they want to see! \ud83c\udf31",
+          "score": 68,
+          "sentiment": "positive",
+          "persona_id": 13,
+          "persona_name": "Wellness Wendy"
+        },
+        {
+          "author": "optimistic_oliver",
+          "body": "Yo this is actually so true!! \ud83d\ude2d I'm a righty but my roommate is lefty and he's always complaining about this exact thing lol. It's wild that in 2024 we can get like custom everything but lefty guitars are still treated like some rare specialty item?? \n\nI feel like this has gotta change soon though - Gen Z is way more aware of accessibility stuff and companies are starting to listen to us more. Plus with social media, lefty players can actually organize and make noise about it now! Have you tried any of those smaller boutique builders on Instagram? I see them posting lefty builds all the time and they look sick \ud83d\udd25\n\nMaybe if enough people start calling out the big brands on TikTok they'll finally get the message haha. The younger market has way more power than people think!",
+          "score": 68,
+          "sentiment": "positive",
+          "persona_id": 5,
+          "persona_name": "Optimistic Oliver"
+        },
+        {
+          "author": "budget-conscious_sarah",
+          "body": "As someone who's helped left-handed students find guitars over the years, I totally feel this frustration. The limited selection means lefty guitars often cost 20-30% more than identical right-handed models, which is brutal for families on tight budgets.\n\nI've started recommending parents check out used markets, pawn shops, and even Facebook Marketplace more aggressively. Sometimes you can find decent Yamaha or Epiphone lefties for reasonable prices. Also worth mentioning - some kids do fine learning right-handed if they start young enough, though I know that's controversial.\n\nThe economics make sense from a manufacturer standpoint, but it definitely creates a barrier. Have you looked into any of the direct-to-consumer brands? I've heard some are more flexible with lefty options and cut out the middleman markup, though I haven't tried them personally.",
+          "score": 1,
+          "sentiment": "neutral",
+          "persona_id": 2,
+          "persona_name": "Budget-Conscious Sarah"
+        },
+        {
+          "author": "budget-conscious_sarah",
+          "body": "This is so frustrating! My daughter is left-handed and when we were looking for her first guitar last year, I was shocked at the price difference. The few lefty options at Guitar Center were either $100+ more expensive than the right-handed versions or just cheap beginner models with terrible reviews.\n\nI ended up buying a used Yamaha online for $80 more than I budgeted because that was literally the only decent left-handed acoustic in our price range. Meanwhile my friend found the same model right-handed on sale for $40 less at three different stores.\n\nIt really does feel like lefties get punished twice - limited selection AND higher prices. I've been tempted to just flip a right-handed guitar and restring it, but everyone says that messes with the nut and bridge. Has anyone actually tried that route successfully?",
+          "score": 34,
+          "sentiment": "negative",
+          "persona_id": 2,
+          "persona_name": "Budget-Conscious Sarah"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83c\udfb8 This post shows strong engagement potential - consider creating follow-up content about specific left-handed gear solutions or interviewing left-handed musicians, as the topic clearly resonates with the community despite limited discussion in comments.",
+      "keywords": [
+        "lefty guitars",
+        "direct-to-consumer",
+        "boutique builders",
+        "market demand",
+        "inventory carrying costs"
+      ],
+      "why_this_post_fits": "This post frames a genuine industry observation that the community cares about without mentioning any retailer or product. It invites debate and personal stories from left-handed players, which is highly relevant to r/guitar's discussion culture. The analytical but conversational tone matches recent hot posts. It positions the user as a thoughtful community member asking real questions about an industry problem.",
+      "why_subreddit_selected": "1M+ members actively discussing all aspects of guitar buying, gear recommendations, and brand comparisons \u2014 prime audience for Guitar Center's product range"
+    },
+    {
+      "subreddit": "r/guitars",
+      "post_type": "question_post",
+      "title": "Anyone else struggle finding lefty guitars in stock locally?",
+      "body": "I've been on the hunt for a decent left-handed electric for a while now and it's honestly frustrating. Every local music store seems to have like 2-3 lefty options at most, and they're usually the expensive or weird stuff nobody wants.\n\nI know online shopping isn't ideal because you can't touch and feel the guitar first, but at this point I'm considering it just to have actual variety to choose from. Do most of you lefty players end up going the online route? How do you deal with not being able to play it before buying? Any tips for ordering without losing your mind about whether it'll feel right?\n\nAlso curious if anyone's had better luck finding good lefty stock anywhere specific - just wondering if I'm looking in the wrong places.",
+      "upvotes": 340,
+      "comments": 4,
+      "sentiment_score": 1.0,
+      "top_comments": [
+        {
+          "author": "trendy_taylor",
+          "body": "ugh literally the lefty struggle is SO real!! i've been seeing this complaint everywhere on guitar tiktok lately and it's wild how stores just don't stock them. honestly at this point online might be your best bet - i know reverb and sweetwater have way better lefty selections and their return policies are pretty solid if the vibe is off\n\nhave you checked if any of the guitar center locations near you can order stuff in? i've heard mixed things but some people swear by it. also idk if this helps but i keep seeing left-handed players on social media raving about certain brands that are more lefty-friendly - like schecter and esp seem to actually make effort with their lefty lineups?\n\nthe whole \"can't try before you buy\" thing is rough but honestly with how limited local stock is, what choice do we have \ud83d\ude2d at least most places have decent return windows now",
+          "score": 76,
+          "sentiment": "positive",
+          "persona_id": 11,
+          "persona_name": "Trendy Taylor"
+        },
+        {
+          "author": "eco-warrior_emma",
+          "body": "Have you considered looking into local luthiers or guitar repair shops that might do conversions? I know it sounds unconventional, but converting a right-handed guitar to lefty can be way more sustainable than constantly shipping new instruments around. Plus you'd be supporting local craftspeople instead of big box stores.\n\nAlso, if you do go the online route, maybe check out reverb or other secondhand marketplaces first? There's already so many guitars out there that just need new homes instead of contributing to more manufacturing demand. I've seen some lefty players in forums mention having luck with estate sales and pawn shops too - might take more hunting but you could find something unique while keeping it out of a landfill.\n\nThe whole \"try before you buy\" thing is tough, but honestly most online retailers have decent return policies these days if the environmental cost of potential shipping back and forth doesn't bother you too much.",
+          "score": 64,
+          "sentiment": "positive",
+          "persona_id": 7,
+          "persona_name": "Eco-Warrior Emma"
+        },
+        {
+          "author": "budget-conscious_sarah",
+          "body": "I feel your pain! As someone on a teacher's budget, I've found that buying lefty guitars locally is basically impossible unless you want to pay premium prices. I ended up going the online route through Reverb and got a decent Yamaha Pacifica for way less than what the local shops wanted for their limited lefty stock.\n\nMy advice: look for sellers with good return policies and tons of detailed photos. I also asked the seller specific questions about neck feel, fret condition, etc. Yeah, it's not ideal not being able to play it first, but honestly the selection and prices online make it worth the risk. Plus most places give you at least a week to return if it's not right.\n\nCheck out Guitar Center's used section online too - they often have lefties that never make it to the floor at local stores.",
+          "score": 1,
+          "sentiment": "positive",
+          "persona_id": 2,
+          "persona_name": "Budget-Conscious Sarah"
+        },
+        {
+          "author": "eco-warrior_emma",
+          "body": "Hey fellow lefty! I totally feel your frustration - the selection is abysmal everywhere. But before you go the online route, have you considered checking out some local luthiers or repair shops? A lot of them work with vintage and refurbished instruments, which is honestly way better for the planet than buying new. Plus they often have unique lefty pieces that big box stores would never carry.\n\nI picked up an amazing 70s Yamaha that way - got it restored locally and it plays like a dream. The environmental impact is so much lower when you're giving an existing instrument new life instead of contributing to more manufacturing. And supporting small local craftspeople is always a win! Many luthiers will even do custom lefty conversions if you find a righty you love. Just a thought - might solve your selection problem while being more sustainable!",
+          "score": 110,
+          "sentiment": "positive",
+          "persona_id": 7,
+          "persona_name": "Eco-Warrior Emma"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83c\udfb8 Create a follow-up post sharing specific resources or online retailers for left-handed guitars, as your high-engagement question shows there's strong community interest in this topic.",
+      "keywords": [
+        "lefty struggle",
+        "guitar tiktok",
+        "try before you buy",
+        "lefty-friendly",
+        "return policies"
+      ],
+      "why_this_post_fits": "This post targets a real pain point for left-handed guitarists while asking for genuine community advice. It mirrors the casual, conversational style of hot posts like 'I love cheap weird guitars' and avoids any direct product mentions. The question format invites authentic discussion about where people shop, which naturally surfaces online retailers without violating rule 2 (no buying/selling links). High engagement potential because lefty players are underserved in the community.",
+      "why_subreddit_selected": "Large enthusiast community focused on guitar purchases, brand discussions (Fender, Gibson, Ibanez), and gear reviews relevant to Guitar Center's inventory"
+    },
+    {
+      "subreddit": "r/leftyguitar",
+      "post_type": "question_post",
+      "title": "Anyone else struggle finding left-handed electrics in stock locally?",
+      "body": "I've been looking for a decent left-handed Strat or Jazzmaster in my area for weeks now, and it's been a nightmare. Every music store around me has maybe one or two lefty options, and they're usually the cheaper beginner stuff or already spoken for.\n\nDo you guys just end up ordering online? I'm hesitant to buy an electric without playing it first, but I'm starting to think that's just not realistic for us southpaws. What's been your experience \u2014 are you finding stock anywhere, or is online ordering just the way to go at this point?",
+      "upvotes": 464,
+      "comments": 6,
+      "sentiment_score": 0.8333333333333334,
+      "top_comments": [
+        {
+          "author": "pragmatic_paul",
+          "body": "I ran the numbers on this exact issue last year when I was shopping for my daughter. Local stores had maybe 15% of the inventory that righties get, and the markup was typically 8-12% higher on comparable models.\n\nHere's what worked: I called ahead to 6 stores within a 50-mile radius, got their lefty inventory lists emailed to me, then made targeted trips only when they had something worth my time. Saved probably 15 hours of browsing.\n\nFor the actual purchase, I bought online from Sweetwater after playing a righty version locally to test the electronics and neck feel. Their return policy made the ROI math work - even factoring in potential return shipping, I saved $180 vs local pricing and got exactly what I wanted. Sometimes you just have to optimize around the constraints.",
+          "score": 43,
+          "sentiment": "positive",
+          "persona_id": 8,
+          "persona_name": "Pragmatic Paul"
+        },
+        {
+          "author": "diy_dave",
+          "body": "Honestly, I'd skip the endless searching and just build one yourself. You can get a solid lefty neck from Warmoth or similar suppliers, route out a body blank (or buy pre-routed), and spec it exactly how you want. Did this with a Tele-style build last year - cost about the same as a mid-tier Fender but plays better than anything I've tried in stores.\n\nThe routing isn't that complex if you've got basic woodworking skills and a router. Electronics are straightforward - just follow a wiring diagram. Plus you'll actually understand your instrument instead of being at the mercy of whatever limited lefty stock happens to be sitting around gathering dust.\n\nOnly downside is the time investment, but you end up with something that's actually yours instead of settling for whatever scraps the manufacturers decide to throw our way.",
+          "score": 16,
+          "sentiment": "positive",
+          "persona_id": 12,
+          "persona_name": "DIY Dave"
+        },
+        {
+          "author": "fitness_fanatic_jason",
+          "body": "Hey man, I feel you on this! Been dealing with the same struggle for years. As someone who's super into researching everything before I buy (occupational hazard lol), I totally get wanting to test drive before dropping cash on an instrument.\n\nHere's what worked for me - I started hitting up guitar shops during my rest days and building relationships with the staff. Let them know what you're looking for and ask them to call when lefty models come in. Most shops will let you return within a week if you order online and it doesn't feel right.\n\nAlso, don't sleep on the \"beginner\" models - some of those Squier lefties punch way above their weight with a good setup. Just like with workout gear, sometimes the simpler option gets the job done better than the flashy stuff!",
+          "score": 67,
+          "sentiment": "positive",
+          "persona_id": 3,
+          "persona_name": "Fitness Fanatic Jason"
+        },
+        {
+          "author": "eco-warrior_emma",
+          "body": "Have you considered looking into used/vintage lefty guitars instead? I know it doesn't solve the stock issue, but buying secondhand is so much better for the planet than supporting new manufacturing. Plus vintage instruments often have way more character! \n\nCheck out local Facebook Marketplace, Reverb, or even put up a \"wanted\" post in local musician groups. You might find someone willing to let you try before buying. I've had great luck with estate sales too - found my partner an amazing 80s Yamaha that way.\n\nThe guitar industry is pretty wasteful with all the new models they push out constantly, so supporting the secondhand market feels way better ethically. And honestly, a well-maintained older instrument often plays better than new stuff anyway!",
+          "score": 104,
+          "sentiment": "positive",
+          "persona_id": 7,
+          "persona_name": "Eco-Warrior Emma"
+        },
+        {
+          "author": "budget-conscious_sarah",
+          "body": "I feel your pain! I've been hunting for a lefty for months and ended up going the online route. Honestly, I'd suggest checking out the used market first - Reverb, Facebook Marketplace, even Craigslist. You'll save hundreds and sometimes find gems that stores don't carry anymore.\n\nIf you do go new online, Guitar Center and Sweetwater have decent return policies, so you can send it back if it doesn't feel right. I actually found a Mexican Strat lefty on Reverb for $350 that plays better than the $700 ones I tried in stores. \n\nAlso worth calling around to smaller local shops - sometimes they'll special order without charging extra, and you might get better service than the big chains. The wait sucks but beats paying full retail plus shipping!",
+          "score": 16,
+          "sentiment": "positive",
+          "persona_id": 2,
+          "persona_name": "Budget-Conscious Sarah"
+        },
+        {
+          "author": "trendy_taylor",
+          "body": "Ugh the lefty struggle is SO real! I've been seeing this complaint everywhere on guitar TikTok lately. Honestly at this point I just order online - like yeah it's not ideal but the selection is actually way better and you can read tons of reviews first. \n\nI got my Jazzmaster off Reverb after watching like 20 different YouTube demos and reading every single review lol. Most places have decent return policies now anyway so if it feels weird when it arrives you can usually send it back. Plus I feel like half the guitar influencers I follow are lefties dealing with the same thing and they all seem to be going the online route now. The days of trying before buying might just be over for us unfortunately \ud83d\ude2d",
+          "score": 24,
+          "sentiment": "negative",
+          "persona_id": 11,
+          "persona_name": "Trendy Taylor"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83c\udfb8 This post's strong performance (464 upvotes, 83% positive sentiment) shows there's high demand for content about left-handed guitar availability issues, so consider creating more posts about sourcing tips, store recommendations, or leftie guitar reviews to engage this underserved community.",
+      "keywords": [
+        "lefty inventory",
+        "ROI math",
+        "Warmoth",
+        "route out a body",
+        "targeted trips"
+      ],
+      "why_this_post_fits": "This post mirrors the natural frustration left-handed guitarists experience with inventory scarcity. It invites community problem-solving discussion and naturally leads to recommendations about where people actually find and buy their instruments. The post feels authentic to a genuine pain point rather than manufactured.",
+      "why_subreddit_selected": "Dedicated community of left-handed guitarists who frequently discuss the challenge of finding quality lefty instruments, exactly the problem Guitar Center's selection solves"
+    }
+  ],
+  "recommendations": [],
+  "campaign_id": "guitar_center_20260221_081201",
+  "created_at": "2026-02-21T08:12:01.714962"
+}
