@@ -32,7 +32,7 @@ The final product is an AI-powered Reddit outreach platform that automates the e
 
 - **Input:** Product name, description, niche, target audience, and keywords (or just a website URL for auto-extraction).
 - **Output:** A ranked list of the 5 best subreddits with live data (subscribers, rules, recent posts), a multi-factor compatibility score, and 3 tailored post drafts per subreddit (15 total) — each written to match the community's exact tone, rules, and culture. After publishing, a full analytics dashboard shows simulated engagement, AI-generated persona comments, sentiment analysis, and AI recommendations.
-- **What makes it unique:** Unlike generic "find subreddits" tools, RedditReach scores communities on three dimensions (semantic relevance, self-promotion tolerance, and activity level), then generates posts that are indistinguishable from native community content. Every draft includes a strategy explanation and confidence score. After publishing, the platform simulates realistic community reactions using persona-based AI comments and provides a full analytics dashboard with sentiment breakdowns and strategic recommendations.
+- **What makes it unique:** Unlike generic "find subreddits" tools, our product scores communities on three dimensions (semantic relevance, self-promotion tolerance, and activity level), then generates posts that are indistinguishable from native community content. Every draft includes a strategy explanation and confidence score. After publishing, the platform simulates realistic community reactions using persona-based AI comments and provides a full analytics dashboard with sentiment breakdowns and strategic recommendations.
 
 ---
 
@@ -210,7 +210,7 @@ Each subreddit card in the UI displays three color-coded score bars:
 
 ### How This Helps Decision-Makers
 
-| Without RedditReach | With RedditReach |
+| Without our product | With our product |
 |--------------------|-----------------|
 | 3-5 hours manually researching subreddits | 60 seconds automated discovery + scoring |
 | Risk of getting banned for rule violations | AI-analyzed rule compliance with confidence scores |
