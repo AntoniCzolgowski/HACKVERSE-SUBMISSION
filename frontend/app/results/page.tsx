@@ -636,6 +636,10 @@ export default function ResultsPage() {
 
       const result = await response.json();
 
+      // Save campaign via storage layer (localStorage now, API later)
+      const { saveCampaign } = await import("@/lib/campaign-storage");
+      saveCampaign(result.campaign || postPlan);
+
       // Show success message
       const subCount = new Set(postsToPublish.map((p) => p.subreddit)).size;
       setPublishMessage(
