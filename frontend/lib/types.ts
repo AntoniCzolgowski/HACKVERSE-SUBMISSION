@@ -144,10 +144,16 @@ export interface PostMetrics {
   subreddit: string;
   post_type: string;
   title: string;
+  body?: string;
   upvotes: number;
   comments: number;
   sentiment_score: number;
   top_comments: CommentData[];
+  recommendation?: string;
+  keywords?: string[];
+  why_this_post_fits?: string;
+  why_subreddit_selected?: string;
+  reddit_url?: string;
 }
 
 export interface CampaignData {

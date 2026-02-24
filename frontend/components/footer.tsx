@@ -13,13 +13,18 @@ export default function Footer() {
         </div>
         <div>
           <h3 className="font-sans font-bold text-sm text-gray-900 mb-3">Team</h3>
-          <p className="text-sm text-gray-500">Hackverse 2026</p>
-          <p className="text-sm text-gray-500">4 builders</p>
+          <p className="text-sm text-gray-500">Antoni Czolgowski</p>
+          <p className="text-sm text-gray-500">Nivid Pathak</p>
+          <p className="text-sm text-gray-500">Atharva Zodpe</p>
+          <p className="text-sm text-gray-500">Zach</p>
         </div>
         <div>
           <h3 className="font-sans font-bold text-sm text-gray-900 mb-3">Built with</h3>
-          <p className="text-sm text-gray-500">Claude AI · Reddit API</p>
-          <p className="text-sm text-gray-500">Next.js · FastAPI</p>
+          <p className="text-sm text-gray-500">Claude Sonnet 4.6 & Haiku 4.5</p>
+          <p className="text-sm text-gray-500">Reddit Public API</p>
+          <p className="text-sm text-gray-500">Next.js 16 · React 19</p>
+          <p className="text-sm text-gray-500">FastAPI · Python</p>
+          <p className="text-sm text-gray-500">sentence-transformers (MiniLM)</p>
         </div>
       </div>
       <div className="max-w-content mx-auto mt-8 pt-6 border-t border-gray-100">

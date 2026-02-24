@@ -88,7 +88,7 @@ export default function DashboardPage() {
         setLoading(true);
 
         // Fetch the latest campaign from backend
-        const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
         const response = await fetch(`${API_URL}/api/campaigns/latest`);
 
         if (!response.ok) {

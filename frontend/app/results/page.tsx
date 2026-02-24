@@ -343,11 +343,13 @@ function BottomBar({
   onDownload,
   onPublish,
   publishMessage,
+  isPublishing,
 }: {
   selectedCount: number;
   onDownload: () => void;
   onPublish: () => void;
   publishMessage: string | null;
+  isPublishing: boolean;
 }) {
   if (selectedCount === 0 && !publishMessage) return null;
 
@@ -385,10 +387,20 @@ function BottomBar({
               </button>
               <button
                 onClick={onPublish}
-                className="bg-coral hover:bg-coral/90 text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors inline-flex items-center gap-2"
+                disabled={isPublishing}
+                className="bg-coral hover:bg-coral/90 text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Send className="w-4 h-4" />
-                Publish
+                {isPublishing ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Publishing...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    Publish
+                  </>
+                )}
               </button>
             </div>
           </div>
@@ -407,6 +419,7 @@ export default function ResultsPage() {
   const [genError, setGenError] = useState("");
   const [selectedDrafts, setSelectedDrafts] = useState<Set<string>>(new Set());
   const [publishMessage, setPublishMessage] = useState<string | null>(null);
+  const [isPublishing, setIsPublishing] = useState(false);
 
   useEffect(() => {
     const stored = sessionStorage.getItem("analysisResult");
@@ -601,9 +614,10 @@ export default function ResultsPage() {
       status: "published",
     };
 
+    setIsPublishing(true);
     try {
       // Send to backend
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
       const response = await fetch(`${API_URL}/api/campaigns/publish`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -633,6 +647,8 @@ export default function ResultsPage() {
       console.error("Publish error:", error);
       setPublishMessage("Failed to publish. Please try again.");
       setTimeout(() => setPublishMessage(null), 3000);
+    } finally {
+      setIsPublishing(false);
     }
   }
 
@@ -783,6 +799,7 @@ export default function ResultsPage() {
         onDownload={downloadPostPlan}
         onPublish={handlePublish}
         publishMessage={publishMessage}
+        isPublishing={isPublishing}
       />
     </div>
   );

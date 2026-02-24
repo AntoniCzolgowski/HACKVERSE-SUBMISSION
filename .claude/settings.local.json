@@ -13,7 +13,10 @@
       "Bash(xargs kill)",
       "Bash(taskkill:*)",
       "Bash(git add:*)",
-      "Bash(git remote add:*)"
+      "Bash(git remote add:*)",
+      "Bash(source:*)",
+      "Bash(python:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }
