@@ -7,8 +7,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-
 EXTRACT_PROMPT = """You are a product analyst. Given the text content of a company website, extract the following fields for a marketing form.
 
 Return ONLY a valid JSON object with these exact keys:
@@ -61,10 +59,11 @@ def fetch_website_text(url: str) -> str:
     return f"{meta_text}\n\n{text}" if meta_text else text
 
 
-def extract_product_from_url(url: str) -> dict:
+def extract_product_from_url(url: str, api_key: str = "") -> dict:
     """Fetch website, send to Claude Haiku for extraction, return form fields."""
     website_text = fetch_website_text(url)
 
+    client = Anthropic(api_key=api_key or os.getenv("ANTHROPIC_API_KEY"))
     response = client.messages.create(
         model="claude-sonnet-4-6",
         max_tokens=1024,

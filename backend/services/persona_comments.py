@@ -11,8 +11,6 @@ from dotenv import load_dotenv
 import asyncio
 
 load_dotenv()
-client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-async_client = AsyncAnthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 # Load personas
 PERSONAS_PATH = Path(__file__).parent.parent / "personas.json"
@@ -49,7 +47,7 @@ Write a single, authentic Reddit comment from this persona responding to the pos
 Return ONLY the comment text, no quotes, no labels, no explanation."""
 
 
-def generate_persona_comment(post_data: dict, persona: dict) -> str:
+def generate_persona_comment(post_data: dict, persona: dict, api_key: str = "") -> str:
     """
     Generate a comment from a specific persona for a post (synchronous version).
     """
@@ -70,7 +68,8 @@ def generate_persona_comment(post_data: dict, persona: dict) -> str:
         reddit_behavior=persona["reddit_behavior"]
     )
 
-    response = client.messages.create(
+    _client = Anthropic(api_key=api_key or os.getenv("ANTHROPIC_API_KEY"))
+    response = _client.messages.create(
         model="claude-sonnet-4-20250514",
         max_tokens=300,
         messages=[{"role": "user", "content": prompt}]
@@ -79,7 +78,7 @@ def generate_persona_comment(post_data: dict, persona: dict) -> str:
     return response.content[0].text.strip()
 
 
-async def generate_persona_comment_async(post_data: dict, persona: dict) -> str:
+async def generate_persona_comment_async(post_data: dict, persona: dict, api_key: str = "") -> str:
     """
     Generate a comment from a specific persona for a post (async version).
     """
@@ -100,7 +99,8 @@ async def generate_persona_comment_async(post_data: dict, persona: dict) -> str:
         reddit_behavior=persona["reddit_behavior"]
     )
 
-    response = await async_client.messages.create(
+    _async_client = AsyncAnthropic(api_key=api_key or os.getenv("ANTHROPIC_API_KEY"))
+    response = await _async_client.messages.create(
         model="claude-sonnet-4-20250514",
         max_tokens=300,
         messages=[{"role": "user", "content": prompt}]
@@ -149,7 +149,7 @@ def generate_comments_for_post(post_data: dict, num_comments: int = None) -> lis
     return comments
 
 
-async def generate_comments_for_post_async(post_data: dict, num_comments: int = None) -> list[dict]:
+async def generate_comments_for_post_async(post_data: dict, num_comments: int = None, api_key: str = "") -> list[dict]:
     """
     Generate between 2-15 comments for a post using random personas (async version).
     Returns list of comment objects with author, body, score, and persona_id.
@@ -164,7 +164,7 @@ async def generate_comments_for_post_async(post_data: dict, num_comments: int = 
     # Generate all comments in parallel
     async def generate_single_comment(persona):
         try:
-            comment_text = await generate_persona_comment_async(post_data, persona)
+            comment_text = await generate_persona_comment_async(post_data, persona, api_key=api_key)
 
             # Generate realistic upvote score based on persona sentiment
             base_score = random.randint(1, 50)

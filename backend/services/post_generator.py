@@ -14,17 +14,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-_client = None
 
-
-def _get_client():
-    global _client
-    if _client is None:
-        _client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-    return _client
-
-
-def generate_posts_for_subreddit(product: dict, subreddit: dict) -> list[dict]:
+def generate_posts_for_subreddit(product: dict, subreddit: dict, api_key: str = "") -> list[dict]:
     """
     Generate 3 subreddit-native post drafts for a single subreddit.
 
@@ -146,7 +137,8 @@ ANALYSIS INSTRUCTIONS:
 Generate the 3 tailored posts for r/{sub_name}. Return ONLY the JSON array."""
 
     try:
-        response = _get_client().messages.create(
+        _client = Anthropic(api_key=api_key or os.getenv("ANTHROPIC_API_KEY"))
+        response = _client.messages.create(
             model="claude-haiku-4-5-20251001",
             max_tokens=4000,
             system=system_prompt,
@@ -225,7 +217,7 @@ def _fallback_drafts(product: dict, subreddit: dict) -> list[dict]:
     ]
 
 
-def generate_all_posts(product: dict, subreddits: list[dict]) -> list[dict]:
+def generate_all_posts(product: dict, subreddits: list[dict], api_key: str = "") -> list[dict]:
     """
     Generate post drafts for all subreddits in parallel.
     All Claude calls fire concurrently via ThreadPoolExecutor.
@@ -234,7 +226,7 @@ def generate_all_posts(product: dict, subreddits: list[dict]) -> list[dict]:
 
     def _generate(index: int, sub: dict):
         print(f"[post_generator] Generating posts for r/{sub.get('subreddit', '?')}...")
-        drafts = generate_posts_for_subreddit(product, sub)
+        drafts = generate_posts_for_subreddit(product, sub, api_key=api_key)
         return index, {"subreddit": sub.get("subreddit", ""), "drafts": drafts}
 
     with ThreadPoolExecutor(max_workers=len(subreddits)) as executor:

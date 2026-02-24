@@ -464,6 +464,7 @@ export default function ResultsPage() {
     setGenError("");
 
     try {
+      const apiKey = localStorage.getItem("anthropic_api_key") || "";
       const result = await generatePosts({
         product_name: data.product_name,
         product_description: data.product_description,
@@ -471,7 +472,7 @@ export default function ResultsPage() {
         target_audience: data.target_audience,
         keywords: data.keywords,
         subreddits: subs,
-      });
+      }, apiKey);
 
       const map: Record<string, PostDraft[]> = {};
       for (const sd of result.subreddit_drafts) {
@@ -618,9 +619,12 @@ export default function ResultsPage() {
     try {
       // Send to backend
       const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+      const apiKey = localStorage.getItem("anthropic_api_key") || "";
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (apiKey) headers["X-Anthropic-Key"] = apiKey;
       const response = await fetch(`${API_URL}/api/campaigns/publish`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers,
         body: JSON.stringify(postPlan),
       });
 

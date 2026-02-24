@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { discoverSubreddits, autofillFromUrl, scrapeSubredditsStream } from "@/lib/api";
 import { DiscoverRequest, ScrapeProgressEvent } from "@/lib/types";
-import { Search, Sparkles, Link, Loader2, BarChart3, Globe } from "lucide-react";
+import { Search, Sparkles, Link, Loader2, BarChart3, Globe, Key } from "lucide-react";
 
 const steps = [
   { label: "Discovering subreddits", icon: Search },
@@ -33,11 +33,25 @@ export default function DiscoverPage() {
   const [autofilling, setAutofilling] = useState(false);
   const [autofillStatus, setAutofillStatus] = useState<{ type: "success" | "error"; msg: string } | null>(null);
 
+  // API key state
+  const [apiKey, setApiKey] = useState("");
+
   useEffect(() => {
+    const stored = localStorage.getItem("anthropic_api_key");
+    if (stored) setApiKey(stored);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, []);
+
+  function handleApiKeyChange(value: string) {
+    setApiKey(value);
+    if (value) {
+      localStorage.setItem("anthropic_api_key", value);
+    } else {
+      localStorage.removeItem("anthropic_api_key");
+    }
+  }
 
   // Map progress to step index
   const currentStep =
@@ -49,7 +63,7 @@ export default function DiscoverPage() {
     setAutofillStatus(null);
 
     try {
-      const fields = await autofillFromUrl(autofillUrl.trim());
+      const fields = await autofillFromUrl(autofillUrl.trim(), apiKey);
       setForm({
         product_name: fields.product_name || "",
         product_description: fields.product_description || "",
@@ -97,7 +111,7 @@ export default function DiscoverPage() {
           .filter(Boolean),
       };
 
-      const discoverResult = await discoverSubreddits(request);
+      const discoverResult = await discoverSubreddits(request, apiKey);
       if (intervalRef.current) clearInterval(intervalRef.current);
       setProgress(15);
 
@@ -117,7 +131,8 @@ export default function DiscoverPage() {
           const mapped = 15 + (event.progress / 100) * 85;
           setProgress(mapped);
           setProgressMsg(event.message);
-        }
+        },
+        apiKey
       );
 
       // Store combined result for results page
@@ -150,6 +165,27 @@ export default function DiscoverPage() {
           <span className="text-bold">Tell us about your product.</span>{" "}
           <span className="text-muted">We&apos;ll find your Reddit audience.</span>
         </h1>
+
+        {/* Anthropic API Key */}
+        <div className="mb-6">
+          <div className="flex items-center gap-2 mb-1">
+            <Key className="w-4 h-4 text-gray-400" />
+            <label className="text-sm font-semibold text-gray-900">Anthropic API Key</label>
+          </div>
+          <p className="text-xs text-gray-400 mb-2">
+            Enter your own API key to power the AI features. Get one at{" "}
+            <a href="https://console.anthropic.com" target="_blank" rel="noopener noreferrer" className="text-coral hover:underline">
+              console.anthropic.com
+            </a>
+          </p>
+          <input
+            type="password"
+            className="input-field w-full"
+            placeholder="sk-ant-api03-..."
+            value={apiKey}
+            onChange={(e) => handleApiKeyChange(e.target.value)}
+          />
+        </div>
 
         {/* Autofill from URL */}
         <div

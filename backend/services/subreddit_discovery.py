@@ -6,8 +6,6 @@ from models.schemas import ProductInput, SubredditResult, DiscoveryResponse
 
 load_dotenv()
 
-client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-
 SYSTEM_PROMPT = """You are an expert Reddit marketing strategist with deep knowledge of Reddit's community ecosystem.
 
 Your task: Given a product description, identify exactly 5 real, active Reddit subreddits where this product's target audience congregates.
@@ -34,7 +32,7 @@ Example:
 ]"""
 
 
-def discover_subreddits(product: ProductInput) -> DiscoveryResponse:
+def discover_subreddits(product: ProductInput, api_key: str = "") -> DiscoveryResponse:
     """
     Takes product input, calls Claude Sonnet 4.6 with adaptive thinking,
     returns 5 subreddit URLs.
@@ -50,6 +48,7 @@ Keywords: {', '.join(product.keywords)}
 
 Return exactly 5 subreddits as a JSON array."""
 
+    client = Anthropic(api_key=api_key or os.getenv("ANTHROPIC_API_KEY"))
     response = client.messages.create(
         model="claude-sonnet-4-6",
         max_tokens=16000,

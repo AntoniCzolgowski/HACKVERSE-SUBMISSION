@@ -21,7 +21,6 @@ load_dotenv()
 
 # Lazy-loaded globals
 _embed_model = None
-_client = None
 
 HEADERS = {"User-Agent": "LexTrackAI_Hackathon_Bot_v1.0 (by /u/lextrack_ai)"}
 
@@ -31,13 +30,6 @@ def _get_embed_model():
     if _embed_model is None:
         _embed_model = SentenceTransformer("all-MiniLM-L6-v2")
     return _embed_model
-
-
-def _get_client():
-    global _client
-    if _client is None:
-        _client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-    return _client
 
 
 # ------------------------------------------------------------------
@@ -137,7 +129,7 @@ def _min_max_scale(values: dict) -> dict:
     return {k: (v - min_val) / (max_val - min_val) for k, v in values.items()}
 
 
-def _get_tolerance_score(subreddit: str, description: str, rules: list[str]) -> float:
+def _get_tolerance_score(subreddit: str, description: str, rules: list[str], api_key: str = "") -> float:
     system_prompt = """You are an AI community guidelines analyzer. Read the provided subreddit description and rules.
 Rate the subreddit's tolerance for self-promotion, marketing, or sharing new products on a scale from 0.0 to 1.0.
 0.0 = Strictly forbids all self-promotion, marketing, or links. Instant ban risk.
@@ -149,7 +141,8 @@ Output STRICTLY as a JSON object with a single key "tolerance_score" containing 
     content = f"Subreddit: {subreddit}\nDescription: {description}\nRules: {json.dumps(rules)}"
 
     try:
-        response = _get_client().messages.create(
+        _client = Anthropic(api_key=api_key or os.getenv("ANTHROPIC_API_KEY"))
+        response = _client.messages.create(
             model="claude-haiku-4-5-20251001",
             max_tokens=150,
             system=system_prompt,
@@ -165,7 +158,7 @@ Output STRICTLY as a JSON object with a single key "tolerance_score" containing 
         return 0.0
 
 
-def rank_subreddits(scraped_data: dict, product_description: str, on_progress=None) -> list[dict]:
+def rank_subreddits(scraped_data: dict, product_description: str, on_progress=None, api_key: str = "") -> list[dict]:
     """Score & rank subreddits using semantic similarity, tolerance, and activity."""
     W_SEMANTIC = 0.55
     W_TOLERANCE = 0.25
@@ -199,7 +192,7 @@ def rank_subreddits(scraped_data: dict, product_description: str, on_progress=No
         raw_semantic[sub] = float(cosine_similarity(product_emb, sub_emb)[0][0])
 
         # Tolerance: Claude evaluates self-promo friendliness
-        tolerance_scores[sub] = _get_tolerance_score(sub, data.get("description", ""), data.get("rules", []))
+        tolerance_scores[sub] = _get_tolerance_score(sub, data.get("description", ""), data.get("rules", []), api_key=api_key)
 
     scaled_semantic = _min_max_scale(raw_semantic)
     scaled_activity = _min_max_scale(raw_activity)
@@ -234,20 +227,20 @@ def rank_subreddits(scraped_data: dict, product_description: str, on_progress=No
 # Main entry point for the API
 # ------------------------------------------------------------------
 
-def scrape_and_rank(subreddit_names: list[str], product_description: str) -> dict:
+def scrape_and_rank(subreddit_names: list[str], product_description: str, api_key: str = "") -> dict:
     """
     Full pipeline: scrape live data → score → rank → return JSON.
     subreddit_names: list of names without r/ prefix (e.g. ["fitness", "dating_advice"])
     """
     live_data = gather_live_data(subreddit_names)
-    rankings = rank_subreddits(live_data, product_description)
+    rankings = rank_subreddits(live_data, product_description, api_key=api_key)
     return {
         "subreddits": rankings,
         "total": len(rankings),
     }
 
 
-def scrape_and_rank_stream(subreddit_names: list[str], product_description: str):
+def scrape_and_rank_stream(subreddit_names: list[str], product_description: str, api_key: str = ""):
     """
     Generator version that yields SSE progress events.
     Scraping = 0-60%, Scoring = 60-95%, Done = 100%.
@@ -280,7 +273,7 @@ def scrape_and_rank_stream(subreddit_names: list[str], product_description: str)
         yield {"phase": "scoring", "subreddit": sub, "progress": pct,
                "message": f"Scoring r/{sub}... ({i+1}/{total})"}
 
-    rankings = rank_subreddits(live_data, product_description)
+    rankings = rank_subreddits(live_data, product_description, api_key=api_key)
 
     # --- Done ---
     result = {"subreddits": rankings, "total": len(rankings)}

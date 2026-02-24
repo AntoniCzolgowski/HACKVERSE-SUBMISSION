@@ -1,6 +1,7 @@
 import json
+import os
 import random
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import StreamingResponse
@@ -26,6 +27,11 @@ app.add_middleware(
 )
 
 
+def get_api_key(request: Request) -> str:
+    """Extract API key from request header, fall back to env var."""
+    return request.headers.get("x-anthropic-key") or os.getenv("ANTHROPIC_API_KEY", "")
+
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
@@ -36,10 +42,11 @@ def health():
 # ==========================================
 
 @app.post("/api/discover")
-async def api_discover(product: ProductInput):
+async def api_discover(product: ProductInput, request: Request):
     """Takes product info, returns 5 relevant subreddit URLs via Claude."""
     try:
-        result = discover_subreddits(product)
+        api_key = get_api_key(request)
+        result = discover_subreddits(product, api_key=api_key)
         return result
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
@@ -54,10 +61,11 @@ class AutofillRequest(BaseModel):
 
 
 @app.post("/api/autofill")
-async def api_autofill(body: AutofillRequest):
+async def api_autofill(body: AutofillRequest, request: Request):
     """Fetch a website URL and extract product info via Claude."""
     try:
-        fields = extract_product_from_url(body.url)
+        api_key = get_api_key(request)
+        fields = extract_product_from_url(body.url, api_key=api_key)
         return JSONResponse(content={"ok": True, "fields": fields})
     except Exception as e:
         return JSONResponse(content={"ok": False, "error": str(e)}, status_code=400)
@@ -73,10 +81,11 @@ class ScrapeRequest(BaseModel):
 
 
 @app.post("/api/scrape")
-async def api_scrape(body: ScrapeRequest):
+async def api_scrape(body: ScrapeRequest, request: Request):
     """Takes subreddit names, scrapes live data, scores & ranks them."""
     try:
-        result = scrape_and_rank(body.subreddit_names, body.product_description)
+        api_key = get_api_key(request)
+        result = scrape_and_rank(body.subreddit_names, body.product_description, api_key=api_key)
         return result
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
@@ -87,11 +96,12 @@ async def api_scrape(body: ScrapeRequest):
 # ==========================================
 
 @app.post("/api/scrape-stream")
-async def api_scrape_stream(body: ScrapeRequest):
+async def api_scrape_stream(body: ScrapeRequest, request: Request):
     """SSE endpoint: streams progress events during scrape & rank."""
+    api_key = get_api_key(request)
     def event_generator():
         try:
-            for event in scrape_and_rank_stream(body.subreddit_names, body.product_description):
+            for event in scrape_and_rank_stream(body.subreddit_names, body.product_description, api_key=api_key):
                 yield f"data: {json.dumps(event)}\n\n"
         except Exception as e:
             yield f"data: {json.dumps({'phase': 'error', 'message': str(e)})}\n\n"
@@ -108,9 +118,10 @@ async def api_scrape_stream(body: ScrapeRequest):
 # ==========================================
 
 @app.post("/api/generate")
-async def api_generate(body: GenerateRequest):
+async def api_generate(body: GenerateRequest, request: Request):
     """Takes product info + scraped subreddits, generates tailored post drafts."""
     try:
+        api_key = get_api_key(request)
         product = {
             "product_name": body.product_name,
             "product_description": body.product_description,
@@ -119,7 +130,7 @@ async def api_generate(body: GenerateRequest):
             "keywords": body.keywords,
         }
         subreddits = [s.model_dump() for s in body.subreddits]
-        results = generate_all_posts(product, subreddits)
+        results = generate_all_posts(product, subreddits, api_key=api_key)
         return GenerateResponse(
             product_name=body.product_name,
             subreddit_drafts=[SubredditDrafts(**r) for r in results],
@@ -133,7 +144,7 @@ async def api_generate(body: GenerateRequest):
 # ==========================================
 
 @app.post("/api/campaigns/publish")
-async def api_publish_campaign(body: PublishRequest):
+async def api_publish_campaign(body: PublishRequest, request: Request):
     """
     Receives published posts, generates persona comments, analyzes sentiment,
     generates recommendations and keywords, then saves the campaign.
@@ -141,8 +152,8 @@ async def api_publish_campaign(body: PublishRequest):
     """
     try:
         from anthropic import AsyncAnthropic
-        import os
-        anthropic_client = AsyncAnthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+        api_key = get_api_key(request)
+        anthropic_client = AsyncAnthropic(api_key=api_key)
 
         # Process each post in parallel
         async def process_single_post(post):
@@ -156,7 +167,7 @@ async def api_publish_campaign(body: PublishRequest):
 
             # Generate 2-15 persona-based comments (parallelized internally)
             num_comments = random.randint(2, 15)
-            comments = await generate_comments_for_post_async(post_data, num_comments)
+            comments = await generate_comments_for_post_async(post_data, num_comments, api_key=api_key)
 
             # Analyze sentiment for all comments in parallel
             async def analyze_sentiment(comment):

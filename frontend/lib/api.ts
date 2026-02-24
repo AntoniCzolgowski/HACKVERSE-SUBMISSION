@@ -3,6 +3,12 @@ import { mockDiscoverResponse } from "./mock-data";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
+function buildHeaders(apiKey?: string): Record<string, string> {
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  if (apiKey) headers["X-Anthropic-Key"] = apiKey;
+  return headers;
+}
+
 export interface AutofillResult {
   product_name: string;
   product_description: string;
@@ -11,7 +17,7 @@ export interface AutofillResult {
   keywords: string;
 }
 
-export async function autofillFromUrl(url: string): Promise<AutofillResult> {
+export async function autofillFromUrl(url: string, apiKey?: string): Promise<AutofillResult> {
   if (!API_URL) {
     // Mock fallback for dev without backend
     await new Promise((r) => setTimeout(r, 2000));
@@ -26,7 +32,7 @@ export async function autofillFromUrl(url: string): Promise<AutofillResult> {
 
   const res = await fetch(`${API_URL}/api/autofill`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: buildHeaders(apiKey),
     body: JSON.stringify({ url }),
   });
 
@@ -35,7 +41,7 @@ export async function autofillFromUrl(url: string): Promise<AutofillResult> {
   return data.fields;
 }
 
-export async function discoverSubreddits(input: DiscoverRequest): Promise<DiscoverResponse> {
+export async function discoverSubreddits(input: DiscoverRequest, apiKey?: string): Promise<DiscoverResponse> {
   if (!API_URL) {
     await new Promise((r) => setTimeout(r, 3000));
     return mockDiscoverResponse(input.product_name);
@@ -43,7 +49,7 @@ export async function discoverSubreddits(input: DiscoverRequest): Promise<Discov
 
   const res = await fetch(`${API_URL}/api/discover`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: buildHeaders(apiKey),
     body: JSON.stringify(input),
   });
 
@@ -54,7 +60,8 @@ export async function discoverSubreddits(input: DiscoverRequest): Promise<Discov
 export async function scrapeSubredditsStream(
   subredditNames: string[],
   productDescription: string,
-  onProgress: (event: ScrapeProgressEvent) => void
+  onProgress: (event: ScrapeProgressEvent) => void,
+  apiKey?: string
 ): Promise<ScrapeResponse> {
   if (!API_URL) {
     // Mock fallback: simulate scraping progress
@@ -99,7 +106,7 @@ export async function scrapeSubredditsStream(
 
   const res = await fetch(`${API_URL}/api/scrape-stream`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: buildHeaders(apiKey),
     body: JSON.stringify({ subreddit_names: subredditNames, product_description: productDescription }),
   });
 
@@ -136,7 +143,7 @@ export async function scrapeSubredditsStream(
   return finalResult;
 }
 
-export async function generatePosts(request: GenerateRequest): Promise<GenerateResponse> {
+export async function generatePosts(request: GenerateRequest, apiKey?: string): Promise<GenerateResponse> {
   if (!API_URL) {
     // Mock fallback: generate fake drafts after a delay
     await new Promise((r) => setTimeout(r, 2000));
@@ -179,7 +186,7 @@ export async function generatePosts(request: GenerateRequest): Promise<GenerateR
 
   const res = await fetch(`${API_URL}/api/generate`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: buildHeaders(apiKey),
     body: JSON.stringify(request),
   });
 
@@ -187,7 +194,7 @@ export async function generatePosts(request: GenerateRequest): Promise<GenerateR
   return res.json();
 }
 
-export async function publishPosts(request: PublishRequest): Promise<PublishResponse> {
+export async function publishPosts(request: PublishRequest, apiKey?: string): Promise<PublishResponse> {
   if (!API_URL) {
     await new Promise((r) => setTimeout(r, 1500));
     return {
@@ -202,7 +209,7 @@ export async function publishPosts(request: PublishRequest): Promise<PublishResp
 
   const res = await fetch(`${API_URL}/api/publish`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: buildHeaders(apiKey),
     body: JSON.stringify(request),
   });
 
