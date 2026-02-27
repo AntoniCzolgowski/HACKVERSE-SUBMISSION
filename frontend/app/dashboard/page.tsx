@@ -83,23 +83,29 @@ export default function DashboardPage() {
   const [selectedPost, setSelectedPost] = useState<PostMetrics | null>(null);
 
   useEffect(() => {
-    try {
-      setLoading(true);
+    async function fetchCampaignData() {
+      try {
+        setLoading(true);
 
-      // Read campaign via storage layer (localStorage now, API later)
-      const { getCurrentCampaign } = require("@/lib/campaign-storage");
-      const campaign = getCurrentCampaign();
-      if (campaign) {
-        setCampaignData(campaign as CampaignData);
-      } else {
+        // Fetch the latest campaign from backend
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+        const response = await fetch(`${API_URL}/api/campaigns/latest`);
+
+        if (!response.ok) {
+          throw new Error("No campaign data found");
+        }
+
+        const data = await response.json();
+        setCampaignData(data);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching campaign data:", err);
         setError("No published campaign found. Please publish posts first.");
+        setLoading(false);
       }
-    } catch (err) {
-      console.error("Error loading campaign data:", err);
-      setError("No published campaign found. Please publish posts first.");
-    } finally {
-      setLoading(false);
     }
+
+    fetchCampaignData();
   }, []);
 
 
