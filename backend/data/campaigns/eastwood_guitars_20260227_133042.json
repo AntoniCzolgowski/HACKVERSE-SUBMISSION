@@ -1,0 +1,302 @@
+{
+  "product": {
+    "name": "Eastwood Guitars",
+    "description": "Eastwood Guitars is a guitar manufacturer offering a wide range of electric guitars, bass guitars, and specialty instruments. They are notable for providing an extensive selection of left-handed guitar options, catering to left-handed players who often struggle to find suitable instruments. Their catalog includes multiple series and styles, from baritone to 12-string guitars.",
+    "niche_category": "Musical Instruments & Guitar Retail",
+    "target_audience": "Left-handed guitarists and alternative guitar enthusiasts of all skill levels",
+    "keywords": [
+      "left-handed guitars",
+      "electric guitars",
+      "Eastwood Guitars",
+      "bass guitars",
+      "specialty guitars",
+      "lefty instruments",
+      "alternative guitars",
+      "boutique guitars"
+    ]
+  },
+  "published_posts": [
+    {
+      "subreddit": "r/guitar",
+      "post_type": "question_post",
+      "title": "Lefty guitarist here - how do you all handle the limited selection problem?",
+      "body": "So I've been playing left-handed for about 6 years now, and I'm at a point where I want to expand my collection a bit. But every time I go looking for something different\u2014whether it's a baritone, a semi-hollow body, or just something in a different style\u2014the lefty options are basically non-existent at most places.\n\nI know I'm not alone in this. I see posts here all the time from other leftys struggling to find what they want. Some of you seem to have figured out how to navigate this better than others.\n\nSo real talk: What's your strategy? Do you compromise and learn to play righty? Do you special order? Have you found brands or retailers that actually take lefty players seriously and keep decent inventory? I'm genuinely curious how people handle this because it feels like a constant battle.",
+      "upvotes": 564,
+      "comments": 7,
+      "sentiment_score": 0.7142857142857143,
+      "top_comments": [
+        {
+          "author": "diy_dave",
+          "body": "Have you considered just building your own? I'm serious - if you've got basic woodworking skills and access to decent tools, converting a right-handed guitar isn't that complicated. You'll need to flip the nut, potentially move the bridge depending on the model, and reverse the string order, but it's totally doable for someone with patience.\n\nI've done three conversions over the years and honestly prefer them to anything I could buy off the shelf. You get exactly what you want spec-wise, and the process teaches you a ton about how the instrument actually works. Plus you're not paying the \"lefty tax\" that manufacturers love to slap on.\n\nIf full conversion seems daunting, start with a kit guitar - way cheaper to experiment with and you can set it up left-handed from the beginning. Just my two cents, but waiting around for manufacturers to care about lefties seems like a losing game.",
+          "score": 9,
+          "sentiment": "positive",
+          "persona_id": 12,
+          "persona_name": "DIY Dave"
+        },
+        {
+          "author": "veteran_victor",
+          "body": "Young man, I've been through this exact predicament since I started playing in the late '70s. Back then, the selection was even more abysmal - you were lucky to find a single lefty Strat in most shops. \n\nMy approach has always been to build relationships with quality dealers who understand the market. I've had tremendous success with Elderly Instruments in Michigan - they've special ordered several instruments for me over the decades, including a beautiful Guild D-40 and a Custom Shop Telecaster. Yes, you'll wait 4-6 months, but the result is exactly what you want.\n\nI'd also recommend Southpaw Guitars - they specialize in left-handed instruments and truly understand our needs. The key is patience and working with established, reputable dealers who value long-term relationships over quick sales. Don't compromise on quality just because options seem limited.",
+          "score": 16,
+          "sentiment": "positive",
+          "persona_id": 6,
+          "persona_name": "Veteran Victor"
+        },
+        {
+          "author": "trendy_taylor",
+          "body": "omg yes this is such a real struggle! i'm not even lefty but my friend is and they're always complaining about this exact thing lol. have you checked out what the guitar influencers on tiktok are saying? i feel like i've seen some posts about brands that are supposedly more lefty-friendly but can't remember which ones off the top of my head.\n\nalso not to be that person but is learning righty really that bad of an option? like i know it's probably super awkward at first but some of the coolest players i follow on social started that way. although tbh if you've already been playing for 6 years that's probably way too much muscle memory to just switch up\n\nmaybe try hitting up the guitar communities on discord? they usually have better insider info than the big retailers about who actually stocks lefty stuff regularly",
+          "score": 111,
+          "sentiment": "positive",
+          "persona_id": 11,
+          "persona_name": "Trendy Taylor"
+        },
+        {
+          "author": "research_rachel",
+          "body": "Interesting question - I've actually looked into this from a research perspective since I'm a lefty guitarist myself. There's surprisingly limited data on lefty market share in musical instruments, but most industry estimates put it around 10-15% of players, yet inventory rarely reflects this proportion.\n\nFrom my experience, I've had the most success with direct-to-consumer brands like Reverend and Eastwood - they seem to maintain better lefty ratios in their production runs. Sweetwater's lefty section is also fairly comprehensive compared to brick-and-mortar stores.\n\nI'd be curious to see actual sales data comparing lefty demand vs. inventory allocation across major retailers. Anecdotally, it seems like a classic supply-induced scarcity situation where low stock creates the perception of low demand, perpetuating the cycle.\n\nHave you tried reaching out to smaller luthiers? I found a local builder who does custom work at surprisingly reasonable prices when you factor in the \"lefty tax\" most manufacturers add.",
+          "score": 135,
+          "sentiment": "positive",
+          "persona_id": 15,
+          "persona_name": "Research Rachel"
+        },
+        {
+          "author": "negative_nancy",
+          "body": "Ugh, don't even get me started on this nightmare. I've been dealing with this garbage for 15 years and it's only gotten worse. The \"special order\" thing is basically a scam - I've had three different shops promise me guitars that never materialized, even after putting deposits down. One place kept my $200 for six months before finally admitting they couldn't get what they promised.\n\nFender and Gibson talk a big game about lefty support but their actual inventory is pathetic. The few lefty models they do make are always the boring basic ones in the most generic finishes. Want anything remotely interesting? Forget it.\n\nAnd don't believe the \"just flip a righty\" advice - the nut, bridge, and electronics setup makes it way more expensive than people admit. You'll spend more fixing a converted guitar than buying a proper lefty, assuming you can even find one. It's honestly discrimination at this point.",
+          "score": 1,
+          "sentiment": "negative",
+          "persona_id": 10,
+          "persona_name": "Negative Nancy"
+        },
+        {
+          "author": "creative_chloe",
+          "body": "Oh this resonates so hard! I'm also a lefty and honestly, I've turned the limitation into a creative challenge. Instead of getting frustrated, I started looking at it like a design problem to solve. \n\nI've had amazing luck with smaller boutique builders who actually get excited about creating something unique - they tend to be more flexible about lefty builds and you end up with something that feels way more personal than off-the-rack stuff anyway. Plus the aesthetic possibilities are endless when you're doing custom work.\n\nAlso, vintage hunting has become this weird treasure hunt hobby for me. The scarcity makes finding that perfect lefty feel like discovering some rare art piece. I photograph every interesting lefty I come across now, even if I can't afford it, just because they're so visually striking in their rarity.",
+          "score": 98,
+          "sentiment": "positive",
+          "persona_id": 9,
+          "persona_name": "Creative Chloe"
+        },
+        {
+          "author": "skeptical_susan",
+          "body": "Here's the thing that kills me about this whole \"limited lefty selection\" racket - it's manufactured scarcity at its finest. The guitar companies have been pulling this BS for decades, claiming there's \"not enough demand\" while simultaneously ensuring there's never enough supply to build that demand. It's Marketing 101: create artificial limitations to drive up prices and make people settle for whatever scraps they throw you.\n\nYou want my advice? Stop playing their game. Find a local luthier who'll build you exactly what you want without the corporate markup. Yeah, it costs more upfront, but at least you're not getting fleeced by some boardroom decision that lefties don't matter. These big brands could easily produce more left-handed models - they just choose not to because desperate customers pay premium prices for limited options.",
+          "score": 11,
+          "sentiment": "negative",
+          "persona_id": 4,
+          "persona_name": "Skeptical Susan"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83c\udfb8 This post's strong engagement (564 upvotes, 71% positive sentiment) suggests r/guitar users highly value discussions about practical challenges like left-handed guitar availability, so continue sharing relatable equipment struggles and niche guitarist experiences.",
+      "keywords": [
+        "DIY guitar conversion",
+        "lefty tax",
+        "kit guitar",
+        "right-handed to left-handed",
+        "woodworking skills"
+      ],
+      "why_this_post_fits": "This question taps into a genuine pain point for a specific segment of r/guitar's audience (left-handed players) without mentioning any brand directly. It invites community discussion and advice-sharing, which is the subreddit's core strength. By framing this as a personal struggle, it feels authentic and encourages others to share their experiences. The post will naturally surface brand recommendations from community members organically, rather than appearing promotional.",
+      "why_subreddit_selected": "1M+ members discussing all things electric guitar, making it ideal for showcasing Eastwood's unique and alternative instrument designs to a massive audience"
+    },
+    {
+      "subreddit": "r/vintageguitars",
+      "post_type": "discussion_post",
+      "title": "The left-handed player vintage guitar market is basically non-existent\u2014does anyone else see this as the biggest gap in vintage collecting?",
+      "body": "Been thinking about this a lot lately: vintage guitars are amazing, but if you're left-handed, you're basically locked out of most of what this community celebrates. \n\nI know lefty guitars exist from the vintage era\u2014Gibson, Fender, etc. made them\u2014but finding a vintage lefty in decent condition feels nearly impossible. The secondhand market is flooded with righties. Even specialized vintage dealers rarely stock lefty originals.\n\nThis got me wondering: are there other left-handed guitarists here who've tried to build a vintage collection? What's been your experience? Did you:\n\n- Eventually learn to play righty to access vintage gear?\n- Stick to modern instruments because vintage options are too limited?\n- Get lucky and find some rare vintage lefties?\n- Just accept that vintage collecting isn't realistic for your handedness?\n\nIt feels like there's this whole segment of players who are kind of excluded from the vintage guitar hobby, and I'm curious if it's just me noticing this or if it's a real pain point for others. Thoughts?",
+      "upvotes": 197,
+      "comments": 2,
+      "sentiment_score": 0.5,
+      "top_comments": [
+        {
+          "author": "wellness_wendy",
+          "body": "This resonates with me on such a deep level - there's something really beautiful about the energy and intention that gets infused into vintage instruments over decades of being played and loved. I'm actually right-handed but I've been drawn to the spiritual aspect of connecting with these older pieces that carry so much history and soul.\n\nHave you considered that maybe the universe is guiding you toward creating your own legacy with a modern instrument made from sustainable, naturally-aged woods? Sometimes the path of least resistance leads us exactly where we need to be. Plus, you'd know the entire journey of your guitar's energy - from tree to finished instrument to your hands.\n\nThat said, I really feel for lefty players being excluded from this community. There's got to be a more inclusive way to honor the vintage spirit while embracing all players. Maybe starting a lefty vintage appreciation group could manifest more instruments into existence through collective intention?",
+          "score": 137,
+          "sentiment": "positive",
+          "persona_id": 13,
+          "persona_name": "Wellness Wendy"
+        },
+        {
+          "author": "humorous_henry",
+          "body": "As a lefty myself, I like to think of it as exclusive VIP access to disappointment. \"Oh wow, a 1959 Les Paul Burst! Is it... oh, it's righty. Of course it is.\" \n\nI've basically become a vintage guitar window shopper. It's like being on a permanent diet at a bakery - everything looks amazing but none of it's for me. At this point I'm convinced vintage lefty guitars are like Bigfoot sightings - people claim they exist but the photographic evidence is always blurry.\n\nMy solution? I tell myself my modern guitars will be vintage someday. In 2080, some poor lefty kid will be desperately hunting for my 2015 Epiphone on the vintage market. Circle of life, my friend. Circle of very limited, frustratingly sparse life.",
+          "score": 27,
+          "sentiment": "negative",
+          "persona_id": 14,
+          "persona_name": "Humorous Henry"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83c\udfb8 Consider posting a follow-up with specific examples of rare left-handed vintage models or price comparisons to turn those upvotes into more engaged discussion and comments.",
+      "keywords": [
+        "vintage instruments",
+        "spiritual connection",
+        "lefty players",
+        "sustainable woods",
+        "collective intention"
+      ],
+      "why_this_post_fits": "This discussion post identifies a genuine community pain point (lefty vintage guitar scarcity) without mentioning any product. It invites authentic community sharing and debate about an underexplored topic in vintage guitar circles. The post feels like a genuine observation from someone new to the community, which is exactly how discussions should start. It establishes topical credibility for future conversations about alternatives without breaking rules.",
+      "why_subreddit_selected": "Collectors and players drawn to distinctive, alternative, and retro-inspired instruments similar to Eastwood's catalog of vintage-style and specialty guitars"
+    }
+  ],
+  "posted_at": "2026-02-27T20:30:15.074Z",
+  "overall": {
+    "total_reach": 11415,
+    "total_engagement": 770,
+    "positive_sentiment": 0.6071428571428572,
+    "active_posts": 2,
+    "total_posts": 2
+  },
+  "engagement_over_time": [
+    {
+      "hour": "08AM",
+      "upvotes": 83,
+      "comments": 44
+    },
+    {
+      "hour": "09AM",
+      "upvotes": 166,
+      "comments": 89
+    },
+    {
+      "hour": "10AM",
+      "upvotes": 250,
+      "comments": 134
+    },
+    {
+      "hour": "11AM",
+      "upvotes": 333,
+      "comments": 179
+    },
+    {
+      "hour": "12PM",
+      "upvotes": 417,
+      "comments": 224
+    },
+    {
+      "hour": "01PM",
+      "upvotes": 500,
+      "comments": 269
+    }
+  ],
+  "sentiment": {
+    "positive": 50,
+    "neutral": 50,
+    "negative": 0
+  },
+  "posts": [
+    {
+      "subreddit": "r/guitar",
+      "post_type": "question_post",
+      "title": "Lefty guitarist here - how do you all handle the limited selection problem?",
+      "body": "So I've been playing left-handed for about 6 years now, and I'm at a point where I want to expand my collection a bit. But every time I go looking for something different\u2014whether it's a baritone, a semi-hollow body, or just something in a different style\u2014the lefty options are basically non-existent at most places.\n\nI know I'm not alone in this. I see posts here all the time from other leftys struggling to find what they want. Some of you seem to have figured out how to navigate this better than others.\n\nSo real talk: What's your strategy? Do you compromise and learn to play righty? Do you special order? Have you found brands or retailers that actually take lefty players seriously and keep decent inventory? I'm genuinely curious how people handle this because it feels like a constant battle.",
+      "upvotes": 564,
+      "comments": 7,
+      "sentiment_score": 0.7142857142857143,
+      "top_comments": [
+        {
+          "author": "diy_dave",
+          "body": "Have you considered just building your own? I'm serious - if you've got basic woodworking skills and access to decent tools, converting a right-handed guitar isn't that complicated. You'll need to flip the nut, potentially move the bridge depending on the model, and reverse the string order, but it's totally doable for someone with patience.\n\nI've done three conversions over the years and honestly prefer them to anything I could buy off the shelf. You get exactly what you want spec-wise, and the process teaches you a ton about how the instrument actually works. Plus you're not paying the \"lefty tax\" that manufacturers love to slap on.\n\nIf full conversion seems daunting, start with a kit guitar - way cheaper to experiment with and you can set it up left-handed from the beginning. Just my two cents, but waiting around for manufacturers to care about lefties seems like a losing game.",
+          "score": 9,
+          "sentiment": "positive",
+          "persona_id": 12,
+          "persona_name": "DIY Dave"
+        },
+        {
+          "author": "veteran_victor",
+          "body": "Young man, I've been through this exact predicament since I started playing in the late '70s. Back then, the selection was even more abysmal - you were lucky to find a single lefty Strat in most shops. \n\nMy approach has always been to build relationships with quality dealers who understand the market. I've had tremendous success with Elderly Instruments in Michigan - they've special ordered several instruments for me over the decades, including a beautiful Guild D-40 and a Custom Shop Telecaster. Yes, you'll wait 4-6 months, but the result is exactly what you want.\n\nI'd also recommend Southpaw Guitars - they specialize in left-handed instruments and truly understand our needs. The key is patience and working with established, reputable dealers who value long-term relationships over quick sales. Don't compromise on quality just because options seem limited.",
+          "score": 16,
+          "sentiment": "positive",
+          "persona_id": 6,
+          "persona_name": "Veteran Victor"
+        },
+        {
+          "author": "trendy_taylor",
+          "body": "omg yes this is such a real struggle! i'm not even lefty but my friend is and they're always complaining about this exact thing lol. have you checked out what the guitar influencers on tiktok are saying? i feel like i've seen some posts about brands that are supposedly more lefty-friendly but can't remember which ones off the top of my head.\n\nalso not to be that person but is learning righty really that bad of an option? like i know it's probably super awkward at first but some of the coolest players i follow on social started that way. although tbh if you've already been playing for 6 years that's probably way too much muscle memory to just switch up\n\nmaybe try hitting up the guitar communities on discord? they usually have better insider info than the big retailers about who actually stocks lefty stuff regularly",
+          "score": 111,
+          "sentiment": "positive",
+          "persona_id": 11,
+          "persona_name": "Trendy Taylor"
+        },
+        {
+          "author": "research_rachel",
+          "body": "Interesting question - I've actually looked into this from a research perspective since I'm a lefty guitarist myself. There's surprisingly limited data on lefty market share in musical instruments, but most industry estimates put it around 10-15% of players, yet inventory rarely reflects this proportion.\n\nFrom my experience, I've had the most success with direct-to-consumer brands like Reverend and Eastwood - they seem to maintain better lefty ratios in their production runs. Sweetwater's lefty section is also fairly comprehensive compared to brick-and-mortar stores.\n\nI'd be curious to see actual sales data comparing lefty demand vs. inventory allocation across major retailers. Anecdotally, it seems like a classic supply-induced scarcity situation where low stock creates the perception of low demand, perpetuating the cycle.\n\nHave you tried reaching out to smaller luthiers? I found a local builder who does custom work at surprisingly reasonable prices when you factor in the \"lefty tax\" most manufacturers add.",
+          "score": 135,
+          "sentiment": "positive",
+          "persona_id": 15,
+          "persona_name": "Research Rachel"
+        },
+        {
+          "author": "negative_nancy",
+          "body": "Ugh, don't even get me started on this nightmare. I've been dealing with this garbage for 15 years and it's only gotten worse. The \"special order\" thing is basically a scam - I've had three different shops promise me guitars that never materialized, even after putting deposits down. One place kept my $200 for six months before finally admitting they couldn't get what they promised.\n\nFender and Gibson talk a big game about lefty support but their actual inventory is pathetic. The few lefty models they do make are always the boring basic ones in the most generic finishes. Want anything remotely interesting? Forget it.\n\nAnd don't believe the \"just flip a righty\" advice - the nut, bridge, and electronics setup makes it way more expensive than people admit. You'll spend more fixing a converted guitar than buying a proper lefty, assuming you can even find one. It's honestly discrimination at this point.",
+          "score": 1,
+          "sentiment": "negative",
+          "persona_id": 10,
+          "persona_name": "Negative Nancy"
+        },
+        {
+          "author": "creative_chloe",
+          "body": "Oh this resonates so hard! I'm also a lefty and honestly, I've turned the limitation into a creative challenge. Instead of getting frustrated, I started looking at it like a design problem to solve. \n\nI've had amazing luck with smaller boutique builders who actually get excited about creating something unique - they tend to be more flexible about lefty builds and you end up with something that feels way more personal than off-the-rack stuff anyway. Plus the aesthetic possibilities are endless when you're doing custom work.\n\nAlso, vintage hunting has become this weird treasure hunt hobby for me. The scarcity makes finding that perfect lefty feel like discovering some rare art piece. I photograph every interesting lefty I come across now, even if I can't afford it, just because they're so visually striking in their rarity.",
+          "score": 98,
+          "sentiment": "positive",
+          "persona_id": 9,
+          "persona_name": "Creative Chloe"
+        },
+        {
+          "author": "skeptical_susan",
+          "body": "Here's the thing that kills me about this whole \"limited lefty selection\" racket - it's manufactured scarcity at its finest. The guitar companies have been pulling this BS for decades, claiming there's \"not enough demand\" while simultaneously ensuring there's never enough supply to build that demand. It's Marketing 101: create artificial limitations to drive up prices and make people settle for whatever scraps they throw you.\n\nYou want my advice? Stop playing their game. Find a local luthier who'll build you exactly what you want without the corporate markup. Yeah, it costs more upfront, but at least you're not getting fleeced by some boardroom decision that lefties don't matter. These big brands could easily produce more left-handed models - they just choose not to because desperate customers pay premium prices for limited options.",
+          "score": 11,
+          "sentiment": "negative",
+          "persona_id": 4,
+          "persona_name": "Skeptical Susan"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83c\udfb8 This post's strong engagement (564 upvotes, 71% positive sentiment) suggests r/guitar users highly value discussions about practical challenges like left-handed guitar availability, so continue sharing relatable equipment struggles and niche guitarist experiences.",
+      "keywords": [
+        "DIY guitar conversion",
+        "lefty tax",
+        "kit guitar",
+        "right-handed to left-handed",
+        "woodworking skills"
+      ],
+      "why_this_post_fits": "This question taps into a genuine pain point for a specific segment of r/guitar's audience (left-handed players) without mentioning any brand directly. It invites community discussion and advice-sharing, which is the subreddit's core strength. By framing this as a personal struggle, it feels authentic and encourages others to share their experiences. The post will naturally surface brand recommendations from community members organically, rather than appearing promotional.",
+      "why_subreddit_selected": "1M+ members discussing all things electric guitar, making it ideal for showcasing Eastwood's unique and alternative instrument designs to a massive audience"
+    },
+    {
+      "subreddit": "r/vintageguitars",
+      "post_type": "discussion_post",
+      "title": "The left-handed player vintage guitar market is basically non-existent\u2014does anyone else see this as the biggest gap in vintage collecting?",
+      "body": "Been thinking about this a lot lately: vintage guitars are amazing, but if you're left-handed, you're basically locked out of most of what this community celebrates. \n\nI know lefty guitars exist from the vintage era\u2014Gibson, Fender, etc. made them\u2014but finding a vintage lefty in decent condition feels nearly impossible. The secondhand market is flooded with righties. Even specialized vintage dealers rarely stock lefty originals.\n\nThis got me wondering: are there other left-handed guitarists here who've tried to build a vintage collection? What's been your experience? Did you:\n\n- Eventually learn to play righty to access vintage gear?\n- Stick to modern instruments because vintage options are too limited?\n- Get lucky and find some rare vintage lefties?\n- Just accept that vintage collecting isn't realistic for your handedness?\n\nIt feels like there's this whole segment of players who are kind of excluded from the vintage guitar hobby, and I'm curious if it's just me noticing this or if it's a real pain point for others. Thoughts?",
+      "upvotes": 197,
+      "comments": 2,
+      "sentiment_score": 0.5,
+      "top_comments": [
+        {
+          "author": "wellness_wendy",
+          "body": "This resonates with me on such a deep level - there's something really beautiful about the energy and intention that gets infused into vintage instruments over decades of being played and loved. I'm actually right-handed but I've been drawn to the spiritual aspect of connecting with these older pieces that carry so much history and soul.\n\nHave you considered that maybe the universe is guiding you toward creating your own legacy with a modern instrument made from sustainable, naturally-aged woods? Sometimes the path of least resistance leads us exactly where we need to be. Plus, you'd know the entire journey of your guitar's energy - from tree to finished instrument to your hands.\n\nThat said, I really feel for lefty players being excluded from this community. There's got to be a more inclusive way to honor the vintage spirit while embracing all players. Maybe starting a lefty vintage appreciation group could manifest more instruments into existence through collective intention?",
+          "score": 137,
+          "sentiment": "positive",
+          "persona_id": 13,
+          "persona_name": "Wellness Wendy"
+        },
+        {
+          "author": "humorous_henry",
+          "body": "As a lefty myself, I like to think of it as exclusive VIP access to disappointment. \"Oh wow, a 1959 Les Paul Burst! Is it... oh, it's righty. Of course it is.\" \n\nI've basically become a vintage guitar window shopper. It's like being on a permanent diet at a bakery - everything looks amazing but none of it's for me. At this point I'm convinced vintage lefty guitars are like Bigfoot sightings - people claim they exist but the photographic evidence is always blurry.\n\nMy solution? I tell myself my modern guitars will be vintage someday. In 2080, some poor lefty kid will be desperately hunting for my 2015 Epiphone on the vintage market. Circle of life, my friend. Circle of very limited, frustratingly sparse life.",
+          "score": 27,
+          "sentiment": "negative",
+          "persona_id": 14,
+          "persona_name": "Humorous Henry"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83c\udfb8 Consider posting a follow-up with specific examples of rare left-handed vintage models or price comparisons to turn those upvotes into more engaged discussion and comments.",
+      "keywords": [
+        "vintage instruments",
+        "spiritual connection",
+        "lefty players",
+        "sustainable woods",
+        "collective intention"
+      ],
+      "why_this_post_fits": "This discussion post identifies a genuine community pain point (lefty vintage guitar scarcity) without mentioning any product. It invites authentic community sharing and debate about an underexplored topic in vintage guitar circles. The post feels like a genuine observation from someone new to the community, which is exactly how discussions should start. It establishes topical credibility for future conversations about alternatives without breaking rules.",
+      "why_subreddit_selected": "Collectors and players drawn to distinctive, alternative, and retro-inspired instruments similar to Eastwood's catalog of vintage-style and specialty guitars"
+    }
+  ],
+  "recommendations": [],
+  "campaign_id": "eastwood_guitars_20260227_133042",
+  "created_at": "2026-02-27T13:30:42.447006"
+}

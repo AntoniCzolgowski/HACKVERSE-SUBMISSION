@@ -1,0 +1,290 @@
+{
+  "product": {
+    "name": "Eastwood Guitars",
+    "description": "Eastwood Guitars is a guitar manufacturer offering a wide range of electric guitars, bass guitars, and specialty instruments. They are notable for providing an extensive selection of left-handed guitar options, catering to left-handed players who often struggle to find suitable instruments. Their catalog includes multiple series and styles, from baritone to 12-string guitars.",
+    "niche_category": "Musical Instruments & Guitar Retail",
+    "target_audience": "Left-handed guitarists and alternative guitar enthusiasts of all skill levels",
+    "keywords": [
+      "left-handed guitars",
+      "electric guitars",
+      "Eastwood Guitars",
+      "bass guitars",
+      "specialty guitars",
+      "lefty instruments",
+      "alternative guitars",
+      "boutique guitars"
+    ]
+  },
+  "published_posts": [
+    {
+      "subreddit": "r/leftyguitar",
+      "post_type": "question_post",
+      "title": "Anyone here actually satisfied with their lefty guitar purchase? What made the difference?",
+      "body": "Honest question: I've been looking at lefty options for months now and I keep running into the same wall \u2014 either super limited selection, crazy markups, or I end up settling for something that doesn't really fit what I want to play.\n\nI'm curious what actually worked for people here. When you found a lefty that felt right, what was it? Did you go boutique/specialty brands, or did you manage to find something decent through the usual channels? And real talk \u2014 did you have to compromise on what you actually wanted, or did you find something that checked all your boxes?\n\nLooking to learn from people who've actually been through this instead of just guessing.",
+      "upvotes": 644,
+      "comments": 11,
+      "sentiment_score": 0.8181818181818182,
+      "top_comments": [
+        {
+          "author": "budget-conscious_sarah",
+          "body": "Honestly, I had to get real about my expectations pretty quick. After months of window shopping the fancy stuff I couldn't afford anyway, I ended up with a used Epiphone Les Paul Special from Guitar Center's used section for like $180. Not my dream guitar, but it plays fine and sounds decent through my little practice amp.\n\nThe key for me was checking their used inventory online religiously and being willing to drive a bit further to pick one up. Also learned that some of the \"limited lefty selection\" complaints are really just people not wanting to consider the budget options that are actually available.\n\nSure, I'd love a nice Gibson or Fender, but this gets the job done and my kids still get to eat. Sometimes good enough really is good enough, especially when you're just starting out or playing casually.",
+          "score": 43,
+          "sentiment": "positive",
+          "persona_id": 2,
+          "persona_name": "Budget-Conscious Sarah"
+        },
+        {
+          "author": "negative_nancy",
+          "body": "Honestly? Don't get your hopes up. I went through this exact same nightmare two years ago and ended up spending way more than I should have on a \"specialty\" left-handed Telecaster that had intonation issues right out of the box. The neck pocket was poorly cut and the frets needed work immediately. When I tried to return it, the shop basically told me tough luck because it was a \"custom order.\"\n\nThe whole lefty guitar market is just predatory - they know we don't have options so they can charge whatever they want for subpar instruments. I've seen the same exact guitar model cost $300 more just because it's left-handed. And don't even get me started on trying to find replacement parts or getting repairs done.\n\nMy advice? Learn to play right-handed if you can. I wish someone had told me that before I wasted thousands on disappointing instruments.",
+          "score": 9,
+          "sentiment": "negative",
+          "persona_id": 10,
+          "persona_name": "Negative Nancy"
+        },
+        {
+          "author": "research_rachel",
+          "body": "I actually did a pretty systematic analysis before my purchase last year - tracked availability, pricing, and specs across major retailers for about 3 months. Found that Reverb had the best selection-to-price ratio, but you really need to be patient and set up saved searches.\n\nEnded up with a used PRS SE that checked most of my boxes. The key was being flexible on finish/year but rigid on the core specs I needed. Took about 4 months of monitoring before the right one popped up at a reasonable price.\n\nHave you tried reaching out directly to smaller guitar shops? I found a couple that were willing to special order lefties at much better margins than the big box stores. Would be curious to see actual data on lefty market trends - seems like availability has improved slightly over the past few years but that's just anecdotal.",
+          "score": 29,
+          "sentiment": "positive",
+          "persona_id": 15,
+          "persona_name": "Research Rachel"
+        },
+        {
+          "author": "skeptical_susan",
+          "body": "Here's the thing nobody wants to tell you - the \"lefty premium\" is mostly manufactured scarcity BS. I've watched guitar companies for years treat left-handed players like we should be grateful for table scraps while charging us 20-30% more for the privilege.\n\nThat said, I finally stopped playing their game and went with a smaller builder who actually stocks lefties as standard inventory, not special orders. Paid the same price as righties, got exactly what I wanted spec-wise. Won't name drop because I'm not their unpaid marketing department, but the point is: stop accepting that you have to compromise or pay extra. \n\nThe big brands have conditioned us to think limited selection is normal. It's not. Vote with your wallet and find builders who actually want your business.",
+          "score": 13,
+          "sentiment": "negative",
+          "persona_id": 4,
+          "persona_name": "Skeptical Susan"
+        },
+        {
+          "author": "optimistic_oliver",
+          "body": "Yooo dude I totally feel you on this! \ud83c\udfb8 I'm a college freshman and just got my first lefty like 6 months ago and honestly it was such a struggle lmao. But I ended up going with a Yamaha FG830 lefty from Guitar Center and it's been amazing!! Like way better than I expected for the price point. \n\nI was super stressed about settling but honestly once I played it I knew it was the one ya know? The action felt perfect and the sound is sick for both fingerpicking and strumming. I think I got lucky tho because they had it in stock when I went in.\n\nHave you checked out any of the online lefty specialty shops? I've heard good things but haven't tried them myself. But yeah don't give up man, when you find THE guitar you'll def know it! What style are you mainly trying to play?",
+          "score": 145,
+          "sentiment": "positive",
+          "persona_id": 5,
+          "persona_name": "Optimistic Oliver"
+        },
+        {
+          "author": "fitness_fanatic_jason",
+          "body": "Dude, I totally get the research struggle - I'm the same way with supplements and gear, gotta find what actually works instead of settling for garbage marketing promises. \n\nFor lefty guitars, I ended up going with a Schecter C-1 lefty about two years ago. Did my homework for months (sound familiar? lol) and honestly it checked most of my boxes without breaking the bank. Found it through Guitar Center's online lefty section during one of their sales.\n\nThe key was being patient and knowing exactly what specs I needed, just like when I'm programming workouts for clients - you gotta have clear goals or you'll just spin your wheels. Yeah, the selection sucked compared to righties, but once I found something that hit my must-haves (24 frets, decent pickups, solid construction), I pulled the trigger.\n\nWhat style are you looking to play? Might help narrow down which brands actually put effort into their lefty models.",
+          "score": 73,
+          "sentiment": "positive",
+          "persona_id": 3,
+          "persona_name": "Fitness Fanatic Jason"
+        },
+        {
+          "author": "diy_dave",
+          "body": "Honestly? I got tired of the lefty markup game and just started building my own. If you've got basic woodworking skills and some patience, you can source all the parts separately - necks, bodies, electronics, hardware. Warmoth, Mighty Mite, even some overseas suppliers have lefty components at reasonable prices.\n\nBuilt three guitars now for probably 60% of what decent factory lefties cost, and they're exactly what I wanted spec-wise. No compromising on pickup configs, neck profiles, or finishes. Plus you actually understand your instrument when something needs adjustment or repair.\n\nThe routing and fretwork takes some practice, but there are solid YouTube tutorials out there. Way more satisfying than settling for whatever limited options Guitar Center has gathering dust in the corner.",
+          "score": 1,
+          "sentiment": "positive",
+          "persona_id": 12,
+          "persona_name": "DIY Dave"
+        },
+        {
+          "author": "wellness_wendy",
+          "body": "I completely understand this journey - finding the right instrument is so much like finding balance in our practice, isn't it? After years of searching, I finally connected with a beautiful Martin lefty acoustic made with sustainably sourced woods. The energy just felt right from the moment I held it.\n\nWhat really made the difference was being patient and trusting the process rather than forcing a purchase. I found mine through a small, family-owned shop that specializes in ethically-made instruments. Yes, I paid more than mass-produced options, but the craftsmanship and the story behind it made it worth every penny.\n\nMy advice? Meditate on what your soul truly needs from an instrument, not just what your mind thinks it wants. The right guitar will find its way to you when you're aligned with that intention. \ud83d\ude4f",
+          "score": 31,
+          "sentiment": "positive",
+          "persona_id": 13,
+          "persona_name": "Wellness Wendy"
+        },
+        {
+          "author": "creative_chloe",
+          "body": "Honestly, I ended up going with a smaller boutique builder after getting frustrated with the bland options from big brands. Found this amazing luthier who does custom work - yeah it was more expensive but the aesthetic possibilities were endless! I got to choose everything from the wood grain patterns to custom inlays that actually reflect my personal style.\n\nThe visual aspect matters so much to me when I'm playing - I need something that inspires me creatively, not just another boring sunburst finish. My guitar has this gorgeous spalted maple top that looks like abstract art, and every time I pick it up it sparks something different musically.\n\nSure, I had to save up longer and wait a few months, but it's literally a piece of functional art now. Way better than settling for whatever generic lefty was sitting in a guitar shop collecting dust.",
+          "score": 130,
+          "sentiment": "positive",
+          "persona_id": 9,
+          "persona_name": "Creative Chloe"
+        },
+        {
+          "author": "creative_chloe",
+          "body": "Honestly, I ended up getting a Reverend lefty about a year ago and what sold me wasn't just the playability but how *gorgeous* it looked. Like, the finish work and color options they offer are actually inspired compared to the sea of boring sunburst and black guitars most companies churn out for lefties.\n\nI think a lot of brands treat left-handed models like an afterthought \u2013 same boring specs, limited colors, zero personality. Reverend actually seemed to care about the visual appeal, and when you're spending that much money on something that's going to live in your space, aesthetics matter just as much as tone IMO.\n\nHad to order online obviously, but their customer service was solid about letting me return it if the neck didn't feel right. Ended up keeping it because it played beautifully AND looked like a piece of art leaning against my wall. Sometimes you gotta hunt for the brands that actually put thought into their design language.",
+          "score": 66,
+          "sentiment": "positive",
+          "persona_id": 9,
+          "persona_name": "Creative Chloe"
+        },
+        {
+          "author": "veteran_victor",
+          "body": "Young man, I've been playing left-handed for over forty years, and I'll tell you what I learned the hard way. Back in the '80s, I bought my first serious lefty - a Gibson Les Paul Standard that I had to special order through my local shop. Took six months and cost me a premium, but that guitar is still with me today and sounds better than ever.\n\nThe difference was patience and understanding that quality instruments hold their value. I've since added a Martin D-28 lefty and a Fender Stratocaster, all purchased new from authorized dealers. Yes, you pay more upfront, but these established manufacturers know how to build instruments that last decades. \n\nMy advice? Save up for something from Gibson, Fender, or Martin rather than compromising on a budget alternative. The resale value alone justifies the investment, and you'll have an instrument that grows with you rather than something you'll want to replace in two years.",
+          "score": 46,
+          "sentiment": "positive",
+          "persona_id": 6,
+          "persona_name": "Veteran Victor"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83c\udfb8 This post's strong engagement and positive sentiment suggest creating more discussion-focused content about personal experiences and decision-making factors, as the lefty guitar community is highly responsive to posts that help fellow musicians make informed purchases.",
+      "keywords": [
+        "used Epiphone Les Paul Special",
+        "Guitar Center used section",
+        "limited lefty selection",
+        "budget options",
+        "good enough"
+      ],
+      "why_this_post_fits": "This question mirrors the frustration common in lefty guitarist communities \u2014 limited selection, pricing issues, and compromise. It invites genuine discussion about where people actually source instruments, which naturally opens space for community members to share their experiences and solutions. The casual, slightly frustrated tone matches how actual lefty players talk about gear hunting. No product mention, but it creates organic conversation where solutions naturally emerge.",
+      "why_subreddit_selected": "A dedicated community of left-handed guitarists who constantly face the exact problem Eastwood solves \u2014 the scarcity of quality lefty instrument options"
+    }
+  ],
+  "posted_at": "2026-02-27T20:32:35.169Z",
+  "overall": {
+    "total_reach": 9660,
+    "total_engagement": 655,
+    "positive_sentiment": 0.8181818181818182,
+    "active_posts": 1,
+    "total_posts": 1
+  },
+  "engagement_over_time": [
+    {
+      "hour": "08AM",
+      "upvotes": 70,
+      "comments": 38
+    },
+    {
+      "hour": "09AM",
+      "upvotes": 141,
+      "comments": 76
+    },
+    {
+      "hour": "10AM",
+      "upvotes": 212,
+      "comments": 114
+    },
+    {
+      "hour": "11AM",
+      "upvotes": 283,
+      "comments": 152
+    },
+    {
+      "hour": "12PM",
+      "upvotes": 354,
+      "comments": 191
+    },
+    {
+      "hour": "01PM",
+      "upvotes": 425,
+      "comments": 229
+    }
+  ],
+  "sentiment": {
+    "positive": 100,
+    "neutral": 0,
+    "negative": 0
+  },
+  "posts": [
+    {
+      "subreddit": "r/leftyguitar",
+      "post_type": "question_post",
+      "title": "Anyone here actually satisfied with their lefty guitar purchase? What made the difference?",
+      "body": "Honest question: I've been looking at lefty options for months now and I keep running into the same wall \u2014 either super limited selection, crazy markups, or I end up settling for something that doesn't really fit what I want to play.\n\nI'm curious what actually worked for people here. When you found a lefty that felt right, what was it? Did you go boutique/specialty brands, or did you manage to find something decent through the usual channels? And real talk \u2014 did you have to compromise on what you actually wanted, or did you find something that checked all your boxes?\n\nLooking to learn from people who've actually been through this instead of just guessing.",
+      "upvotes": 644,
+      "comments": 11,
+      "sentiment_score": 0.8181818181818182,
+      "top_comments": [
+        {
+          "author": "budget-conscious_sarah",
+          "body": "Honestly, I had to get real about my expectations pretty quick. After months of window shopping the fancy stuff I couldn't afford anyway, I ended up with a used Epiphone Les Paul Special from Guitar Center's used section for like $180. Not my dream guitar, but it plays fine and sounds decent through my little practice amp.\n\nThe key for me was checking their used inventory online religiously and being willing to drive a bit further to pick one up. Also learned that some of the \"limited lefty selection\" complaints are really just people not wanting to consider the budget options that are actually available.\n\nSure, I'd love a nice Gibson or Fender, but this gets the job done and my kids still get to eat. Sometimes good enough really is good enough, especially when you're just starting out or playing casually.",
+          "score": 43,
+          "sentiment": "positive",
+          "persona_id": 2,
+          "persona_name": "Budget-Conscious Sarah"
+        },
+        {
+          "author": "negative_nancy",
+          "body": "Honestly? Don't get your hopes up. I went through this exact same nightmare two years ago and ended up spending way more than I should have on a \"specialty\" left-handed Telecaster that had intonation issues right out of the box. The neck pocket was poorly cut and the frets needed work immediately. When I tried to return it, the shop basically told me tough luck because it was a \"custom order.\"\n\nThe whole lefty guitar market is just predatory - they know we don't have options so they can charge whatever they want for subpar instruments. I've seen the same exact guitar model cost $300 more just because it's left-handed. And don't even get me started on trying to find replacement parts or getting repairs done.\n\nMy advice? Learn to play right-handed if you can. I wish someone had told me that before I wasted thousands on disappointing instruments.",
+          "score": 9,
+          "sentiment": "negative",
+          "persona_id": 10,
+          "persona_name": "Negative Nancy"
+        },
+        {
+          "author": "research_rachel",
+          "body": "I actually did a pretty systematic analysis before my purchase last year - tracked availability, pricing, and specs across major retailers for about 3 months. Found that Reverb had the best selection-to-price ratio, but you really need to be patient and set up saved searches.\n\nEnded up with a used PRS SE that checked most of my boxes. The key was being flexible on finish/year but rigid on the core specs I needed. Took about 4 months of monitoring before the right one popped up at a reasonable price.\n\nHave you tried reaching out directly to smaller guitar shops? I found a couple that were willing to special order lefties at much better margins than the big box stores. Would be curious to see actual data on lefty market trends - seems like availability has improved slightly over the past few years but that's just anecdotal.",
+          "score": 29,
+          "sentiment": "positive",
+          "persona_id": 15,
+          "persona_name": "Research Rachel"
+        },
+        {
+          "author": "skeptical_susan",
+          "body": "Here's the thing nobody wants to tell you - the \"lefty premium\" is mostly manufactured scarcity BS. I've watched guitar companies for years treat left-handed players like we should be grateful for table scraps while charging us 20-30% more for the privilege.\n\nThat said, I finally stopped playing their game and went with a smaller builder who actually stocks lefties as standard inventory, not special orders. Paid the same price as righties, got exactly what I wanted spec-wise. Won't name drop because I'm not their unpaid marketing department, but the point is: stop accepting that you have to compromise or pay extra. \n\nThe big brands have conditioned us to think limited selection is normal. It's not. Vote with your wallet and find builders who actually want your business.",
+          "score": 13,
+          "sentiment": "negative",
+          "persona_id": 4,
+          "persona_name": "Skeptical Susan"
+        },
+        {
+          "author": "optimistic_oliver",
+          "body": "Yooo dude I totally feel you on this! \ud83c\udfb8 I'm a college freshman and just got my first lefty like 6 months ago and honestly it was such a struggle lmao. But I ended up going with a Yamaha FG830 lefty from Guitar Center and it's been amazing!! Like way better than I expected for the price point. \n\nI was super stressed about settling but honestly once I played it I knew it was the one ya know? The action felt perfect and the sound is sick for both fingerpicking and strumming. I think I got lucky tho because they had it in stock when I went in.\n\nHave you checked out any of the online lefty specialty shops? I've heard good things but haven't tried them myself. But yeah don't give up man, when you find THE guitar you'll def know it! What style are you mainly trying to play?",
+          "score": 145,
+          "sentiment": "positive",
+          "persona_id": 5,
+          "persona_name": "Optimistic Oliver"
+        },
+        {
+          "author": "fitness_fanatic_jason",
+          "body": "Dude, I totally get the research struggle - I'm the same way with supplements and gear, gotta find what actually works instead of settling for garbage marketing promises. \n\nFor lefty guitars, I ended up going with a Schecter C-1 lefty about two years ago. Did my homework for months (sound familiar? lol) and honestly it checked most of my boxes without breaking the bank. Found it through Guitar Center's online lefty section during one of their sales.\n\nThe key was being patient and knowing exactly what specs I needed, just like when I'm programming workouts for clients - you gotta have clear goals or you'll just spin your wheels. Yeah, the selection sucked compared to righties, but once I found something that hit my must-haves (24 frets, decent pickups, solid construction), I pulled the trigger.\n\nWhat style are you looking to play? Might help narrow down which brands actually put effort into their lefty models.",
+          "score": 73,
+          "sentiment": "positive",
+          "persona_id": 3,
+          "persona_name": "Fitness Fanatic Jason"
+        },
+        {
+          "author": "diy_dave",
+          "body": "Honestly? I got tired of the lefty markup game and just started building my own. If you've got basic woodworking skills and some patience, you can source all the parts separately - necks, bodies, electronics, hardware. Warmoth, Mighty Mite, even some overseas suppliers have lefty components at reasonable prices.\n\nBuilt three guitars now for probably 60% of what decent factory lefties cost, and they're exactly what I wanted spec-wise. No compromising on pickup configs, neck profiles, or finishes. Plus you actually understand your instrument when something needs adjustment or repair.\n\nThe routing and fretwork takes some practice, but there are solid YouTube tutorials out there. Way more satisfying than settling for whatever limited options Guitar Center has gathering dust in the corner.",
+          "score": 1,
+          "sentiment": "positive",
+          "persona_id": 12,
+          "persona_name": "DIY Dave"
+        },
+        {
+          "author": "wellness_wendy",
+          "body": "I completely understand this journey - finding the right instrument is so much like finding balance in our practice, isn't it? After years of searching, I finally connected with a beautiful Martin lefty acoustic made with sustainably sourced woods. The energy just felt right from the moment I held it.\n\nWhat really made the difference was being patient and trusting the process rather than forcing a purchase. I found mine through a small, family-owned shop that specializes in ethically-made instruments. Yes, I paid more than mass-produced options, but the craftsmanship and the story behind it made it worth every penny.\n\nMy advice? Meditate on what your soul truly needs from an instrument, not just what your mind thinks it wants. The right guitar will find its way to you when you're aligned with that intention. \ud83d\ude4f",
+          "score": 31,
+          "sentiment": "positive",
+          "persona_id": 13,
+          "persona_name": "Wellness Wendy"
+        },
+        {
+          "author": "creative_chloe",
+          "body": "Honestly, I ended up going with a smaller boutique builder after getting frustrated with the bland options from big brands. Found this amazing luthier who does custom work - yeah it was more expensive but the aesthetic possibilities were endless! I got to choose everything from the wood grain patterns to custom inlays that actually reflect my personal style.\n\nThe visual aspect matters so much to me when I'm playing - I need something that inspires me creatively, not just another boring sunburst finish. My guitar has this gorgeous spalted maple top that looks like abstract art, and every time I pick it up it sparks something different musically.\n\nSure, I had to save up longer and wait a few months, but it's literally a piece of functional art now. Way better than settling for whatever generic lefty was sitting in a guitar shop collecting dust.",
+          "score": 130,
+          "sentiment": "positive",
+          "persona_id": 9,
+          "persona_name": "Creative Chloe"
+        },
+        {
+          "author": "creative_chloe",
+          "body": "Honestly, I ended up getting a Reverend lefty about a year ago and what sold me wasn't just the playability but how *gorgeous* it looked. Like, the finish work and color options they offer are actually inspired compared to the sea of boring sunburst and black guitars most companies churn out for lefties.\n\nI think a lot of brands treat left-handed models like an afterthought \u2013 same boring specs, limited colors, zero personality. Reverend actually seemed to care about the visual appeal, and when you're spending that much money on something that's going to live in your space, aesthetics matter just as much as tone IMO.\n\nHad to order online obviously, but their customer service was solid about letting me return it if the neck didn't feel right. Ended up keeping it because it played beautifully AND looked like a piece of art leaning against my wall. Sometimes you gotta hunt for the brands that actually put thought into their design language.",
+          "score": 66,
+          "sentiment": "positive",
+          "persona_id": 9,
+          "persona_name": "Creative Chloe"
+        },
+        {
+          "author": "veteran_victor",
+          "body": "Young man, I've been playing left-handed for over forty years, and I'll tell you what I learned the hard way. Back in the '80s, I bought my first serious lefty - a Gibson Les Paul Standard that I had to special order through my local shop. Took six months and cost me a premium, but that guitar is still with me today and sounds better than ever.\n\nThe difference was patience and understanding that quality instruments hold their value. I've since added a Martin D-28 lefty and a Fender Stratocaster, all purchased new from authorized dealers. Yes, you pay more upfront, but these established manufacturers know how to build instruments that last decades. \n\nMy advice? Save up for something from Gibson, Fender, or Martin rather than compromising on a budget alternative. The resale value alone justifies the investment, and you'll have an instrument that grows with you rather than something you'll want to replace in two years.",
+          "score": 46,
+          "sentiment": "positive",
+          "persona_id": 6,
+          "persona_name": "Veteran Victor"
+        }
+      ],
+      "reddit_url": null,
+      "recommendation": "\ud83c\udfb8 This post's strong engagement and positive sentiment suggest creating more discussion-focused content about personal experiences and decision-making factors, as the lefty guitar community is highly responsive to posts that help fellow musicians make informed purchases.",
+      "keywords": [
+        "used Epiphone Les Paul Special",
+        "Guitar Center used section",
+        "limited lefty selection",
+        "budget options",
+        "good enough"
+      ],
+      "why_this_post_fits": "This question mirrors the frustration common in lefty guitarist communities \u2014 limited selection, pricing issues, and compromise. It invites genuine discussion about where people actually source instruments, which naturally opens space for community members to share their experiences and solutions. The casual, slightly frustrated tone matches how actual lefty players talk about gear hunting. No product mention, but it creates organic conversation where solutions naturally emerge.",
+      "why_subreddit_selected": "A dedicated community of left-handed guitarists who constantly face the exact problem Eastwood solves \u2014 the scarcity of quality lefty instrument options"
+    }
+  ],
+  "recommendations": [],
+  "campaign_id": "eastwood_guitars_20260227_133301",
+  "created_at": "2026-02-27T13:33:01.502141"
+}
