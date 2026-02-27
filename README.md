@@ -2,7 +2,7 @@
 
 **Company Track:** Lextrack AI
 **Team Name:** Stack Underflow
-**Team Members:** Antoni Czolgowski, Nivid Pathak, Atharva Zodpe, Zach
+**Team Members:** Antoni Czolgowski, Nivid Pathak, Atharva Zodpe, Zach Hall
 
 ---
 
